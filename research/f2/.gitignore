@@ -1,0 +1,13 @@
+data/
+work/
+runtime/transient_com_events.jsonl
+runtime/transient_com_events.csv
+runtime/transient_device_identity.txt
+runtime/.run_counter
+runtime/checkpoints.txt
+runtime/captures/*
+!runtime/captures/.gitkeep
+runtime/reports/*
+!runtime/reports/.gitkeep
+__pycache__/
+*.py[cod]

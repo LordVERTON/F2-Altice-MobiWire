@@ -1,0 +1,57 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Firmware / dumps / device data
+*.bin
+*.img
+*.rom
+*.hex
+*.elf
+*.axf
+
+# Archives
+*.rar
+*.zip
+*.7z
+*.tar
+*.gz
+*.xz
+*.lzma
+
+# Executables / compiled vendor tools
+*.exe
+*.dll
+*.lib
+*.a
+*.o
+*.obj
+
+# Ghidra
+*.gpr
+*.rep/
+*.gbf
+*.db
+f2_ghidra/
+
+# Private/heavy F2 data
+research/f2/data/dumps/
+research/f2/data/firmware-packages/
+research/f2/work/extracted/
+research/f2/work/ghidra/
+research/f2/work/donor_repos/
+research/f2/work/vendor-metadata/
+
+# Generated temporary files
+*.tmp
+*.bak
+*.log
