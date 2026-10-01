@@ -122,3 +122,33 @@ Contrôle final documentaire : UTF-8 valide, 30 liens locaux valides; SHA-256
 du dump2 relu en fin de travail et inchangé. La première commande de contrôle
 des liens a échoué sur le quoting PowerShell; relance par entrée standard Python
 réussie, sans impact sur les fichiers firmware.
+
+## 2026-10-01 - Synchronisation S12.3-S12.6
+
+S12.3 valide le repack ALICE_2 byte-perfect et une extension controlee
+`+0x1000`.
+
+S12.4/S12.4b demontrent offline que le preset LZMA historique doit conserver
+la fenetre `0x1024EC00..0x103A67B4`.
+
+S12.5 valide la matrice runtime et la nouvelle geometrie physique :
+ALICE runtime `0x158BB4`, VIVA `file_len=0x24A23C`, fin `0x296448`,
+headroom `0x29BB8`.
+
+S12.6 construit le premier candidat offline avec allow-list exhaustive.
+Premier run : reconstruction ALICE correcte mais assertion trop stricte sur le
+stream compresse. U finit a `0x157BB4`, dans le dernier groupe commencant a
+`0x157B80`, avec `0x34` octets reels et `0x4C` octets de padding.
+
+Invariant corrige : 10999 mappings stables; dernier mapping original et
+sentinelle autorises a changer.
+
+Aucun candidat final n'a ete produit par ce premier run.
+
+Notion synchronise le 1 octobre 2026.
+
+Prochaine action : relancer S12.6 corrige et exiger zero difference hors
+allow-list.
+
+Aucun flash.
+
