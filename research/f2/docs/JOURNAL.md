@@ -152,3 +152,35 @@ allow-list.
 
 Aucun flash.
 
+## 2026-10-01 - S12.6 valide
+
+Relance du builder avec invariant corrige : PASS complet.
+
+ALICE :
+- stable stream `0x105A6E`
+- 10999 mappings stables
+- dernier groupe original `0x157B80`
+- `0x34` octets reels + `0x4C` ancien padding
+- dictionnaire conserve
+
+Audit du candidat :
+- changed bytes `62429`
+- diff ranges `792`
+- unauthorized changed bytes `0`
+- VIVA file_len PASS
+- ALICE extract PASS
+- ALICE self-decode PASS
+- exhaustive diff allow-list PASS
+
+Hashes :
+- candidate dump
+  `15299fe668390f5d14dc110b5c1f9444fad2c9be09c2ee86a245ad3c853c5298`
+- candidate VIVA
+  `f2f7edad0f2e20160df81d3b4bec37d8f308f0d78aada6ba1480deac98dd4a2a`
+
+Statut :
+OFFLINE CANDIDATE - NOT FLASH APPROVED.
+
+Prochain gate :
+audit independant, recovery, read-back et restauration avant toute ecriture
+telephone.

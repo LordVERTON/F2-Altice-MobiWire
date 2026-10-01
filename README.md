@@ -33,7 +33,7 @@ Current state:
 - ZIMAGE/BOOT_ZIMAGE LZMA preset behavior is characterized;
 - the original LZMA preset window must remain unchanged;
 - the runtime/VIVA patch-role matrix is validated;
-- S12.6 is building and auditing the first offline candidate.
+- S12.6 offline candidate build and exhaustive allow-list audit pass; recovery/read-back remains the next gate.
 
 Current documentation:
 
@@ -42,4 +42,3 @@ Current documentation:
 - `research/f2/work/repro/S12_2_codex_repo_audit.md`
 
 No handset flashing is approved yet.
-

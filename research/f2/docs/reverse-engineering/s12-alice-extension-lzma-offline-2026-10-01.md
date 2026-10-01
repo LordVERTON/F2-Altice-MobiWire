@@ -109,61 +109,88 @@ Nouvelle geometrie :
 - next occupied region : `0x2C0000`
 - headroom : `0x29BB8`
 
-### S12.6 - en cours
+### S12.6 - valide
 
 Script :
 
 `research/f2/scripts/patching/build_s12_6_candidate.py`
 
-Le premier run reconstruit correctement l'ALICE et retrouve les hashes S12.3,
-puis s'arrete avant toute ecriture du candidat sur un invariant trop strict :
+Le run corrige passe tous les gates.
 
-`new_stream_prefix == old_stream`
+Invariants ALICE :
 
-Cause comprise :
+- stable stream bytes : `0x105A6E`
+- stable mapping entries : `10999`
+- last old group U start : `0x157B80`
+- last old real bytes : `0x34`
+- replaced old padding : `0x4C`
+- dictionary/codebook preserved : PASS
 
-- U exact end : `0x157BB4`
-- dernier groupe start : `0x157B80`
-- donnees reelles : `0x34`
-- padding zero original : `0x4C`
+Patch matrix :
 
-L'extension remplace les `0x4C` octets de padding par du payload reel.
+- `D+0x00B918` : `0x00157BB4 -> 0x00158BB4`
+- `D+0x00EC54` : `0x00157BB4 -> 0x00158BB4`
+- `D+0x00ECC8` : `0x00157BB4 -> 0x00158BB4`
+- `D+0x00FBAC` : `0x00157BB4 -> 0x00158BB4`
+- `D+0x0110DC` : `0x103A67B4 -> 0x103A77B4`
+- `D+0x04C22C` : `0x00248EBC -> 0x0024A23C`
 
-Donc il est normal que :
+LZMA preset :
 
-- le dernier groupe compresse original change
-- le dernier data mapping original change
-- l'ancienne sentinelle change
+- base `0x1024EC00` : unchanged
+- end `0x103A67B4` : unchanged
 
-Invariant corrige :
+Physical layout :
 
-- `10999` premiers mappings identiques
-- dernier data mapping : changement autorise
-- ancienne sentinelle : changement autorise
-- `+32` nouveaux groupes
-- dictionnaire identique
-- stream avant dernier groupe original identique
-- `new_U[:0x157BB4] == old_U`
+- new VIVA end : `0x296448`
+- next region : `0x2C0000`
+- remaining headroom : `0x29BB8`
 
-Le premier run S12.6 n'a produit aucun candidat final.
+Exhaustive diff audit :
+
+- changed bytes : `62429`
+- diff ranges : `792`
+- unauthorized changed bytes : `0`
+- all ranges : ALLOWED
+
+Candidate self-check :
+
+- candidate VIVA file_len : PASS
+- candidate ALICE extract : PASS
+- candidate ALICE decode : PASS
+
+Final S12.6 gates :
+
+- CANONICAL INPUTS : PASS
+- DETERMINISTIC +0x1000 ALICE : PASS
+- STABLE STREAM PREFIX : PASS
+- STABLE MAPPINGS : PASS
+- DICTIONARY PRESERVED : PASS
+- APPROVED METADATA PATCHES : PASS
+- LZMA PRESET BOUND UNCHANGED : PASS
+- PHYSICAL GAP / NEXT REGION : PASS
+- EXHAUSTIVE DIFF ALLOW-LIST : PASS
+- CANDIDATE SELF-DECODE : PASS
+
+Candidate dump SHA256 :
+
+`15299fe668390f5d14dc110b5c1f9444fad2c9be09c2ee86a245ad3c853c5298`
+
+Candidate VIVA SHA256 :
+
+`f2f7edad0f2e20160df81d3b4bec37d8f308f0d78aada6ba1480deac98dd4a2a`
+
+Status :
+
+`OFFLINE CANDIDATE - NOT FLASH APPROVED`
 
 ### Prochaine action unique
 
-Relancer `build_s12_6_candidate.py` avec l'invariant corrige.
+1. auditer independamment le candidat S12.6
+2. valider recovery / read-back / restauration
+3. seulement ensuite remplacer le payload test par le stub Thumb MP3
+4. aucun write handset avant validation des gates recovery
 
-Gate attendu :
-
-- `EXHAUSTIVE DIFF ALLOW-LIST : PASS`
-- `CANDIDATE SELF-DECODE : PASS`
-- `unauthorized changed bytes = 0`
-
-Ensuite seulement :
-
-1. consigner SHA et diff ranges
-2. audit independant du candidat
-3. remplacer le payload test par le stub Thumb MP3
-4. valider recovery/read-back
-5. seulement ensuite envisager un test telephone
 
 ### Backend MP3
 
@@ -200,4 +227,3 @@ GitHub :
 - repo `LordVERTON/F2-Altice-MobiWire`
 - branche `s12-alice-extension`
 - dernier commit S12.3 confirme avant sync : `5b717fe`
-
