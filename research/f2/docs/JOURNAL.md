@@ -184,3 +184,61 @@ OFFLINE CANDIDATE - NOT FLASH APPROVED.
 Prochain gate :
 audit independant, recovery, read-back et restauration avant toute ecriture
 telephone.
+
+<!-- JOURNAL-S12.10B7-2026-10-02 -->
+
+## 2026-10-02 — S12.10B7 hardware write / erase / restore : PASS
+
+Gate physique terminé sur l'Altice F2 réel.
+
+Cible :
+
+`0x2A0000..0x2A0FFF`
+
+Chemin testé :
+
+D3 SetMemBlock
+→ D5 Sequential Erase / WRITE
+→ recovery
+→ ProcessInfo
+→ power-cycle
+→ D6 verification
+
+Le generic `writeflash()` / `0x62` n'a jamais été utilisé.
+
+Séquence validée :
+
+1. FF → AA
+2. D6 : AA exact
+3. AA → 55
+4. D6 : 55 exact
+5. restore → FF
+6. D6 : FF initial exact
+7. guard `0x280000..0x2BFFFF` inchangé hors cible
+
+Hashes :
+
+- FF `f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6`
+- AA `c622005493c4cb75f3e08eda4cc0bfe172e2c5eeca661ec4908c5490fc3d6994`
+- 55 `0561079e4fe3390bc1d8bb706edb7d80243eeca7ddf876cefbaa8c1684db80c3`
+- guard `caac124c9e376fdf13f854555937eff52ae28f4872f71d3216c6b773693de3e4`
+
+Une tentative de restore a subi une déconnexion USB pendant la prélecture D6,
+avant D3/D5 ; aucune mutation n'a eu lieu pendant cette tentative.
+
+Le retry après cycle batterie a réussi.
+
+Baselines déjà disponibles :
+
+- dump2/dump3 :
+  `2fc100e5704cf3d6fae0817a22ce222397702ffd7351a83763ae1bafd4416922`
+- live A/B :
+  `c571f3852f4a70d1845cc79abaa95007f8826ec858a1db1ad501c4a2a7b35ce6`
+
+Un nouveau dump 4 MiB n'est donc pas requis pour démarrer S13.
+
+Suite :
+
+S13 = exposition / lancement du frontend Audio Player natif déjà confirmé :
+
+`0x8928 → 0x1033D841`
