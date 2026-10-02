@@ -1,4 +1,201 @@
-﻿# Reprise - Altice F2 / MobiWire NIKITI
+# Reprise - Altice F2 / MobiWire NIKITI
+
+<!-- CURRENT-S13.3A-2026-10-02 -->
+
+## S13 checkpoint â€” 2 October 2026 â€” native Audio Player one-sector POC
+
+Current state:
+
+- S13.1 dispatcher / resolver analysis: **CLOSED**
+- S13.2A logical hook: **PASS**
+- S13.2B physical repack / sector manifest: **PASS**
+- S13.2C target-sector D6 baseline rehearsal: **PASS**
+- S13.2C.1 local post-crash validation: **PASS**
+- S13.3A proven S12.10B7 harness import / audit: **PASS**
+- target firmware sector has **not** been modified yet
+
+Do not redo Image Viewer â†” Audio Player comparison, frontend discovery,
+registration discovery, or dispatcher discovery.
+
+### Confirmed native chain
+
+```text
+0x8928
+  -> F0316D74 / F0316D75
+  -> 0x1033D841
+  -> 0x1033D840      registration stub
+  -> 0x1033E815      selected Thumb init entry
+  -> 0x1033F83C      Audio Player init
+```
+
+Dispatcher framework already closed:
+
+- `1034C7E4`: dynamic lookup + static fallback
+- `10336788`: resolve + invoke callback
+- `10336F84`: installs `10336789` into `F00EF124`
+- `102D9DC8`: ctx/ID bridge to global dispatcher
+- `10366100/22/36`: ID-family mapping/configuration, not launch
+
+### S13.2A â€” logical hook
+
+```text
+hook function  0x1035578C
+hook literal   0x10355888
+U offset       0x106C88
+old pointer    F0301C8D
+new pointer    1033E815
+```
+
+Canonical decompressed ALICE:
+
+- size `0x157BB4`
+- SHA256 `7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea`
+
+S13.2A candidate:
+
+- SHA256 `b12f67211e1a55263af6a75e65b7caa471c15df381ae39757f179dda7a84332d`
+- logical diff: exactly 4 bytes
+
+### S13.2B â€” physical repack
+
+- original ALICE repack byte-perfect: PASS
+- patched compressed ALICE size: `0x113E2C`, unchanged
+- patched compressed ALICE SHA256:
+  `9ed53778084cb1dd05609d47688e6c965f8c0f0874f6d02ac2cc64b2062f35eb`
+- VIVA length: `0x248EBC`, unchanged
+- VIVA end: `0x2950C8`, unchanged
+- candidate 4 MiB SHA256:
+  `9099c7bbbbd88c1dcc718fdb12de83af9852eb8f7d8f3f9aa3daba1420c28216`
+- physical diff: 37 bytes
+- one diff range: `0x249AEF..0x249B13`
+- one changed 4 KiB sector: `0x249000..0x249FFF`
+- changed bytes `>= 0x2C0000`: 0
+
+Target sector:
+
+```text
+BEFORE dc8cc6b5be54d1554d71d60539f10a8077a375a3d7ddf92efe6149610ecffb1b
+AFTER  29a21401b84442554dc051edd16ec561bbd842e01e048344e30ca547f78bb7f9
+```
+
+NOR transitions:
+
+- 0 -> 1 bits: 68
+- 1 -> 0 bits: 66
+- erase required: yes
+
+### S13.2C / S13.2C.1 â€” real-device D6 pre-write gate
+
+Two fresh native D6 reads of `0x249000..0x249FFF` both matched the BEFORE
+sector exactly.
+
+Rollback saved:
+
+`research/f2/work/repro/s13_2c_target_sector_d6_gate/rollback_sector_249000_fresh.bin`
+
+Rollback SHA256:
+
+`dc8cc6b5be54d1554d71d60539f10a8077a375a3d7ddf92efe6149610ecffb1b`
+
+No D3, D5, erase, or firmware write occurred.
+
+The process later exited with Windows `0xC0000005` during native USB teardown,
+after PASS and artifact creation. S13.2C.1 validated A == B == rollback,
+4096-byte sizes, exact hashes, and the JSON state. This remains a PASS.
+
+### S13.3A â€” proven write harness reference: PASS
+
+Source:
+
+```text
+C:\Users\verto\mtkclient\research\f2\scripts\hardware\s12_10b7_sacrificial_gate.py
+```
+
+Committed repo reference:
+
+```text
+research/f2/scripts/hardware/reference/s12_10b7_sacrificial_gate_v4_reference.py
+```
+
+Source/copy SHA256:
+
+`255a00f49b99c72871cd3a9ca9e66f4d5284590d9844ff58c3c7c5796e9616eb`
+
+Commit containing the reference:
+
+`5c7f83bbf01fa425a1a768dd5c49dbdc14577414`
+
+The audit confirms these proven primitives:
+
+- `d6_read_4k_native()`
+- `d6_read_sector_range()`
+- `d3_set_memblock()`
+- `d5_write_until_processinfo()`
+- Sequential Erase
+- exactly one 4 KiB D5 data frame
+- additive 16-bit frame checksum
+- recovery ACK
+- ProcessInfo ACK
+- deliberate stop before final image checksum verifier
+- mutation lock requiring `--execute` plus exact confirmation token
+- no generic `writeflash()/0x62`
+
+The proven `mutate()` pattern is already:
+
+```text
+fresh D6 pre-read
+ -> exact expected-before check
+ -> guard check
+ -> D3
+ -> D5
+ -> recovery / ProcessInfo
+ -> close DA session
+```
+
+S13.3A was local-only:
+
+- harness executed: NO
+- phone accessed: NO
+- D3: NO
+- D5: NO
+- erase: NO
+- flash modified: NO
+
+### Exact restart point â€” S13.3B
+
+Build a dedicated one-sector firmware harness derived from the proven v4
+reference.
+
+Mandatory invariants:
+
+1. hardcoded target `0x249000..0x249FFF`
+2. hardcoded BEFORE SHA256
+   `dc8cc6b5be54d1554d71d60539f10a8077a375a3d7ddf92efe6149610ecffb1b`
+3. hardcoded AFTER SHA256
+   `29a21401b84442554dc051edd16ec561bbd842e01e048344e30ca547f78bb7f9`
+4. exact 4096-byte AFTER payload only
+5. fresh D6 before mutation in the same DA session
+6. save another fresh rollback before D3
+7. D3 GFH fixed to `0x0108`
+8. D5 Sequential Erase/write/recovery/ProcessInfo
+9. stop before final checksum verifier
+10. new DA session for AFTER D6 verification
+11. new confirmation token specific to firmware sector `0x249000`
+12. no code path that can select another target address
+
+Until the S13.3B local safety audit passes, do not execute a firmware write.
+
+Permanent rules:
+
+- never generic mtkclient `writeflash()/0x62`
+- never whole-image or SAV flash
+- never write `>= 0x2C0000`
+- never target another sector for this POC
+- preserve rollback until full functional validation
+
+Detailed note:
+`docs/reverse-engineering/s13-native-audio-launch-poc-2026-10-02.md`
+
 
 <!-- CURRENT-S12.10B7-2026-10-02 -->
 

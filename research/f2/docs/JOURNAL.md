@@ -242,3 +242,50 @@ Suite :
 S13 = exposition / lancement du frontend Audio Player natif déjà confirmé :
 
 `0x8928 → 0x1033D841`
+<!-- JOURNAL-S13.3A-2026-10-02 -->
+
+## 2026-10-02 â€” S13.3A : import/audit du harness hardware Ã©prouvÃ©
+
+Le harness S12.10B7 v4 ayant passÃ© le gate sacrificiel rÃ©el a Ã©tÃ© copiÃ© dans le
+repo comme rÃ©fÃ©rence :
+
+`research/f2/scripts/hardware/reference/s12_10b7_sacrificial_gate_v4_reference.py`
+
+Source :
+
+`C:\Users\verto\mtkclient\research\f2\scripts\hardware\s12_10b7_sacrificial_gate.py`
+
+SHA256 source/copie :
+
+`255a00f49b99c72871cd3a9ca9e66f4d5284590d9844ff58c3c7c5796e9616eb`
+
+La copie a Ã©tÃ© commitÃ©e/pushÃ©e dans le commit :
+
+`5c7f83bbf01fa425a1a768dd5c49dbdc14577414`
+
+Audit statique :
+
+- `d6_read_4k_native()` confirmÃ©
+- `d6_read_sector_range()` confirmÃ©
+- `d3_set_memblock()` confirmÃ©
+- `d5_write_until_processinfo()` confirmÃ©
+- GFH VIVA `0x0108`
+- D5 Sequential Erase
+- exactement une frame 4 KiB
+- checksum additif 16 bits
+- recovery ACK
+- ProcessInfo ACK
+- arrÃªt volontaire avant le final image checksum verifier
+- mutation verrouillÃ©e par `--execute` + token exact
+- generic `writeflash()/0x62` absent
+
+La fonction `mutate()` de cette rÃ©fÃ©rence rÃ©alise dÃ©jÃ  le pattern de sÃ©curitÃ©
+requis : fresh D6 dans la mÃªme session, validation exacte de l'Ã©tat attendu,
+puis D3 et D5.
+
+S13.3A est restÃ© local/read-only : harness non exÃ©cutÃ©, tÃ©lÃ©phone non accÃ©dÃ©,
+aucun D3/D5, erase ou write.
+
+Prochaine Ã©tape : S13.3B, dÃ©river un writer strictement limitÃ© au seul secteur
+firmware `0x249000..0x249FFF`, avec BEFORE/AFTER hardcodÃ©s et dry-run/local audit
+avant toute exÃ©cution matÃ©rielle.
