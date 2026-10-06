@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_automation_repoqueue_smoke_v1",
+  "enabled": true,
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script": "research/f2/automation/jobs/s13_automation_repoqueue_smoke_v1.py",
+  "script_sha256": "128ee5653d25b9eb8fea3c12dfb8ecac4e01508f134cd811ca54771d93467717",
+  "report": "research/f2/work/reports/s13_automation_repoqueue_smoke_v1.txt",
+  "args": []
+}
