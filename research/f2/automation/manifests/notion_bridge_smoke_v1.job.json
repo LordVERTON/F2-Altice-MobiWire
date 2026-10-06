@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "job_id": "notion_bridge_smoke_v1",
+  "enabled": true,
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "4d3b4a6f0ca9ed3d4ded691cbf6814b1b90b8baf0cad8014d327c62f0ea9f60a",
+  "report": "research/f2/work/reports/notion_bridge_smoke_v1.txt",
+  "args": []
+}
