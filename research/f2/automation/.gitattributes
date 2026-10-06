@@ -1,2 +1,2 @@
-﻿# SHA256 covers actual script bytes; clones must not convert LF to CRLF.
+# Preserve exact job bytes across Windows checkouts.
 jobs/** -text
