@@ -1,0 +1,11 @@
+{
+  "repo_root": "C:\\Users\\verto\\F2-Altice-MobiWire",
+  "python_exe": "C:\\Users\\verto\\mtkclient\\.venv\\Scripts\\python.exe",
+  "branch": "automate-research",
+  "remote": "github",
+  "poll_seconds": 15,
+  "worker_host": "REPLACE_WITH_LOCAL_HOSTNAME",
+  "queue_id": "",
+  "max_script_bytes": 5242880,
+  "job_timeout_seconds": 14400
+}
