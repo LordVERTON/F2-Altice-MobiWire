@@ -1,5 +1,20 @@
 ﻿# Reprise — Altice F2 / MobiWire
 
+## 2026-10-07 — Installation de l'automatisation locale (priorité courante)
+
+Branche `automate-research` créée depuis `6bec2ed4f42887d1ae2f7eec63790a66ab2ad7a9`,
+après synchronisation de `s12-alice-extension`, puis poussée sur `github`.
+Runner v4 corrigé pour Windows PowerShell, installé et validé : smoke PASS,
+exit 0, quatre artefacts suivis et poussés automatiquement dans `5247018`.
+Mode continu sans job validé, puis arrêté par Ctrl+C. Nettoyage d'installation
+terminé ; aucune recherche supprimée. Détails, erreurs initiales, corrections,
+hashes et commande canonique : [automation/README.md](automation/README.md).
+Installation et tests terminés ; documentation et runner corrigé archivés avec
+ce checkpoint. Aucun runner actif. Prochaine action après livraison :
+attendre un nouveau job offline explicitement demandé et relu.
+La recherche F2 et les anciennes demandes matérielles ci-dessous sont suspendues
+pour cette tâche. Aucun audit A.51, téléphone, USB, COM, flash, erase ou repack.
+
 ## 2026-10-05 — S13.4H/I/J terminés, candidat D offline uniquement
 
 Objectif : exposer le lecteur Audio natif depuis Image Viewer.

@@ -318,3 +318,16 @@ HARDWARE WRITE AUTHORIZED: NO.
 Synchronisation Notion : nouveau checkpoint H–J inséré dans last update,
 documentation technique et page projet ; historique conservé. Scripts compilés
 avec py_compile ; diff Git vérifié sans erreur. Aucun commit/push effectué.
+
+## 2026-10-07 — Automatisation locale offline
+
+Branche automate-research créée depuis 6bec2ed, départ propre et synchronisé.
+Runner v4 installé puis corrigé : capture UTF-8 compatible Windows PowerShell,
+paramètre GitArgs sans conflit PowerShell, ajout forcé du seul rapport ignoré.
+Deux tentatives initiales ont échoué (capture puis commit) ; résultats préservés.
+Nouveau smoke complet PASS, exit 0, commit/push automatique 5247018.
+Mode continu sans job confirmé puis interrompu par Ctrl+C ; aucun audit A.51.
+Nettoyage limité aux anciennes copies runner, bootstrap et ZIP smoke.
+Aucun accès téléphone, USB/COM, flash, erase, repack ou script hardware.
+Tous les scripts de recherche historiques sont conservés.
+Preuves et commandes : [automatisation locale](../automation/README.md).
