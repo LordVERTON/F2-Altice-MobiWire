@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a52_8569_init_semantic_family",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a52_8569_init_semantic_family.py",
+  "script_sha256": "4d6f1e9148988fbc003ea3332c765ce924fb72cdcc6692e32c59a4a4619dd4b3",
+  "manifest": "research/f2/automation/manifests/s13_5a52_8569_init_semantic_family.job.json",
+  "report": "research/f2/work/reports/s13_5a52_8569_init_semantic_family.txt",
+  "notion_page_id": "3f1173c5-7e04-8156-bd01-f415f69f6d32",
+  "started_utc": "2026-10-06T23:54:10.053766+00:00",
+  "finished_utc": "2026-10-06T23:55:09.828706+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "e32ceaa5228b92b2f006799c27d07976eb3ec950"
+}

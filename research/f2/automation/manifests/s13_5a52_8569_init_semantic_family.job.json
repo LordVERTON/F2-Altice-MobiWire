@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a52_8569_init_semantic_family",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "4d6f1e9148988fbc003ea3332c765ce924fb72cdcc6692e32c59a4a4619dd4b3",
+  "report": "research/f2/work/reports/s13_5a52_8569_init_semantic_family.txt",
+  "args": []
+}
