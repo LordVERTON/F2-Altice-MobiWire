@@ -1,0 +1,21 @@
+﻿========================================================================================================
+F2 AUTOMATION RUNNER
+JOB ID          : s13_automation_repoqueue_smoke_v1
+SOURCE          : repo_queue
+SCRIPT          : research/f2/automation/jobs/s13_automation_repoqueue_smoke_v1.py
+SCRIPT SHA256   : 128ee5653d25b9eb8fea3c12dfb8ecac4e01508f134cd811ca54771d93467717
+PYTHON          : C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH          : automate-research
+SAFETY MODE     : offline_analysis
+PHONE ACCESS    : false
+FLASH WRITE     : false
+ERASE           : false
+REPACK          : false
+START UTC       : 2026-10-06T22:49:20.3903774Z
+
+F2_AUTOMATION_OFFLINE=1
+cwd: C:\Users\verto\F2-Altice-MobiWire
+REPO QUEUE SMOKE = PASS
+
+EXIT CODE        : 0
+FINISH UTC       : 2026-10-06T22:49:20.4959462Z

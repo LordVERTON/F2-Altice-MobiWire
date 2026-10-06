@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  1,
+    "job_id":  "s13_automation_repoqueue_smoke_v1",
+    "status":  "completed",
+    "exit_code":  0,
+    "source":  "repo_queue",
+    "script":  "research/f2/automation/jobs/s13_automation_repoqueue_smoke_v1.py",
+    "script_sha256":  "128ee5653d25b9eb8fea3c12dfb8ecac4e01508f134cd811ca54771d93467717",
+    "manifest":  "research/f2/automation/queue/s13_automation_repoqueue_smoke_v1.job.json",
+    "report":  "research/f2/work/reports/s13_automation_repoqueue_smoke_v1.txt",
+    "source_commit":  "1dd8ef8b45dbf8a8177cf43f87a8ae2e04acdd79",
+    "started_utc":  "2026-10-06T22:49:20.3903774Z",
+    "finished_utc":  "2026-10-06T22:49:20.4959462Z",
+    "safety":  {
+                   "mode":  "offline_analysis",
+                   "phone_access":  false,
+                   "flash_write":  false,
+                   "erase":  false,
+                   "repack":  false
+               }
+}
