@@ -1,0 +1,6 @@
+bridge/config.local.json
+bridge/__pycache__/
+bridge/*.pyc
+bridge/state/
+bridge/STOP
+logs/
