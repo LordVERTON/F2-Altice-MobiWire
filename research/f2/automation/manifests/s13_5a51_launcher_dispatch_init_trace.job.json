@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a51_launcher_dispatch_init_trace",
+  "enabled": true,
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "01275e7ca08abd29ca4d1388d13297e58983da179913d70f5ed804f4ccfb340f",
+  "report": "research/f2/work/reports/s13_5a51_launcher_dispatch_init_trace.txt",
+  "args": []
+}

@@ -1,0 +1,515 @@
+﻿========================================================================================================
+F2 AUTOMATION RUNNER
+JOB ID          : s13_5a51_launcher_dispatch_init_trace
+SOURCE          : zip
+SCRIPT          : research/f2/automation/jobs/s13_5a51_launcher_dispatch_init_trace.py
+SCRIPT SHA256   : 01275e7ca08abd29ca4d1388d13297e58983da179913d70f5ed804f4ccfb340f
+PYTHON          : C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH          : automate-research
+SAFETY MODE     : offline_analysis
+PHONE ACCESS    : false
+FLASH WRITE     : false
+ERASE           : false
+REPACK          : false
+START UTC       : 2026-10-06T23:33:48.6920615Z
+
+========================================================================================================================
+S13.5A.51 - B702 LAUNCHER / DISPATCH INIT TRACE
+========================================================================================================================
+STRICTLY OFFLINE
+PHONE ACCESSED       : NO
+FLASH MODIFIED       : NO
+PATCH GENERATED      : NO
+REPACK               : NO
+F2_AUTOMATION_OFFLINE: 1
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. REGISTRATION CALLBACKS / STATIC REGISTERED POINTERS
+========================================================================================================================
+
+8569 callback 0x1033E024..0x1033E031
+  0x1033E024: push      {r4, lr}
+  0x1033E026: ldr       r0, [pc, #8] ; literal@0x1033E030=0x10348D05 <INIT_8569_10348D04>
+  0x1033E028: movs      r1, #1
+  0x1033E02A: bl        #0x1031f71a ; target=0x1031F71A norm=0x1031F71A
+  0x1033E02E: pop       {r4, pc}
+  0x1033E030: ldrh      r5, [r0, #0x28]
+
+86C0 callback 0x1033E26C..0x1033E28B
+  0x1033E26C: push      {r4, lr}
+  0x1033E26E: movs      r0, #0x96
+  0x1033E270: bl        #0x10318e18 ; target=0x10318E18 norm=0x10318E18
+  0x1033E274: movs      r0, #0x1d
+  0x1033E276: bl        #0x103167ec ; target=0x103167EC norm=0x103167EC
+  0x1033E27A: ldr       r0, [pc, #0x10] ; literal@0x1033E28C=0x1033EF29 <INIT_86C0_1033EF28>
+  0x1033E27C: movs      r1, #1
+  0x1033E27E: bl        #0x1031f71a ; target=0x1031F71A norm=0x1031F71A
+  0x1033E282: ldr       r0, [pc, #8] ; literal@0x1033E28C=0x1033EF29 <INIT_86C0_1033EF28>
+  0x1033E284: movs      r1, #1
+  0x1033E286: bl        #0x1031e120 ; target=0x1031E120 norm=0x1031E120
+  0x1033E28A: pop       {r4, pc}
+
+8928 callback 0x1033D840..0x1033D85B
+  0x1033D840: push      {r4, lr}
+  0x1033D842: ldr       r0, [pc, #0x18] ; literal@0x1033D85C=0x1033E815 <AUDIO_INIT_1033E814>
+  0x1033D844: movs      r1, #1
+  0x1033D846: bl        #0x1031f71a ; target=0x1031F71A norm=0x1031F71A
+  0x1033D84A: ldr       r0, [pc, #0x10] ; literal@0x1033D85C=0x1033E815 <AUDIO_INIT_1033E814>
+  0x1033D84C: movs      r1, #1
+  0x1033D84E: bl        #0x1031e120 ; target=0x1031E120 norm=0x1031E120
+  0x1033D852: ldr       r0, [pc, #0xc] ; literal@0x1033D860=0xF02E18BD
+  0x1033D854: movs      r1, #1
+  0x1033D856: bl        #0x1031f81c ; target=0x1031F81C norm=0x1031F81C
+  0x1033D85A: pop       {r4, pc}
+
+Expected 8569 registered init ptr : 0x10348D05
+Expected 86C0 registered init ptr : 0x1033EF29
+Expected 8928 registered init ptr : 0x1033E815
+Known Audio Player entry          : 0x1033F83C
+
+========================================================================================================================
+C. DISPATCHER / SLOT(0,1) STATIC CONTEXT
+========================================================================================================================
+Dispatcher: 0x10336788..0x103367F7
+  0x10336788: push      {r3, r4, r5, r6, r7, lr}
+  0x1033678A: movs      r5, r1
+  0x1033678C: bl        #0x1034c7e4 ; target=0x1034C7E4
+  0x10336790: movs      r4, r0
+  0x10336792: beq       #0x103367ba ; target=0x103367BA
+  0x10336794: movs      r1, #0
+  0x10336796: movs      r0, #1
+  0x10336798: bl        #0x103097e8 ; target=0x103097E8 <SLOT_GETTER_103097E8>
+  0x1033679C: movs      r6, r0
+  0x1033679E: blx       r4 <BLX_R4_SITE_FROM_S13.4I>
+  0x103367A0: movs      r1, #0
+  0x103367A2: movs      r0, #1
+  0x103367A4: bl        #0x103097e8 ; target=0x103097E8 <SLOT_GETTER_103097E8>
+  0x103367A8: movs      r4, r0
+  0x103367AA: movs      r2, #0
+  0x103367AC: movs      r1, #1
+  0x103367AE: movs      r0, r6
+  0x103367B0: bl        #0x1031145c ; target=0x1031145C
+  0x103367B4: cmp       r4, r6
+  0x103367B6: bne       #0x103367ba ; target=0x103367BA
+  0x103367B8: movs      r4, #0
+  0x103367BA: cmp       r4, #0
+  0x103367BC: beq       #0x103367f6 ; target=0x103367F6
+  0x103367BE: movs      r6, #0x89
+  0x103367C0: movs      r2, #0
+  0x103367C2: lsls      r6, r6, #2
+  0x103367C4: movs      r1, r2
+  0x103367C6: movs      r0, r6
+  0x103367C8: blx       #0x10015bc4 ; target=0x10015BC4
+  0x103367CC: movs      r7, r0
+  0x103367CE: movs      r1, r6
+  0x103367D0: blx       #0x100189d8 ; target=0x100189D8
+  0x103367D4: movs      r1, r7
+  0x103367D6: movs      r0, r5
+  0x103367D8: bl        #0x1030f080 ; target=0x1030F080
+  0x103367DC: movs      r2, #0
+  0x103367DE: movs      r1, r7
+  0x103367E0: movs      r0, r5
+  0x103367E2: bl        #0x1033ad58 ; target=0x1033AD58
+  0x103367E6: blx       r4 <BLX_R4_SITE_FROM_S13.4I>
+  0x103367E8: bl        #0x1033ad34 ; target=0x1033AD34
+  0x103367EC: movs      r2, #0
+  0x103367EE: movs      r1, r2
+  0x103367F0: movs      r0, r7
+  0x103367F2: blx       #0x10015bbc ; target=0x10015BBC
+  0x103367F6: pop       {r3, r4, r5, r6, r7, pc}
+
+Slot getter:
+  0x103097E8: cmp       r0, #4
+  0x103097EA: blt       #0x103097f0
+  0x103097EC: movs      r0, #0
+  0x103097EE: bx        lr
+  0x103097F0: ldr       r2, [pc, #8] ; literal=0xF00BAD6C
+  0x103097F2: lsls      r1, r1, #4
+  0x103097F4: adds      r1, r1, r2
+  0x103097F6: lsls      r0, r0, #2
+  0x103097F8: ldr       r0, [r1, r0]
+  0x103097FA: bx        lr
+
+========================================================================================================================
+D. BOUNDED UNICORN PROBE OF REGISTRATION -> DISPATCHER SLOT(0,1)
+========================================================================================================================
+This executes only canonical firmware bytes inside Unicorn with emulated RAM.
+No init/launcher function is executed. No device API exists in this script.
+
+SCENARIO 8569
+  baseline slot(0,1) = 0x00000000
+  REG_A 0x1031F71A r0=0x10348D05 r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B1568 size=4 value=0x10348D05
+      0xF00BAD70 size=4 value=0x10348D05
+  FINAL slot(0,1) = 0x00000000
+
+SCENARIO 86C0
+  baseline slot(0,1) = 0x00000000
+  REG_A 0x1031F71A r0=0x1033EF29 r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B1568 size=4 value=0x1033EF29
+      0xF00BAD70 size=4 value=0x1033EF29
+  REG_B 0x1031E120 r0=0x1033EF29 r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B1578 size=4 value=0x1033EF29
+      0xF00B66DC size=4 value=0x00000000
+      0xF00B66E0 size=4 value=0x00000000
+      0xF00B66E4 size=4 value=0x00000000
+      0xF00BAD90 size=4 value=0x1033EF29
+  FINAL slot(0,1) = 0x00000000
+
+SCENARIO 8928
+  baseline slot(0,1) = 0x00000000
+  REG_A 0x1031F71A r0=0x1033E815 r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B1568 size=4 value=0x1033E815
+      0xF00BAD70 size=4 value=0x1033E815
+  REG_B 0x1031E120 r0=0x1033E815 r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B1578 size=4 value=0x1033E815
+      0xF00B66DC size=4 value=0x00000000
+      0xF00B66E0 size=4 value=0x00000000
+      0xF00B66E4 size=4 value=0x00000000
+      0xF00BAD90 size=4 value=0x1033E815
+  REG_C 0x1031F81C r0=0xF02E18BD r1=1 -> slot(0,1)=0x00000000
+    writes:
+      0xF00B156C size=4 value=0xF02E18BD
+      0xF00BAD80 size=4 value=0xF02E18BD
+  FINAL slot(0,1) = 0x00000000
+
+========================================================================================================================
+E. REGISTERED INIT CLASSIFICATION / BOUNDED CALLGRAPH
+========================================================================================================================
+
+8569 registered init: entry=0x10348D04 image=ALICE insns=16 calls=4 literals=2 truncated=False
+  DIRECT CALLS:
+    0x10348D0A -> raw 0x102FD1CC -> 0xF02DF018 [ARM_VENEER->THUMB]
+    0x10348D14 -> raw 0x102FD214 -> 0xF02E469C [ARM_VENEER->THUMB]
+    0x10348D20 -> raw 0x102FD194 -> 0xF02E4228 [ARM_VENEER->THUMB]
+    0x10348D26 -> raw 0x102FD18C -> 0xF02E1A68 [ARM_VENEER->THUMB]
+  LITERALS / STRINGS:
+    none classified
+  CLOSURE(depth<=3): functions=5
+    PATH to INIT_86C0: NONE within bounded direct-call closure
+    PATH to AUDIO_INIT: NONE within bounded direct-call closure
+    PATH to AUDIO_PLAYER: NONE within bounded direct-call closure
+    PATH to CB_8928: NONE within bounded direct-call closure
+  FOCUS POINTER LITERALS in closure: none
+  PRINTABLE STRINGS referenced in closure: none
+
+86C0 registered init: entry=0x1033EF28 image=ALICE insns=35 calls=9 literals=0 truncated=False
+  DIRECT CALLS:
+    0x1033EF2C -> raw 0x10362EF8 -> 0x10362EF8
+    0x1033EF3A -> raw 0x102FD54C -> 0xF0229230 [ARM_VENEER->THUMB]
+    0x1033EF40 -> raw 0x102FD51C -> 0xF0216E2C [ARM_VENEER->THUMB]
+    0x1033EF62 -> raw 0x10315384 -> 0x10315384
+    0x1033EF4C -> raw 0x10315DD4 -> 0x10315DD4
+    0x1033EF68 -> raw 0x102FD444 -> 0xF0228DA8 [ARM_VENEER->THUMB]
+    0x1033EF76 -> raw 0x102FD42C -> 0xF0227A78 [ARM_VENEER->THUMB]
+    0x1033EF58 -> raw 0x1031F2D2 -> 0x1031F2D2
+    0x1033EF7A -> raw 0x10366D90 -> 0x10366D90
+  LITERALS / STRINGS:
+    none classified
+  CLOSURE(depth<=3): functions=30
+    PATH to INIT_86C0: 0x1033EF28
+    PATH to AUDIO_INIT: NONE within bounded direct-call closure
+    PATH to AUDIO_PLAYER: NONE within bounded direct-call closure
+    PATH to CB_8928: NONE within bounded direct-call closure
+  FOCUS POINTER LITERALS in closure: none
+  PRINTABLE STRINGS referenced in closure:
+    func=0x10315384 site=0x10315388 ptr=0xF0348158 ":\Audios\"
+
+8928 confirmed Audio init: entry=0x1033E814 image=ALICE insns=3 calls=1 literals=0 truncated=False
+  DIRECT CALLS:
+    0x1033E816 -> raw 0x1033F83C -> 0x1033F83C <AUDIO_PLAYER_1033F83C>
+  LITERALS / STRINGS:
+    none classified
+  CLOSURE(depth<=3): functions=36
+    PATH to INIT_86C0: NONE within bounded direct-call closure
+    PATH to AUDIO_INIT: 0x1033E814
+    PATH to AUDIO_PLAYER: 0x1033E814 -> 0x1033F83C
+    PATH to CB_8928: NONE within bounded direct-call closure
+  FOCUS POINTER LITERALS in closure: none
+  PRINTABLE STRINGS referenced in closure: none
+
+========================================================================================================================
+F. ROOT DIRECT-CALL SET SIMILARITY
+========================================================================================================================
+8569: 4 direct normalized call targets
+86C0: 9 direct normalized call targets
+8928: 1 direct normalized call targets
+8569 vs 86C0: shared=0 union=13 jaccard=0.000
+8569 vs 8928: shared=0 union=5 jaccard=0.000
+86C0 vs 8928: shared=0 union=10 jaccard=0.000
+
+========================================================================================================================
+G. EXACT POINTER OCCURRENCES FOR THREE REGISTERED INITS
+========================================================================================================================
+8569 ptr=0x10348D05: occurrences=3
+  ALICE 0x1033E030 = 0x10348D05
+  ZIMAGE 0xF02CF2B4 = 0x10348D05
+  ZIMAGE 0xF03BB87C = 0x10348D05
+86C0 ptr=0x1033EF29: occurrences=1
+  ALICE 0x1033E28C = 0x1033EF29
+8928 ptr=0x1033E815: occurrences=1
+  ALICE 0x1033D85C = 0x1033E815
+
+========================================================================================================================
+H. KNOWN ROOT-MAPPER CALLSITE OWNER CONTEXT
+========================================================================================================================
+
+8569: owner~0x1035439A load=0x103543A8 call=0x103543AA
+  0x1035439A: push      {r4, lr}
+  0x1035439C: lsrs      r1, r1, #0x18
+  0x1035439E: movs      r2, #1
+  0x103543A0: blx       #0x102fb86c ; target=0xF02B2FFC
+  0x103543A4: movs      r4, r0
+  0x103543A6: beq       #0x103543c6 ; target=0x103543C6
+  0x103543A8: ldr       r0, [pc, #0x1c] ; lit=0x00008569 <ID_8569> <ID_LITERAL_LOAD>
+  0x103543AA: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER> <ROOT_MAPPER_CALL>
+  0x103543AE: movs      r2, r0
+  0x103543B0: movs      r1, #0
+  0x103543B2: movs      r0, r4
+  0x103543B4: blx       #0x102fb87c ; target=0xF02B3088
+  0x103543B8: movs      r1, #0
+  0x103543BA: movs      r0, r4
+  0x103543BC: blx       #0x102fb884 ; target=0xF02B3096
+  0x103543C0: movs      r0, r4
+  0x103543C2: blx       #0x102fb874 ; target=0xF02B306C
+  0x103543C6: pop       {r4, pc}
+  0x103543C8: strh      r1, [r5, #0x2a]
+  0x103543CA: movs      r0, r0
+  0x103543CC: push      {r4, r5, r6, lr}
+  0x103543CE: movs      r4, r0
+  0x103543D0: movs      r5, r1
+  0x103543D2: movs      r6, r2
+  0x103543D4: bl        #0x10317e6c ; target=0x10317E6C
+  0x103543D8: cmp       r0, #0
+
+86C0_A: owner~0x102EBC58 load=0x102EBCBC call=0x102EBCBE
+  0x102EBC58: push      {r4, r5, r6, r7, lr}
+  0x102EBC5A: movs      r5, #0
+  0x102EBC5C: sub       sp, #0x1c
+  0x102EBC5E: movs      r4, r5
+  0x102EBC60: movs      r7, r5
+  0x102EBC62: str       r5, [sp, #0x14]
+  0x102EBC64: blx       #0x102fd17c ; target=0xF02E0EE0
+  0x102EBC68: str       r0, [sp, #0x18]
+  0x102EBC6A: ldr       r0, [pc, #0x78] ; lit=0xF00AECE0
+  0x102EBC6C: ldrb      r0, [r0, #7]
+  0x102EBC6E: cmp       r0, #0
+  0x102EBC70: beq       #0x102ebca2 ; target=0x102EBCA2
+  0x102EBC72: cmp       r0, #1
+  0x102EBC74: beq       #0x102ebca8 ; target=0x102EBCA8
+  0x102EBC76: cmp       r0, #3
+  0x102EBC78: bne       #0x102ebc7e ; target=0x102EBC7E
+  0x102EBC7A: movs      r5, #0x28
+  0x102EBC7C: movs      r4, #0xcf
+  0x102EBC7E: bl        #0x1037cb84 ; target=0x1037CB84
+  0x102EBC82: cmp       r7, #1
+  0x102EBC84: str       r0, [sp, #0x10]
+  0x102EBC86: bne       #0x102ebc8c ; target=0x102EBC8C
+  0x102EBC88: bl        #0x1037cd64 ; target=0x1037CD64
+  0x102EBC8C: bl        #0x102f2bd0 ; target=0x102F2BD0
+  0x102EBC90: cmp       r0, #0
+  0x102EBC92: beq       #0x102ebcb4 ; target=0x102EBCB4
+  0x102EBC94: bl        #0x102efed0 ; target=0x102EFED0
+  0x102EBC98: cmp       r0, #0
+  0x102EBC9A: bne       #0x102ebcb4 ; target=0x102EBCB4
+  0x102EBC9C: ldr       r6, [pc, #0x44] ; lit=0xF00AECE0
+  0x102EBC9E: adds      r6, #0xa
+  0x102EBCA0: b         #0x102ebcbc ; target=0x102EBCBC
+  0x102EBCA2: movs      r5, #0x99
+  0x102EBCA4: movs      r4, #0x1d
+  0x102EBCA6: b         #0x102ebc7e ; target=0x102EBC7E
+  0x102EBCA8: ldr       r0, [pc, #0x3c] ; lit=0x000086C0 <ID_86C0>
+  0x102EBCAA: movs      r5, #0x9d
+  0x102EBCAC: movs      r4, #0xcf
+  0x102EBCAE: movs      r7, #1
+  0x102EBCB0: str       r0, [sp, #0x14]
+  0x102EBCB2: b         #0x102ebc7e ; target=0x102EBC7E
+  0x102EBCB4: ldr       r0, [pc, #0x30] ; lit=0x000086C0 <ID_86C0>
+  0x102EBCB6: bl        #0x10321b40 ; target=0x10321B40
+  0x102EBCBA: movs      r6, r0
+  0x102EBCBC: ldr       r0, [pc, #0x28] ; lit=0x000086C0 <ID_86C0> <ID_LITERAL_LOAD>
+  0x102EBCBE: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER> <ROOT_MAPPER_CALL>
+  0x102EBCC2: blx       #0x102fcf84 ; target=0xF02E67A8
+  0x102EBCC6: ldr       r2, [sp, #0x18]
+  0x102EBCC8: ldr       r1, [sp, #0x10]
+  0x102EBCCA: str       r2, [sp, #0xc]
+  0x102EBCCC: ldr       r2, [sp, #0x14]
+  0x102EBCCE: str       r1, [sp, #8]
+  0x102EBCD0: movs      r1, r0
+  0x102EBCD2: str       r2, [sp]
+  0x102EBCD4: movs      r2, r5
+  0x102EBCD6: movs      r0, r6
+  0x102EBCD8: movs      r3, r4
+  0x102EBCDA: str       r7, [sp, #4]
+  0x102EBCDC: bl        #0x1037da80 ; target=0x1037DA80
+  0x102EBCE0: add       sp, #0x1c
+  0x102EBCE2: pop       {r4, r5, r6, r7, pc}
+  0x102EBCE4: stcl      p0, c15, [r0], #0x28
+  0x102EBCE8: strh      r0, [r0, #0x36]
+  0x102EBCEA: movs      r0, r0
+  0x102EBCEC: push      {r0, r1, r2, r4, r5, r6, r7, lr}
+
+86C0_B: owner~0x1037CA64 load=0x1037CA8A call=0x1037CA8C
+  0x1037CA64: push      {r4, lr}
+  0x1037CA66: movs      r4, r0
+  0x1037CA68: ldrh      r0, [r0]
+  0x1037CA6A: ldr       r1, [pc, #0x68] ; lit=0xFFFF9CEF
+  0x1037CA6C: adds      r3, r0, r1
+  0x1037CA6E: blx       #0x10015bd4 ; target=0x10015BD4
+  0x1037CA72: lsls      r7, r0, #0x14
+  0x1037CA74: adds      r7, r5, r4
+  0x1037CA76: cmp       r7, #0x23
+  0x1037CA78: cmp       r4, #0x23
+  0x1037CA7A: movs      r7, r5
+  0x1037CA7C: ldrh      r0, [r4, #0xa]
+  0x1037CA7E: ldr       r1, [pc, #0x58] ; lit=0xFFFF793B
+  0x1037CA80: adds      r0, r0, r1
+  0x1037CA82: bne       #0x1037cad0 ; target=0x1037CAD0
+  0x1037CA84: ldrh      r0, [r4, #8]
+  0x1037CA86: bl        #0x1037fbc4 ; target=0x1037FBC4
+  0x1037CA8A: ldr       r0, [pc, #0x50] ; lit=0x000086C0 <ID_86C0> <ID_LITERAL_LOAD>
+  0x1037CA8C: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER> <ROOT_MAPPER_CALL>
+  0x1037CA90: ldrh      r2, [r4, #8]
+  0x1037CA92: movs      r1, r0
+  0x1037CA94: movs      r0, r2
+  0x1037CA96: bl        #0x10314e02 ; target=0x10314E02
+  0x1037CA9A: ldrh      r0, [r4, #8]
+  0x1037CA9C: movs      r1, #0x96
+  0x1037CA9E: bl        #0x1030f7b0 ; target=0x1030F7B0
+  0x1037CAA2: b         #0x1037cad0 ; target=0x1037CAD0
+  0x1037CAA4: ldrh      r0, [r4, #0xc]
+  0x1037CAA6: ldr       r1, [pc, #0x34] ; lit=0x000086C0 <ID_86C0>
+  0x1037CAA8: adds      r1, r1, #6
+  0x1037CAAA: cmp       r0, r1
+  0x1037CAAC: bne       #0x1037cad0 ; target=0x1037CAD0
+  0x1037CAAE: ldr       r0, [pc, #0x30] ; lit=0x10385FFD
+  0x1037CAB0: movs      r1, #1
+  0x1037CAB2: bl        #0x1031f71a ; target=0x1031F71A
+  0x1037CAB6: b         #0x1037cad0 ; target=0x1037CAD0
+  0x1037CAB8: ldrh      r0, [r4, #0xa]
+  0x1037CABA: ldr       r1, [pc, #0x20] ; lit=0x000086C0 <ID_86C0>
+
+86C0_C: owner~0x10382B94 load=0x10382BAA call=0x10382BAC
+  0x10382B94: push      {lr}
+  0x10382B96: sub       sp, #0x1fc
+  0x10382B98: sub       sp, #0x28
+  0x10382B9A: bl        #0x102eb10c ; target=0x102EB10C
+  0x10382B9E: cmp       r0, #0
+  0x10382BA0: beq       #0x10382bba ; target=0x10382BBA
+  0x10382BA2: ldr       r1, [pc, #0x1c] ; lit=0xF00AECEA
+  0x10382BA4: add       r0, sp, #4
+  0x10382BA6: bl        #0x102ea79c ; target=0x102EA79C
+  0x10382BAA: ldr       r0, [pc, #0x18] ; lit=0x000086C0 <ID_86C0> <ID_LITERAL_LOAD>
+  0x10382BAC: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER> <ROOT_MAPPER_CALL>
+  0x10382BB0: movs      r2, r0
+  0x10382BB2: movs      r1, #0
+  0x10382BB4: add       r0, sp, #4
+  0x10382BB6: bl        #0x103660c8 ; target=0x103660C8
+  0x10382BBA: add       sp, #0x1fc
+  0x10382BBC: add       sp, #0x28
+  0x10382BBE: pop       {pc}
+  0x10382BC0: stcl      p0, c15, [sl], #0x28
+  0x10382BC4: strh      r0, [r0, #0x36]
+  0x10382BC6: movs      r0, r0
+  0x10382BC8: push      {r0, r1, r2, r3, r4, r5, r6, r7, lr}
+  0x10382BCA: sub       sp, #0x1fc
+  0x10382BCC: sub       sp, #0x48
+  0x10382BCE: ldr       r5, [sp, #0x26c]
+  0x10382BD0: movs      r7, r0
+  0x10382BD2: movs      r6, r1
+  0x10382BD4: blx       #0x102fc3bc ; target=0xF0315310
+  0x10382BD8: movs      r4, r0
+  0x10382BDA: cmp       r5, #0
+
+8928: owner~0x103660C8 load=0x10366100 call=0x10366102
+  0x103660C8: push      {r3, r4, r5, r6, r7, lr}
+  0x103660CA: movs      r7, r1
+  0x103660CC: movs      r5, r2
+  0x103660CE: movs      r2, #0xff
+  0x103660D0: movs      r1, r0
+  0x103660D2: ldr       r0, [pc, #0x94] ; lit=0xF00E2BE4
+  0x103660D4: adds      r2, #5
+  0x103660D6: blx       #0x102fd11c ; target=0xF02E67C6
+  0x103660DA: ldr       r6, [pc, #0x8c] ; lit=0xF00E2BE4
+  0x103660DC: movs      r4, r6
+  0x103660DE: subs      r4, #0x14
+  0x103660E0: str       r7, [r4, #0x10]
+  0x103660E2: blx       #0x102fcd54 ; target=0xF02D4E10
+  0x103660E6: ldr       r7, [pc, #0x88] ; lit=0x00008B0E
+  0x103660E8: ldr       r2, [pc, #0x80] ; lit=0x1037B329
+  0x103660EA: movs      r1, #2
+  0x103660EC: movs      r0, r7
+  0x103660EE: blx       #0x102fc8ec ; target=0xF02D3644
+  0x103660F2: movs      r0, r6
+  0x103660F4: bl        #0x1037b1f0 ; target=0x1037B1F0
+  0x103660F8: movs      r6, r0
+  0x103660FA: bne       #0x10366146 ; target=0x10366146
+  0x103660FC: cmp       r5, #0
+  0x103660FE: bne       #0x10366108 ; target=0x10366108
+  0x10366100: ldr       r0, [pc, #0x70] ; lit=0x00008928 <ID_8928> <ID_LITERAL_LOAD>
+  0x10366102: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER> <ROOT_MAPPER_CALL>
+  0x10366106: movs      r5, r0
+  0x10366108: strh      r5, [r4, #6]
+  0x1036610A: blx       #0x102fccc4 ; target=0xF02DB55C
+  0x1036610E: cmp       r0, #1
+  0x10366110: bne       #0x10366122 ; target=0x10366122
+  0x10366112: ldr       r1, [pc, #0x64] ; lit=0xF00E2F46
+  0x10366114: ldr       r2, [pc, #0x64] ; lit=0x1034D3F5
+  0x10366116: strb      r0, [r1]
+  0x10366118: movs      r0, #0xff
+  0x1036611A: ldr       r1, [pc, #0x64] ; lit=0x044AA200
+  0x1036611C: adds      r0, #3
+  0x1036611E: bl        #0x103217ac ; target=0x103217AC
+  0x10366122: ldr       r4, [pc, #0x50] ; lit=0x00008928 <ID_8928>
+  0x10366124: movs      r2, #1
+  0x10366126: adds      r4, #0x1e
+  0x10366128: str       r2, [sp]
+  0x1036612A: ldr       r2, [pc, #0x58] ; lit=0x1037B345
+  0x1036612C: movs      r1, r4
+  0x1036612E: movs      r0, #5
+  0x10366130: movs      r3, #0
+
+========================================================================================================================
+I. DECISION GATE
+========================================================================================================================
+8569: dispatcher-observed slot(0,1)=0x00000000; expected registered ptr=0x10348D05; MATCH=NO
+86C0: dispatcher-observed slot(0,1)=0x00000000; expected registered ptr=0x1033EF29; MATCH=NO
+8928: dispatcher-observed slot(0,1)=0x00000000; expected registered ptr=0x1033E815; MATCH=NO
+
+Mechanical distinctions:
+  8569 init == 86C0 init : NO
+  8569 init == 8928 init : NO
+  86C0 init == 8928 init : NO
+
+8569 bounded direct-call path -> 86C0 init      : NO
+8569 bounded direct-call path -> 8928 Audio init: NO
+8569 bounded direct-call path -> Audio Player   : NO
+8569 closure literal pointer -> 8928 Audio init : NO
+8569 closure literal pointer -> Audio Player    : NO
+
+Slot proof incomplete: do not promote dispatcher-init mappings beyond existing static evidence.
+NO bounded static convergence from 8569 to the confirmed Audio Player chain was found in this gate.
+This weakens the '8569 is the Audio Player launcher' hypothesis; inspect 10348D05 semantics/strings/resources
+and contrast it with 1033EF29 and 1033E815 before any menu mutation hypothesis is promoted.
+
+PHONE ACCESSED       : NO
+FLASH MODIFIED       : NO
+PATCH GENERATED      : NO
+PHYSICAL CANDIDATE   : NO
+HARDWARE WRITE AUTHORIZED: NO
+
+EXIT CODE        : 0
+FINISH UTC       : 2026-10-06T23:33:52.2603125Z
