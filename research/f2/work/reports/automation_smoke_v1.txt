@@ -1,0 +1,36 @@
+﻿========================================================================================================
+F2 AUTOMATION RUNNER
+========================================================================================================
+JOB ID          : automation_smoke_v1
+SOURCE ZIP      : f2job_automation_smoke_v1.zip
+SCRIPT SHA256   : a6524ee1ca15fb60d403f6cff73ead31a2c017a723321542d082096a1da3cc19
+PYTHON          : C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH          : automate-research
+SAFETY MODE     : offline_analysis
+PHONE ACCESS    : false
+FLASH WRITE     : false
+ERASE           : false
+REPACK          : false
+START UTC       : 2026-10-06T22:21:45.2018284Z
+========================================================================================================
+
+====================================================================================================
+F2 AUTOMATION LOCAL-INBOX SMOKE TEST
+====================================================================================================
+PHONE ACCESSED : NO
+FLASH MODIFIED : NO
+PATCH GENERATED: NO
+cwd             : C:\Users\verto\F2-Altice-MobiWire
+python          : C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+offline env     : 1
+
+research/f2 exists            : PASS
+reports dir exists            : PASS
+offline env == 1              : PASS
+
+SMOKE TEST = PASS
+
+========================================================================================================
+EXIT CODE        : 0
+FINISH UTC       : 2026-10-06T22:21:45.3169165Z
+========================================================================================================

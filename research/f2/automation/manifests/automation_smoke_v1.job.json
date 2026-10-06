@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "job_id": "automation_smoke_v1",
+  "enabled": true,
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "a6524ee1ca15fb60d403f6cff73ead31a2c017a723321542d082096a1da3cc19",
+  "report": "research/f2/work/reports/automation_smoke_v1.txt",
+  "args": []
+}
