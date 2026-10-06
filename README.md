@@ -26,19 +26,20 @@ Active implementation branch:
 
 `s12-alice-extension`
 
-Current state:
+Current state (5 October 2026):
 
-- byte-perfect ALICE_2 repacking is proven;
-- controlled `+0x1000` ALICE extension round-trips exactly;
-- ZIMAGE/BOOT_ZIMAGE LZMA preset behavior is characterized;
-- the original LZMA preset window must remain unchanged;
-- the runtime/VIVA patch-role matrix is validated;
-- S12.6 offline candidate build and exhaustive allow-list audit pass; recovery/read-back remains the next gate.
+- S13.4H builds the dual Image-ID logical candidate D (eight bytes);
+- S13.4I passes 1,728 native-instruction emulation cases for registration-state idempotence;
+- S13.4J reproduces canonical ZIMAGE compression byte-for-byte and exactly decodes D;
+- the physical candidate changes 384,255 bytes across 96 sectors, so the historical one-sector writer does not apply;
+- next: S13.4K offline assessment of a smaller physical patch via the ALICE resolver;
+- current handset state and functional Audio Player activation remain unverified.
 
 Current documentation:
 
 - `research/f2/REPRISE.md`
-- `research/f2/docs/reverse-engineering/s12-alice-extension-lzma-offline-2026-10-01.md`
-- `research/f2/work/repro/S12_2_codex_repo_audit.md`
+- `research/f2/docs/reverse-engineering/s13-4h-j-dual-row-registration-repack-2026-10-05.md`
+- `research/f2/docs/roadmap.md`
 
-No handset flashing is approved yet.
+No handset flashing is authorized for candidate D. Generated images and sector
+comparisons use a canonical baseline, not verified current handset bytes.

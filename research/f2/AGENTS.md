@@ -46,7 +46,12 @@ S13 — expose / launch the already-confirmed native Audio Player:
 
 `0x8928 → 0x1033D841`
 <!-- CURRENT-S13.3A-2026-10-02 -->
-## Current S13.3A checkpoint
+## Historical S13.3A checkpoint (superseded)
+
+As of 2026-10-05, follow REPRISE.md for S13.4H/I/J and the next S13.4K
+offline gate. The candidate D characterization touches 96 sectors and is NOT
+authorized for hardware use. The one-sector constants and next-action text
+below are historical evidence, not instructions for the current candidate.
 
 S13.1 is closed. S13.2A/B/C and S13.3A are PASS.
 

@@ -289,3 +289,32 @@ aucun D3/D5, erase ou write.
 Prochaine Ã©tape : S13.3B, dÃ©river un writer strictement limitÃ© au seul secteur
 firmware `0x249000..0x249FFF`, avec BEFORE/AFTER hardcodÃ©s et dry-run/local audit
 avant toute exÃ©cution matÃ©rielle.
+
+## 2026-10-05 — S13.4H/I/J : alias double-row, idempotence et empreinte physique
+
+Notion technique/last update confirment S13.4G ; REPRISE et roadmap locaux
+étaient restés à S13.3A. Anciennes versions archivées, état courant remplacé.
+
+S13.4H fourni exécuté sans modification : PASS structurel, candidat D logique
+huit octets. S13.4I ajouté : émulation des instructions natives, sans mocks,
+1728 cas PASS sur l'idempotence de l'état global de registration. Correction :
+le core H débordait sur des fonctions adjacentes et le dispatcher contient deux
+appels distincts (registration, puis init conditionnel).
+
+S13.4J ajouté : recompression canonique byte-perfect, D roundtrip exact, BOOT
+canonique exact. Stream réduit de 76 octets ; VIVA/ALICE et adresses conservés.
+Résultat : 384255 octets changés, 96 secteurs. L'ancien writer one-sector ne
+s'applique pas. Image expérimentale canonique NON FLASHABLE, aucun accès appareil.
+
+Écart documentaire matériel : log local restore jusqu'à ProcessInfo, mais
+verify_restored_required=true et aucune vérification séparée trouvée, alors
+que Notion dit encore AFTER. Ne pas présumer l'état live.
+
+Détails, hashes, limites et commandes :
+[Audit S13.4H–J](reverse-engineering/s13-4h-j-dual-row-registration-repack-2026-10-05.md).
+Prochain gate : S13.4K offline, réduction/comparaison de l'empreinte physique.
+HARDWARE WRITE AUTHORIZED: NO.
+
+Synchronisation Notion : nouveau checkpoint H–J inséré dans last update,
+documentation technique et page projet ; historique conservé. Scripts compilés
+avec py_compile ; diff Git vérifié sans erreur. Aucun commit/push effectué.
