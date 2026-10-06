@@ -204,17 +204,23 @@ class NotionQueue:
             if block.get("type") == "file":
                 files.append(block["file"])
         selected = {}
+        aliases = {
+            "job.json": "job.json",
+            "script.py": "script.py",
+            "script.txt": "script.py",
+        }
         for file in files:
             name = file.get("name", "")
-            if name not in ("job.json", "script.py"):
+            canonical = aliases.get(name)
+            if canonical is None:
                 continue
-            if name in selected:
-                raise Rejected(f"Duplicate attachment: {name}")
+            if canonical in selected:
+                raise Rejected(f"Duplicate attachment: {canonical}")
             if file.get("type") != "file":
                 raise Rejected("Only native Notion uploaded attachments are accepted")
-            selected[name] = file["file"]["url"]
+            selected[canonical] = file["file"]["url"]
         if set(selected) != {"job.json", "script.py"}:
-            raise Rejected("Missing job.json or script.py attachment (Files property or top-level file block)")
+            raise Rejected("Missing job.json and script.py/script.txt attachment (Files property or top-level file block)")
         return selected
 
     def download(self, url, limit):
