@@ -1,0 +1,2 @@
+﻿# SHA256 covers actual script bytes; clones must not convert LF to CRLF.
+jobs/** -text

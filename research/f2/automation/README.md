@@ -7,7 +7,72 @@
 - Rapports : `research/f2/work/reports`.
 - Jobs autorisés : `offline_analysis` uniquement. Téléphone, USB, COM,
   BROM, DA, hardware/flash, erase et repack interdits en automatisation.
-- Workflow : ChatGPT job ZIP -> Downloads -> runner -> Python -> report -> commit -> push.
+- Workflow principal : ChatGPT -> GitHub `automate-research` -> repo queue -> runner -> report -> GitHub.
+- Fallback conservé : ChatGPT job ZIP -> Downloads -> runner -> Python -> report -> commit -> push.
+
+## Queue Git (mode principal)
+
+Publier ensemble dans un commit le script `jobs/<job_id>.py` et le manifeste
+`queue/<job_id>.job.json`, puis pousser sur `github/automate-research`.
+Le dossier `jobs/` est marqué `-text` dans `.gitattributes` pour préserver
+exactement les octets SHA256 lors des checkouts Windows.
+
+```json
+{
+  "schema_version": 1,
+  "job_id": "example_offline",
+  "enabled": true,
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script": "research/f2/automation/jobs/example_offline.py",
+  "script_sha256": "REMPLACER_PAR_LE_SHA256_EXACT_64_HEXADECIMAUX",
+  "report": "research/f2/work/reports/example_offline.txt",
+  "args": []
+}
+```
+
+Le runner effectue à chaque cycle : fetch, synchronisation, queue triée par nom,
+puis ZIP inbox. Il applique `pull --ff-only` si la branche distante a avancé et
+si l'arbre est propre. Un arbre modifié, y compris des fichiers non suivis ou
+un index déjà préparé, bloque tous les jobs sans modifier ces fichiers.
+
+Le script et le manifeste doivent être présents dans HEAD. Les chemins sont
+limités aux dossiers prévus, sans traversée `..`, lien symbolique ou jonction.
+Les scripts sont des `.py` ; le SHA256 est obligatoire. Les quatre flags de
+sécurité sont des booléens JSON `false`, pas des chaînes ou valeurs numériques.
+`args` est un tableau de chaînes transmis au Python canonique ; aucune commande
+shell du manifeste n'est interprétée. Aucun autre interpréteur Python n'est permis.
+
+Un receipt existant fait ignorer le job, y compris un receipt `failed` : utiliser
+un nouveau job_id pour réessayer. Un rapport existant sans receipt est conservé
+et bloque ce job. Un script retournant un code non nul produit un receipt `failed`
+et un rapport qui inclut stderr. Un manifeste rejeté n'est jamais exécuté.
+
+Pour la queue, seuls le rapport explicite et son receipt sont ajoutés au commit.
+Le fallback ZIP archive en plus son script et son manifeste comme auparavant.
+Tout changement inattendu après l'exécution bloque le commit et reste disponible
+pour inspection. Le mode offline reste déclaratif : les scripts Python doivent
+être relus avant publication ; le runner n'est pas un sandbox matériel.
+
+En cas de push concurrent : conserver le commit résultat, fetch, puis
+`pull --rebase` et push normal uniquement avec arbre propre et commits locaux
+tous créés par la session actuelle du runner. Aucun autostash ni force push.
+Les commits utilisateur ou une reprise après redémarrage nécessitent une
+synchronisation manuelle. Un conflit de rebase reste disponible pour résolution,
+avec le commit original conservé par Git ; le runner s'arrête.
+
+Tests reproductibles sans GitHub ni inbox réelle :
+
+```powershell
+& "C:\Users\verto\mtkclient\.venv\Scripts\python.exe" research\f2\automation\tests\test_runner.py
+```
+
+Les fixtures Git et logs restent sous `%TEMP%\f2_repoqueue_test_*` pour diagnostic.
 
 Commande canonique (toujours préciser la branche ; ajouter `-Once` pour un passage) :
 
@@ -19,7 +84,7 @@ Arrêt du mode continu : Ctrl+C. Aucun service de démarrage automatique install
 Relire le script avant de déposer un ZIP : le manifeste et la variable offline
 sont des contrôles déclaratifs, pas une isolation des capacités de Python.
 
-## Validation du 2026-10-07
+## Historique : validation ZIP du 2026-10-07
 
 Départ propre/synchronisé : `s12-alice-extension`,
 `6bec2ed4f42887d1ae2f7eec63790a66ab2ad7a9`.
@@ -40,7 +105,7 @@ Aucun audit A.51 ni accès matériel effectué.
 ### Corrections du v4 téléchargé
 
 SHA256 téléchargé : `1415ed72c8bc1a7d3295645bd6704878467e7d97854c3b59572e58b242d8b153`.
-SHA256 installé et testé : `031f9b0d325894340123720859c8cb1a95061dc509acf8dfe082f98679a0a6e6`.
+SHA256 de l'ancien v4 installé et testé avant repo-queue : `031f9b0d325894340123720859c8cb1a95061dc509acf8dfe082f98679a0a6e6`.
 
 Les corrections v2/v3 (`Invoke-GitNative`, `git.exe`, tableaux `$jobs` et `$extra`)
 étaient présentes. Trois corrections locales supplémentaires ont été nécessaires :
