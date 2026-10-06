@@ -74,6 +74,33 @@ Tests reproductibles sans GitHub ni inbox réelle :
 
 Les fixtures Git et logs restent sous `%TEMP%\f2_repoqueue_test_*` pour diagnostic.
 
+## Validation repo-queue du 2026-10-07
+
+- 11 tests d'intégration PASS sous Windows PowerShell et Python canonique :
+  récupération distante et staging exact, skip du receipt, manifestes invalides,
+  arbre/index modifiés, commit utilisateur, push concurrent avec rebase,
+  conflit conservé, erreur Python avec stderr, écriture inattendue du job,
+  fallback ZIP/priorité queue, sécurité ZIP et arguments sans shell.
+- Le faux job `s13_automation_repoqueue_smoke_v1` a été publié depuis un worktree
+  temporaire dans `1a2735d`, pendant que le dépôt principal restait en arrière.
+  Le runner a lui-même fait le `pull --ff-only`, exécuté le job et poussé
+  `5de4a5adf55b2452baeab464e95e9b422e5a82ac`.
+- [Rapport PASS](../work/reports/s13_automation_repoqueue_smoke_v1.txt),
+  [receipt completed / exit 0](results/s13_automation_repoqueue_smoke_v1.result.json),
+  [script](jobs/s13_automation_repoqueue_smoke_v1.py),
+  [manifeste](queue/s13_automation_repoqueue_smoke_v1.job.json).
+- Le commit résultat contient exactement deux fichiers : rapport et receipt.
+  Les quatre flags matériels sont false. SHA du script validé après récupération.
+- SHA256 du runner installé :
+  `d66d7fe8e07b6ba15e605d82b143fbaa29ed011296c5c9a26b56d681d592f041`.
+- Le BOM initial du nouveau `.gitattributes` provoquait un avertissement Git ;
+  l'encodage a été corrigé sans BOM dans `1dd8ef8` avant le smoke réel.
+- Le ZIP A.51 présent dans Downloads a été temporairement mis à l'écart pour
+  ce test, puis restauré à l'identique sans exécution. Aucun ancien script ou
+  document S11/S12/S13 modifié. Aucun runner laissé actif après le test `-Once`.
+
+Le job smoke et ses preuves restent versionnés ; le receipt empêche sa réexécution.
+
 Commande canonique (toujours préciser la branche ; ajouter `-Once` pour un passage) :
 
 ```powershell
