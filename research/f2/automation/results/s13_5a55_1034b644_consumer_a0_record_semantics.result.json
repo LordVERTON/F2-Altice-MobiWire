@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a55_1034b644_consumer_a0_record_semantics",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a55_1034b644_consumer_a0_record_semantics.py",
+  "script_sha256": "567f5e4313aa81965e9624cd26670d4b0687c7de79c070888a11ed59ed6b0938",
+  "manifest": "research/f2/automation/manifests/s13_5a55_1034b644_consumer_a0_record_semantics.job.json",
+  "report": "research/f2/work/reports/s13_5a55_1034b644_consumer_a0_record_semantics.txt",
+  "notion_page_id": "3f2173c5-7e04-8148-837f-c09603cff4c5",
+  "started_utc": "2026-10-07T10:22:43.902250+00:00",
+  "finished_utc": "2026-10-07T10:25:01.667065+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "a2b0b17faa0d42e62253a4f5c922beff44ac6e51"
+}

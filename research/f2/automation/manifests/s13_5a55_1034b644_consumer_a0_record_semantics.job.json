@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a55_1034b644_consumer_a0_record_semantics",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "567f5e4313aa81965e9624cd26670d4b0687c7de79c070888a11ed59ed6b0938",
+  "report": "research/f2/work/reports/s13_5a55_1034b644_consumer_a0_record_semantics.txt",
+  "args": []
+}

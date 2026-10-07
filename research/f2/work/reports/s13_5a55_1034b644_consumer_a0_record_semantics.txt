@@ -1,0 +1,658 @@
+========================================================================================================
+F2 AUTOMATION NOTION WORKER
+========================================================================================================
+JOB ID = s13_5a55_1034b644_consumer_a0_record_semantics
+NOTION PAGE ID = 3f2173c5-7e04-8148-837f-c09603cff4c5
+SCRIPT SHA256 = 567f5e4313aa81965e9624cd26670d4b0687c7de79c070888a11ed59ed6b0938
+PYTHON = C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH = automate-research
+SAFETY MODE = offline_analysis
+PHONE ACCESS = false
+FLASH WRITE = false
+ERASE = false
+REPACK = false
+START UTC = 2026-10-07T10:22:43.902250+00:00
+========================================================================================================
+========================================================================================================================
+S13.5A.55 - 1034B644 CONSUMER CALLERS / 0xA0 RECORD SEMANTICS
+========================================================================================================================
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. FULL LINEAR CONSUMER 0x1034B644
+========================================================================================================================
+0x1034B644: push      {r4, r5, r6, r7, lr}
+0x1034B646: movs      r3, #0xa0
+0x1034B648: muls      r0, r3, r0
+0x1034B64A: ldr       r1, [pc, #0x310] ; literal@0x1034B95C=0xF03BB8F8
+0x1034B64C: ldr       r6, [pc, #0x310] ; literal@0x1034B960=0xF0088470
+0x1034B64E: adds      r4, r0, r1
+0x1034B650: ldr       r5, [r6]
+0x1034B652: ldrb      r3, [r4, #2]
+0x1034B654: ldrb      r2, [r4, #1]
+0x1034B656: ldrb      r1, [r4]
+0x1034B658: movs      r0, #0xff
+0x1034B65A: sub       sp, #0x14
+0x1034B65C: blx       r5
+0x1034B65E: ldr       r7, [pc, #0x304] ; literal@0x1034B964=0xF00E2AA8
+0x1034B660: str       r0, [r7, #0xc]
+0x1034B662: ldrh      r0, [r4, #0x22]
+0x1034B664: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B668: str       r0, [r7, #0x10]
+0x1034B66A: ldrh      r0, [r4, #0x1a]
+0x1034B66C: strh      r0, [r7, #0x14]
+0x1034B66E: ldrh      r0, [r4, #0x1c]
+0x1034B670: strh      r0, [r7, #0x16]
+0x1034B672: ldrh      r0, [r4, #0x1e]
+0x1034B674: strh      r0, [r7, #0x18]
+0x1034B676: ldrh      r0, [r4, #0x20]
+0x1034B678: strh      r0, [r7, #0x1a]
+0x1034B67A: ldrh      r0, [r4, #0x3c]
+0x1034B67C: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B680: str       r0, [r7, #0x1c]
+0x1034B682: ldrh      r0, [r4, #0x34]
+0x1034B684: strh      r0, [r7, #0x20]
+0x1034B686: ldrh      r0, [r4, #0x36]
+0x1034B688: strh      r0, [r7, #0x22]
+0x1034B68A: ldrh      r0, [r4, #0x38]
+0x1034B68C: strh      r0, [r7, #0x24]
+0x1034B68E: ldrh      r0, [r4, #0x3a]
+0x1034B690: strh      r0, [r7, #0x26]
+0x1034B692: ldrh      r0, [r4, #0x30]
+0x1034B694: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B698: str       r0, [r7, #0x28]
+0x1034B69A: ldrh      r1, [r4, #0x24]
+0x1034B69C: add       r2, sp, #4
+0x1034B69E: strh      r1, [r7, #0x2c]
+0x1034B6A0: ldrh      r1, [r4, #0x26]
+0x1034B6A2: strh      r1, [r7, #0x2e]
+0x1034B6A4: add       r1, sp, #8
+0x1034B6A6: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B6AA: ldr       r0, [sp, #8]
+0x1034B6AC: movs      r2, #0x7f
+0x1034B6AE: strh      r0, [r7, #0x30]
+0x1034B6B0: ldr       r0, [sp, #4]
+0x1034B6B2: movs      r1, r2
+0x1034B6B4: strh      r0, [r7, #0x32]
+0x1034B6B6: ldr       r5, [r6]
+0x1034B6B8: movs      r0, #0xff
+0x1034B6BA: movs      r3, r2
+0x1034B6BC: blx       r5
+0x1034B6BE: movs      r5, r4
+0x1034B6C0: adds      r5, #0x40
+0x1034B6C2: str       r0, [r7, #0x34]
+0x1034B6C4: ldrh      r0, [r5, #6]
+0x1034B6C6: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6CA: str       r0, [r7, #0x38]
+0x1034B6CC: ldrh      r0, [r4, #4]
+0x1034B6CE: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6D2: str       r0, [r7, #0x3c]
+0x1034B6D4: ldrh      r0, [r4, #6]
+0x1034B6D6: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6DA: str       r0, [r7, #0x40]
+0x1034B6DC: ldrb      r2, [r4, #0xa]
+0x1034B6DE: ldrb      r1, [r4, #9]
+0x1034B6E0: ldrb      r0, [r4, #8]
+0x1034B6E2: blx       #0x102fceec ; target=0xF02E1A04[ARM_VENEER->THUMB]
+0x1034B6E6: mov       r3, sp
+0x1034B6E8: str       r0, [sp]
+0x1034B6EA: ldrh      r0, [r3]
+0x1034B6EC: subs      r7, #0xc0
+0x1034B6EE: strh      r0, [r7, #0xe]
+0x1034B6F0: ldrh      r0, [r3, #2]
+0x1034B6F2: strh      r0, [r7, #0x10]
+0x1034B6F4: ldrb      r2, [r4, #0xd]
+0x1034B6F6: ldrb      r1, [r4, #0xc]
+0x1034B6F8: ldrb      r0, [r4, #0xb]
+0x1034B6FA: blx       #0x102fceec ; target=0xF02E1A04[ARM_VENEER->THUMB]
+0x1034B6FE: str       r0, [r7, #0x18]
+0x1034B700: ldr       r6, [r6]
+0x1034B702: ldrb      r3, [r4, #0x10]
+0x1034B704: ldrb      r2, [r4, #0xf]
+0x1034B706: ldrb      r1, [r4, #0xe]
+0x1034B708: movs      r0, #0xff
+0x1034B70A: blx       r6
+0x1034B70C: str       r0, [r7, #0x14]
+0x1034B70E: ldrh      r1, [r4, #0x1a]
+0x1034B710: movs      r0, r7
+0x1034B712: adds      r0, #0x2c
+0x1034B714: strh      r1, [r0]
+0x1034B716: ldrh      r1, [r4, #0x1c]
+0x1034B718: movs      r2, r7
+0x1034B71A: strh      r1, [r0, #2]
+0x1034B71C: ldrh      r1, [r4, #0x1e]
+0x1034B71E: strh      r1, [r0, #4]
+0x1034B720: ldrh      r1, [r4, #0x20]
+0x1034B722: strh      r1, [r0, #6]
+0x1034B724: movs      r0, r4
+0x1034B726: adds      r0, #0x80
+0x1034B728: str       r0, [sp, #0xc]
+0x1034B72A: ldrh      r1, [r0, #2]
+0x1034B72C: adds      r2, #0x3c
+0x1034B72E: strh      r1, [r2]
+0x1034B730: ldrh      r1, [r0, #4]
+0x1034B732: strh      r1, [r2, #2]
+0x1034B734: ldrh      r1, [r0, #6]
+0x1034B736: strh      r1, [r2, #4]
+0x1034B738: ldrh      r0, [r0, #8]
+0x1034B73A: strh      r0, [r2, #6]
+0x1034B73C: movs      r0, #0
+0x1034B73E: lsls      r1, r0, #1
+0x1034B740: adds      r3, r1, r4
+0x1034B742: adds      r3, #0x80
+0x1034B744: ldrh      r3, [r3, #0xa]
+0x1034B746: adds      r1, r1, r2
+0x1034B748: adds      r0, r0, #1
+0x1034B74A: cmp       r0, #0xa
+0x1034B74C: strh      r3, [r1, #8]
+0x1034B74E: blt       #0x1034b73e ; target=0x1034B73E
+0x1034B750: lsls      r0, r0, #1
+0x1034B752: adds      r0, r0, r4
+0x1034B754: adds      r0, #0x80
+0x1034B756: ldrh      r0, [r0, #0xa]
+0x1034B758: ldr       r6, [pc, #0x208] ; literal@0x1034B964=0xF00E2AA8
+0x1034B75A: strh      r0, [r2, #0x1c]
+0x1034B75C: ldrh      r1, [r4, #0x12]
+0x1034B75E: ldr       r0, [pc, #0x204] ; literal@0x1034B964=0xF00E2AA8
+0x1034B760: subs      r6, #0x64
+0x1034B762: subs      r0, #0x8c
+0x1034B764: strh      r1, [r0]
+0x1034B766: ldrh      r1, [r4, #0x14]
+0x1034B768: strh      r1, [r0, #2]
+0x1034B76A: ldrh      r1, [r4, #0x16]
+0x1034B76C: strh      r1, [r0, #4]
+0x1034B76E: ldrh      r1, [r4, #0x18]
+0x1034B770: strh      r1, [r0, #6]
+0x1034B772: ldrh      r0, [r4, #0x24]
+0x1034B774: strh      r0, [r6]
+0x1034B776: ldrh      r0, [r4, #0x26]
+0x1034B778: strh      r0, [r6, #2]
+0x1034B77A: ldrh      r0, [r4, #0x2c]
+0x1034B77C: strh      r0, [r6, #8]
+0x1034B77E: movs      r0, #0x2e
+0x1034B780: ldrb      r0, [r0, r4]
+0x1034B782: strb      r0, [r6, #0x10]
+0x1034B784: ldrh      r0, [r4, #0x32]
+0x1034B786: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B78A: add       r2, sp, #4
+0x1034B78C: add       r1, sp, #8
+0x1034B78E: str       r0, [r6, #0xc]
+0x1034B790: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B794: ldr       r0, [sp, #8]
+0x1034B796: strh      r0, [r6, #4]
+0x1034B798: ldr       r0, [sp, #4]
+0x1034B79A: strh      r0, [r6, #6]
+0x1034B79C: ldrh      r0, [r4, #0x34]
+0x1034B79E: adds      r6, #0x14
+0x1034B7A0: strh      r0, [r6]
+0x1034B7A2: ldrh      r0, [r4, #0x36]
+0x1034B7A4: strh      r0, [r6, #2]
+0x1034B7A6: ldrh      r0, [r4, #0x3e]
+0x1034B7A8: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7AC: str       r0, [r6, #8]
+0x1034B7AE: ldrh      r0, [r5]
+0x1034B7B0: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7B4: str       r0, [r6, #0xc]
+0x1034B7B6: ldrh      r0, [r4, #0x38]
+0x1034B7B8: movs      r7, r6
+0x1034B7BA: adds      r7, #0x94
+0x1034B7BC: strh      r0, [r6, #4]
+0x1034B7BE: ldrh      r0, [r4, #0x3a]
+0x1034B7C0: strh      r0, [r6, #6]
+0x1034B7C2: ldrh      r0, [r5, #2]
+0x1034B7C4: strh      r0, [r7, #0x14]
+0x1034B7C6: ldrh      r0, [r5, #4]
+0x1034B7C8: strh      r0, [r7, #0x16]
+0x1034B7CA: ldrh      r0, [r5, #8]
+0x1034B7CC: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7D0: str       r0, [r7, #0x1c]
+0x1034B7D2: ldrh      r0, [r5, #8]
+0x1034B7D4: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7D8: str       r0, [r7, #0x20]
+0x1034B7DA: ldrh      r0, [r5, #0xa]
+0x1034B7DC: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7E0: str       r0, [r7, #0x24]
+0x1034B7E2: ldrh      r0, [r5, #0xc]
+0x1034B7E4: strh      r0, [r7, #0x28]
+0x1034B7E6: ldrh      r0, [r5, #0xe]
+0x1034B7E8: strh      r0, [r7, #0x2a]
+0x1034B7EA: ldrh      r0, [r5, #0x10]
+0x1034B7EC: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7F0: str       r0, [r7, #0x30]
+0x1034B7F2: ldrh      r0, [r5, #0x10]
+0x1034B7F4: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B7F8: str       r0, [r7, #0x34]
+0x1034B7FA: ldrh      r0, [r5, #0x12]
+0x1034B7FC: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B800: str       r0, [r7, #0x38]
+0x1034B802: ldrh      r0, [r5, #0x14]
+0x1034B804: strh      r0, [r7]
+0x1034B806: ldrh      r0, [r5, #0x16]
+0x1034B808: strh      r0, [r7, #2]
+0x1034B80A: ldrh      r0, [r5, #0x18]
+0x1034B80C: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B810: str       r0, [r7, #8]
+0x1034B812: ldrh      r0, [r5, #0x18]
+0x1034B814: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B818: str       r0, [r7, #0xc]
+0x1034B81A: ldrh      r0, [r5, #0x1a]
+0x1034B81C: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B820: str       r0, [r7, #0x10]
+0x1034B822: ldrh      r0, [r5, #0x1c]
+0x1034B824: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B828: subs      r6, #0x70
+0x1034B82A: str       r0, [r6, #0x1c]
+0x1034B82C: ldrh      r0, [r5, #0x1e]
+0x1034B82E: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B832: str       r0, [r6, #0x20]
+0x1034B834: ldr       r0, [r7, #0x10]
+0x1034B836: add       r2, sp, #4
+0x1034B838: add       r1, sp, #8
+0x1034B83A: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B83E: ldr       r1, [sp, #8]
+0x1034B840: strh      r1, [r7, #4]
+0x1034B842: ldr       r2, [sp, #4]
+0x1034B844: subs      r1, r1, #1
+0x1034B846: strh      r2, [r7, #6]
+0x1034B848: ldrh      r3, [r7]
+0x1034B84A: subs      r2, r2, #1
+0x1034B84C: strh      r3, [r6, #6]
+0x1034B84E: ldrh      r0, [r7, #2]
+0x1034B850: adds      r1, r3, r1
+0x1034B852: strh      r0, [r6, #8]
+0x1034B854: adds      r0, r0, r2
+0x1034B856: strh      r1, [r6, #0xa]
+0x1034B858: strh      r0, [r6, #0xc]
+0x1034B85A: movs      r6, #1
+0x1034B85C: ldrh      r0, [r5, #6]
+0x1034B85E: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B862: add       r2, sp, #4
+0x1034B864: add       r1, sp, #8
+0x1034B866: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B86A: movs      r0, #0x14
+0x1034B86C: ldr       r2, [pc, #0xf4] ; literal@0x1034B964=0xF00E2AA8
+0x1034B86E: muls      r0, r6, r0
+0x1034B870: ldr       r1, [sp, #8]
+0x1034B872: adds      r2, #0x44
+0x1034B874: adds      r3, r0, r2
+0x1034B876: strh      r1, [r3, #4]
+0x1034B878: ldr       r7, [sp, #4]
+0x1034B87A: mov       ip, r1
+0x1034B87C: strh      r7, [r3, #6]
+0x1034B87E: ldrsh     r1, [r2, r0]
+0x1034B880: subs      r2, #0xff
+0x1034B882: subs      r2, #5
+0x1034B884: movs      r0, #6
+0x1034B886: ldrsh     r0, [r2, r0]
+0x1034B888: cmp       r1, r0
+0x1034B88A: bge       #0x1034b88e ; target=0x1034B88E
+0x1034B88C: strh      r1, [r2, #6]
+0x1034B88E: movs      r0, #2
+0x1034B890: ldrsh     r0, [r3, r0]
+0x1034B892: movs      r3, #8
+0x1034B894: ldrsh     r3, [r2, r3]
+0x1034B896: cmp       r0, r3
+0x1034B898: bge       #0x1034b89c ; target=0x1034B89C
+0x1034B89A: strh      r0, [r2, #8]
+0x1034B89C: mov       r3, ip
+0x1034B89E: subs      r3, r3, #1
+0x1034B8A0: adds      r1, r1, r3
+0x1034B8A2: movs      r3, #0xa
+0x1034B8A4: ldrsh     r3, [r2, r3]
+0x1034B8A6: cmp       r1, r3
+0x1034B8A8: ble       #0x1034b8ac ; target=0x1034B8AC
+0x1034B8AA: strh      r1, [r2, #0xa]
+0x1034B8AC: movs      r1, #0xc
+0x1034B8AE: ldrsh     r1, [r2, r1]
+0x1034B8B0: subs      r7, r7, #1
+0x1034B8B2: adds      r0, r0, r7
+0x1034B8B4: cmp       r0, r1
+0x1034B8B6: ble       #0x1034b8ba ; target=0x1034B8BA
+0x1034B8B8: strh      r0, [r2, #0xc]
+0x1034B8BA: adds      r6, r6, #1
+0x1034B8BC: cmp       r6, #5
+0x1034B8BE: blt       #0x1034b85c ; target=0x1034B85C
+0x1034B8C0: adds      r4, #0x60
+0x1034B8C2: ldrh      r0, [r4, #6]
+0x1034B8C4: ldr       r5, [pc, #0x9c] ; literal@0x1034B964=0xF00E2AA8
+0x1034B8C6: subs      r5, #0x40
+0x1034B8C8: strh      r0, [r5]
+0x1034B8CA: ldrh      r0, [r4, #8]
+0x1034B8CC: strh      r0, [r5, #2]
+0x1034B8CE: ldrh      r0, [r4, #0xa]
+0x1034B8D0: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8D4: str       r0, [r5, #8]
+0x1034B8D6: ldrh      r0, [r4, #0xc]
+0x1034B8D8: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8DC: str       r0, [r5, #0xc]
+0x1034B8DE: ldrh      r0, [r4, #0xe]
+0x1034B8E0: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8E4: str       r0, [r5, #0x10]
+0x1034B8E6: ldrh      r0, [r4, #0x10]
+0x1034B8E8: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8EC: str       r0, [r5, #0x14]
+0x1034B8EE: ldrh      r0, [r4, #0x12]
+0x1034B8F0: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8F4: str       r0, [r5, #0x18]
+0x1034B8F6: ldrh      r0, [r4, #0x14]
+0x1034B8F8: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B8FC: str       r0, [r5, #0x1c]
+0x1034B8FE: movs      r0, r5
+0x1034B900: movs      r6, #0
+0x1034B902: adds      r0, #0x20
+0x1034B904: strb      r6, [r0]
+0x1034B906: ldr       r0, [r5, #8]
+0x1034B908: add       r2, sp, #4
+0x1034B90A: add       r1, sp, #8
+0x1034B90C: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B910: ldr       r0, [sp, #8]
+0x1034B912: strh      r0, [r5, #4]
+0x1034B914: ldr       r0, [sp, #4]
+0x1034B916: strh      r0, [r5, #6]
+0x1034B918: ldrh      r0, [r4, #0x16]
+0x1034B91A: adds      r5, #0x24
+0x1034B91C: strh      r0, [r5]
+0x1034B91E: ldrh      r0, [r4, #0x18]
+0x1034B920: strh      r0, [r5, #2]
+0x1034B922: ldrh      r0, [r4, #0x1a]
+0x1034B924: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B928: str       r0, [r5, #8]
+0x1034B92A: ldrh      r0, [r4, #0x1c]
+0x1034B92C: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B930: str       r0, [r5, #0xc]
+0x1034B932: ldrh      r0, [r4, #0x1e]
+0x1034B934: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B938: str       r0, [r5, #0x10]
+0x1034B93A: ldr       r0, [sp, #0xc]
+0x1034B93C: ldrh      r0, [r0]
+0x1034B93E: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B942: str       r0, [r5, #0x14]
+0x1034B944: strb      r6, [r5, #0x18]
+0x1034B946: ldr       r0, [r5, #8]
+0x1034B948: add       r2, sp, #4
+0x1034B94A: add       r1, sp, #8
+0x1034B94C: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B950: ldr       r0, [sp, #8]
+0x1034B952: strh      r0, [r5, #4]
+0x1034B954: ldr       r0, [sp, #4]
+0x1034B956: strh      r0, [r5, #6]
+0x1034B958: add       sp, #0x14
+0x1034B95A: pop       {r4, r5, r6, r7, pc}
+LINEAR_RETURN=0x1034B95A insns=357
+
+========================================================================================================================
+C. REVERSE DIRECT CALLERS OF 0x1034B644
+========================================================================================================================
+direct_callers=1
+ALICE callsite=0x10348570 raw=0x1034B644 via=DIRECT r0_immediate=UNKNOWN
+  0x10348540: bgt       #0x103484a0 ; target=0x103484A0
+  0x10348542: b.w       #0x10752f66 ; target=0x10752F66
+  0x10348546: bl        #0x103483ba ; target=0x103483BA
+  0x1034854A: blx       #0x102fd1fc ; target=0xF02E18BC[ARM_VENEER->THUMB]
+  0x1034854E: pop       {r4, pc}
+  0x10348550: push      {r3, r4, r5, r6, r7, lr}
+  0x10348552: movs      r6, r1
+  0x10348554: movs      r7, r2
+  0x10348556: movs      r5, r3
+  0x10348558: blx       #0x102fd524 ; target=0xF02E266C[ARM_VENEER->THUMB]
+  0x1034855C: ldr       r1, [pc, #0x68] ; literal=0xF00BADAC
+  0x1034855E: ldr       r4, [pc, #0x6c] ; literal=0xF00E29E8
+  0x10348560: str       r0, [r1]
+  0x10348562: ldrb      r0, [r4, #1]
+  0x10348564: cmp       r0, #0
+  0x10348566: beq       #0x1034856e ; target=0x1034856E
+  0x10348568: ldrb      r0, [r4, #3]
+  0x1034856A: cmp       r0, r5
+  0x1034856C: beq       #0x1034857e ; target=0x1034857E
+  0x1034856E: movs      r0, r5
+  0x10348570: bl        #0x1034b644 ; target=0x1034B644 <CALL>
+  0x10348574: movs      r0, #1
+  0x10348576: strb      r5, [r4, #3]
+  0x10348578: strb      r0, [r4, #1]
+  0x1034857A: movs      r0, #0
+  0x1034857C: strb      r0, [r4, #2]
+  0x1034857E: bl        #0x102d95c8 ; target=0x102D95C8
+  0x10348582: bl        #0x1030ad88 ; target=0x1030AD88
+  0x10348586: bl        #0x1030ad92 ; target=0x1030AD92
+
+========================================================================================================================
+D. POINTER OCCURRENCES OF CONSUMER
+========================================================================================================================
+ptr=0x1034B645 occurrences=0
+ptr=0x1034B644 occurrences=0
+
+========================================================================================================================
+E. 0xA0 RECORD SUMMARIES
+========================================================================================================================
+record[00] base=0xF03BB8F8 rgb0=(248, 248, 248) rgb1=(0, 0, 0)
+  u16: +0x04=0x8927 +0x06=0x8928 +0x1A=0x0000 +0x1C=0x0000 +0x1E=0x0080 +0x20=0x0014 +0x22=0x8923 +0x24=0x0063 +0x26=0x0080 +0x30=0x8925 +0x34=0x0009 +0x36=0x005B +0x38=0x006E +0x3A=0x0003 +0x3C=0x892B +0x46=0x8926
+  FOCUS: +0x04=0x8927 +0x06=0x8928 +0x22=0x8923 +0x30=0x8925 +0x3C=0x892B
+record[01] base=0xF03BB998 rgb0=(43, 175, 42) rgb1=(48, 166, 5)
+  u16: +0x04=0x2037 +0x06=0x01A4 +0x1A=0x0000 +0x1C=0x0000 +0x1E=0x0000 +0x20=0x0000 +0x22=0x0000 +0x24=0x0000 +0x26=0x6161 +0x30=0x186D +0x34=0x6112 +0x36=0x1973 +0x38=0x7961 +0x3A=0x611A +0x3C=0x1B7A +0x46=0x621E
+record[02] base=0xF03BBA38 rgb0=(52, 104, 101) rgb1=(114, 54, 104)
+  u16: +0x04=0x6968 +0x06=0x6835 +0x1A=0x3B6B +0x1C=0x7369 +0x1E=0x693C +0x20=0x0274 +0x22=0x7569 +0x24=0x6A3D +0x26=0x3E61 +0x30=0x6B41 +0x34=0x6D6B +0x36=0x6B43 +0x38=0x446E +0x3A=0x6F6B +0x3C=0x6B45 +0x46=0x616C
+record[03] base=0xF03BBAD8 rgb0=(114, 117, 19) rgb1=(100, 115, 100)
+  u16: +0x04=0x6377 +0x06=0x6173 +0x1A=0x736A +0x1C=0x6B6D +0x1E=0x6E73 +0x20=0x736C +0x22=0x6D6F +0x24=0x7173 +0x26=0x736E +0x30=0x7573 +0x34=0x0676 +0x36=0x7773 +0x38=0x7473 +0x3A=0x7461 +0x3C=0x6574 +0x46=0x7869
+record[04] base=0xF03BBB78 rgb0=(76, 0, 52) rgb1=(163, 0, 86)
+  u16: +0x04=0x006D +0x06=0x003A +0x1A=0x003A +0x1C=0x00A3 +0x1E=0x0056 +0x20=0x00D9 +0x22=0x0073 +0x24=0x0037 +0x26=0x0029 +0x30=0x00A3 +0x34=0x00D9 +0x36=0x0073 +0x38=0x0037 +0x3A=0x0029 +0x3C=0x0500 +0x46=0x102C
+record[05] base=0xF03BBC18 rgb0=(13, 43, 44) rgb1=(13, 43, 44)
+  u16: +0x04=0x2B0D +0x06=0x102C +0x1A=0x102C +0x1C=0x3A31 +0x1E=0x102C +0x20=0x3919 +0x22=0x102C +0x24=0x2AFD +0x26=0x102C +0x30=0x2AFD +0x34=0x3801 +0x36=0x102C +0x38=0x2AFD +0x3A=0x102C +0x3C=0x2AFD +0x46=0x102C
+record[06] base=0xF03BBCB8 rgb0=(33, 66, 42) rgb1=(33, 66, 42)
+  u16: +0x04=0x4221 +0x06=0x102A +0x1A=0x102A +0x1C=0x4221 +0x1E=0x102A +0x20=0x4221 +0x22=0x102A +0x24=0x66A1 +0x26=0x102A +0x30=0x4221 +0x34=0x4221 +0x36=0x102A +0x38=0x4221 +0x3A=0x102A +0x3C=0x4221 +0x46=0x102A
+record[07] base=0xF03BBD58 rgb0=(150, 0, 75) rgb1=(2, 0, 0)
+  u16: +0x04=0xA400 +0x06=0x0004 +0x1A=0x0096 +0x1C=0x0064 +0x1E=0x004B +0x20=0x2A66 +0x22=0x0002 +0x24=0x0002 +0x26=0x0000 +0x30=0x0004 +0x34=0x00C8 +0x36=0x0096 +0x38=0x0064 +0x3A=0x004B +0x3C=0x2A66 +0x46=0x0000
+record[08] base=0xF03BBDF8 rgb0=(222, 51, 185) rgb1=(22, 63, 205)
+  u16: +0x04=0x398C +0x06=0x3C56 +0x1A=0x55F4 +0x1C=0x5842 +0x1E=0x5A81 +0x20=0x5CB3 +0x22=0x5ED6 +0x24=0x60EB +0x26=0x62F1 +0x30=0x6C23 +0x34=0x6F5E +0x36=0x70E1 +0x38=0x7254 +0x3A=0x73B5 +0x3C=0x7503 +0x46=0x7A7C
+record[09] base=0xF03BBE98 rgb0=(66, 88, 244) rgb1=(191, 78, 63)
+  u16: +0x04=0x539A +0x06=0x5133 +0x1A=0x36B9 +0x1C=0x33DE +0x1E=0x30FB +0x20=0x2E10 +0x22=0x2B1E +0x24=0x2826 +0x26=0x2527 +0x30=0x15E1 +0x34=0x0FAB +0x36=0x0C8B +0x38=0x096A +0x3A=0x0647 +0x3C=0x0324 +0x46=0xF375
+record[10] base=0xF03BBF38 rgb0=(149, 136, 125) rgb1=(164, 132, 215)
+  u16: +0x04=0x8677 +0x06=0x8584 +0x1A=0x8029 +0x1C=0x800B +0x1E=0x8001 +0x20=0x800B +0x22=0x8029 +0x24=0x805A +0x26=0x809F +0x30=0x831E +0x34=0x84A4 +0x36=0x8584 +0x38=0x8677 +0x3A=0x877D +0x3C=0x8895 +0x46=0x8F1F
+record[11] base=0xF03BBFD8 rgb0=(154, 1, 0) rgb1=(18, 1, 0)
+  u16: +0x04=0x012A +0x06=0x0000 +0x1A=0x0000 +0x1C=0x004B +0x1E=0x0000 +0x20=0x0045 +0x22=0x0000 +0x24=0x1F40 +0x26=0x0000 +0x30=0x3E80 +0x34=0x5622 +0x36=0x0000 +0x38=0x5DC0 +0x3A=0x0000 +0x3C=0x7D00 +0x46=0x0000
+record[12] base=0xF03BC078 rgb0=(197, 5, 0) rgb1=(185, 4, 0)
+  u16: +0x04=0x0354 +0x06=0x0000 +0x1A=0x0000 +0x1C=0x03AD +0x1E=0x0000 +0x20=0x04B9 +0x22=0x0000 +0x24=0x03AD +0x26=0x0000 +0x30=0x0661 +0x34=0x0302 +0x36=0x0000 +0x38=0x0661 +0x3A=0x0000 +0x3C=0x0354 +0x46=0x0000
+record[13] base=0xF03BC118 rgb0=(65, 24, 60) rgb1=(86, 24, 60)
+  u16: +0x04=0x1D2A +0x06=0xF03C +0x1A=0xF03C +0x1C=0x1E08 +0x1E=0xF03C +0x20=0x1DF5 +0x22=0xF03C +0x24=0x180A +0x26=0xF03C +0x30=0x1D88 +0x34=0x1DA2 +0x36=0xF03C +0x38=0x1D91 +0x3A=0xF03C +0x3C=0x1C5D +0x46=0xF03C
+record[14] base=0xF03BC1B8 rgb0=(14, 32, 60) rgb1=(180, 29, 60)
+  u16: +0x04=0x1B21 +0x06=0xF03C +0x1A=0xF023 +0x1C=0x19F0 +0x1E=0xF03C +0x20=0xCA40 +0x22=0xF023 +0x24=0x9100 +0x26=0x72E3 +0x30=0x9809 +0x34=0x8D1C +0x36=0x6EFF +0x38=0x8A1B +0x3A=0x69F8 +0x3C=0x8312 +0x46=0x4ADB
+record[15] base=0xF03BC258 rgb0=(93, 204, 190) rgb1=(231, 118, 4)
+  u16: +0x04=0x71E0 +0x06=0x9203 +0x1A=0x8918 +0x1C=0x63F2 +0x1E=0x8011 +0x20=0x64F5 +0x22=0x8716 +0x24=0x49D8 +0x26=0xAA3B +0x30=0x40D1 +0x34=0x55C4 +0x36=0xB627 +0x38=0x52C3 +0x3A=0xB120 +0x3C=0x5BCA +0x46=0xE273
+
+========================================================================================================================
+F. FOCUS ID OCCURRENCES WITHIN 0xA0 RECORDS
+========================================================================================================================
+focus_occurrences=8
+record[00] +0x04 = 0x8927
+record[00] +0x06 = 0x8928
+record[00] +0x22 = 0x8923
+record[00] +0x30 = 0x8925
+record[00] +0x32 = 0x8929
+record[00] +0x3C = 0x892B
+record[00] +0x3E = 0x8924
+record[00] +0x40 = 0x892B
+
+========================================================================================================================
+G. HELPER SEMANTIC PROFILES
+========================================================================================================================
+HELPER_F02E67A8: root=0xF02E67A8 funcs=1 calls=3 strings=0 focus=0
+HELPER_F02E1A04: root=0xF02E1A04 funcs=1 calls=0 strings=0 focus=0
+HELPER_F022A298: root=0xF022A298 funcs=1 calls=0 strings=0 focus=0
+
+========================================================================================================================
+H. HELPER REVERSE CALL COUNTS
+========================================================================================================================
+F02E67A8 direct_callers=112
+  ALICE 0x102E5626
+  ALICE 0x102E5636
+  ALICE 0x102E57B6
+  ALICE 0x102E57FC
+  ALICE 0x102EBCC2
+  ALICE 0x102F24F0
+  ALICE 0x10315CE0
+  ALICE 0x1031DA32
+  ALICE 0x103336FC
+  ALICE 0x1033370A
+  ALICE 0x1033371A
+  ALICE 0x10333728
+  ALICE 0x10335BC4
+  ALICE 0x1033A4A4
+  ALICE 0x1033A51A
+  ALICE 0x1033C100
+  ALICE 0x1033F000
+  ALICE 0x1033F210
+  ALICE 0x10345E62
+  ALICE 0x10345E6C
+  ALICE 0x10345E74
+  ALICE 0x10345E7C
+  ALICE 0x10345EE2
+  ALICE 0x10345EEA
+  ALICE 0x10345F16
+  ALICE 0x10345F1E
+  ALICE 0x10345F70
+  ALICE 0x10345F78
+  ALICE 0x10345FA6
+  ALICE 0x10345FAE
+  ALICE 0x10345FD8
+  ALICE 0x10345FE0
+  ALICE 0x1034600E
+  ALICE 0x10346016
+  ALICE 0x10346042
+  ALICE 0x1034604A
+  ALICE 0x10346052
+  ALICE 0x1034605A
+  ALICE 0x1034B224
+  ALICE 0x1034B664
+  ALICE 0x1034B67C
+  ALICE 0x1034B694
+  ALICE 0x1034B6C6
+  ALICE 0x1034B6CE
+  ALICE 0x1034B6D6
+  ALICE 0x1034B786
+  ALICE 0x1034B7A8
+  ALICE 0x1034B7B0
+  ALICE 0x1034B7CC
+  ALICE 0x1034B7D4
+  ... truncated
+F02E1A04 direct_callers=64
+  ALICE 0x102EB5E6
+  ALICE 0x10331C2C
+  ALICE 0x103323A2
+  ALICE 0x1033C2D8
+  ALICE 0x1033CC30
+  ALICE 0x1033CCA6
+  ALICE 0x10340E8E
+  ALICE 0x103454D6
+  ALICE 0x103454E2
+  ALICE 0x1034A922
+  ALICE 0x1034B6E2
+  ALICE 0x1034B6FA
+  ALICE 0x1034EFB4
+  ALICE 0x1034F096
+  ALICE 0x1036935A
+  ALICE 0x10369366
+  ALICE 0x1036BF9E
+  ALICE 0x103761DC
+  ALICE 0x103761FC
+  ALICE 0x1037783E
+  ALICE 0x10377856
+  ALICE 0x1037786E
+  ALICE 0x10377896
+  ALICE 0x103778BE
+  ALICE 0x10377A5A
+  ALICE 0x10377A72
+  ALICE 0x1038DF0E
+  ALICE 0x103A172A
+  ALICE 0x103A3356
+  ALICE 0x103A3364
+  ALICE 0x103A3866
+  ALICE 0x103A38A2
+  ALICE 0x103A3AE2
+  ALICE 0x103A4212
+  ALICE 0x103A425A
+  ZIMAGE 0xF02F0C0A
+  ZIMAGE 0xF02FFC74
+  ZIMAGE 0xF02FFC9A
+  ZIMAGE 0xF02FFCB8
+  ZIMAGE 0xF02FFCC6
+  ZIMAGE 0xF02FFCEA
+  ZIMAGE 0xF02FFCF8
+  ZIMAGE 0xF02FFD16
+  ZIMAGE 0xF02FFD3E
+  ZIMAGE 0xF0305D80
+  ZIMAGE 0xF0305D8E
+  ZIMAGE 0xF0305DB4
+  ZIMAGE 0xF0305DC2
+  ZIMAGE 0xF0305DE0
+  ZIMAGE 0xF0305E04
+  ... truncated
+F022A298 direct_callers=30
+  ALICE 0x102EB81E
+  ALICE 0x102EB828
+  ALICE 0x103144C6
+  ALICE 0x103145C8
+  ALICE 0x103289C4
+  ALICE 0x1033A476
+  ALICE 0x1033A93A
+  ALICE 0x1033F21A
+  ALICE 0x1034A644
+  ALICE 0x1034B6A6
+  ALICE 0x1034B790
+  ALICE 0x1034B83A
+  ALICE 0x1034B866
+  ALICE 0x1034B90C
+  ALICE 0x1034B94C
+  ALICE 0x1034BCA4
+  ALICE 0x1034BD1E
+  ALICE 0x10359032
+  ALICE 0x1036A078
+  ALICE 0x1036A088
+  ALICE 0x103776DE
+  ALICE 0x10377700
+  ALICE 0x1037779E
+  ALICE 0x1037792E
+  ALICE 0x10392E2A
+  ZIMAGE 0xF02DDB90
+  ZIMAGE 0xF02F2854
+  ZIMAGE 0xF02F2B4C
+  ZIMAGE 0xF02F3710
+  ZIMAGE 0xF0307EDE
+
+========================================================================================================================
+I. LOCAL 0x89xx DIFFERENTIAL
+========================================================================================================================
+record[00] 89xx_fields=+0x04=0x8927, +0x06=0x8928, +0x22=0x8923, +0x30=0x8925, +0x3C=0x892B, +0x46=0x8926
+record[01] 89xx_fields=NONE
+record[02] 89xx_fields=NONE
+record[03] 89xx_fields=NONE
+record[04] 89xx_fields=NONE
+record[05] 89xx_fields=NONE
+record[06] 89xx_fields=NONE
+record[07] 89xx_fields=NONE
+record[08] 89xx_fields=NONE
+record[09] 89xx_fields=NONE
+record[10] 89xx_fields=NONE
+record[11] 89xx_fields=NONE
+
+========================================================================================================================
+J. DECISION GATE
+========================================================================================================================
+caller_immediate_indexes=NONE
+base=0xF03BB8F8 stride=0xA0
+consumer computes r4 = base + r0*0xA0, then reads byte triplets and many 16-bit fields.
+record0 contains 0x8927 at +0x04 and 0x8928 at +0x06.
+FACT: 0x1034B644 is a real indexed consumer of a 0xA0-byte record array rooted at F03BB8F8.
+This supersedes interpreting F03BB8F8 itself as a 12-byte launcher-row pointer.
+The 0x89xx values must be classified through helper F02E67A8 and caller context before treating them as launcher IDs.
+NEXT: trace the strongest caller(s) of 1034B644 and classify helper F02E67A8 return semantics; if this is UI/theme data, pivot away from F03BB8xx and back to the 86C0/8928 registry/owner path.
+
+========================================================================================================
+EXIT CODE = 0
+FINISH UTC = 2026-10-07T10:25:01.667065+00:00
+========================================================================================================
