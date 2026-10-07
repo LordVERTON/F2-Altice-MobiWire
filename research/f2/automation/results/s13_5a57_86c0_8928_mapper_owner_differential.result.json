@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a57_86c0_8928_mapper_owner_differential",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a57_86c0_8928_mapper_owner_differential.py",
+  "script_sha256": "95faeb05f425fa789c004db75809e648169d6417e0005ea735cd03058475fc38",
+  "manifest": "research/f2/automation/manifests/s13_5a57_86c0_8928_mapper_owner_differential.job.json",
+  "report": "research/f2/work/reports/s13_5a57_86c0_8928_mapper_owner_differential.txt",
+  "notion_page_id": "3f2173c5-7e04-8153-ac83-e14ec5522ace",
+  "started_utc": "2026-10-07T14:25:52.649797+00:00",
+  "finished_utc": "2026-10-07T14:27:06.976353+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "28866aecc31a400b1ca78db7dfaf14c4e0c0540f"
+}

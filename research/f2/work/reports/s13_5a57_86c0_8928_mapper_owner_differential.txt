@@ -1,0 +1,544 @@
+========================================================================================================
+F2 AUTOMATION NOTION WORKER
+========================================================================================================
+JOB ID = s13_5a57_86c0_8928_mapper_owner_differential
+NOTION PAGE ID = 3f2173c5-7e04-8153-ac83-e14ec5522ace
+SCRIPT SHA256 = 95faeb05f425fa789c004db75809e648169d6417e0005ea735cd03058475fc38
+PYTHON = C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH = automate-research
+SAFETY MODE = offline_analysis
+PHONE ACCESS = false
+FLASH WRITE = false
+ERASE = false
+REPACK = false
+START UTC = 2026-10-07T14:25:52.649797+00:00
+========================================================================================================
+========================================================================================================================
+S13.5A.57 - 86C0 / 8928 ROOT-MAPPER OWNER DIFFERENTIAL
+========================================================================================================================
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. PROVEN ROOT_MAPPER CALL CONTEXTS
+========================================================================================================================
+
+8569: owner=0x1035439A load=0x103543A8 root_mapper_call=0x103543AA
+0x1035439A: push      {r4, lr}
+0x1035439C: lsrs      r1, r1, #0x18
+0x1035439E: movs      r2, #1
+0x103543A0: blx       #0x102fb86c ; target=0xF02B2FFC[ARM_VENEER->THUMB]
+0x103543A4: movs      r4, r0
+0x103543A6: beq       #0x103543c6 ; target=0x103543C6
+0x103543A8: ldr       r0, [pc, #0x1c] ; literal@0x103543C8=0x00008569 <ID_LOAD>
+0x103543AA: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x103543AE: movs      r2, r0
+0x103543B0: movs      r1, #0
+0x103543B2: movs      r0, r4
+0x103543B4: blx       #0x102fb87c ; target=0xF02B3088[ARM_VENEER->THUMB]
+0x103543B8: movs      r1, #0
+0x103543BA: movs      r0, r4
+0x103543BC: blx       #0x102fb884 ; target=0xF02B3096[ARM_VENEER->THUMB]
+0x103543C0: movs      r0, r4
+0x103543C2: blx       #0x102fb874 ; target=0xF02B306C[ARM_VENEER->THUMB]
+0x103543C6: pop       {r4, pc}
+0x103543C8: strh      r1, [r5, #0x2a]
+0x103543CA: movs      r0, r0
+0x103543CC: push      {r4, r5, r6, lr}
+0x103543CE: movs      r4, r0
+0x103543D0: movs      r5, r1
+0x103543D2: movs      r6, r2
+0x103543D4: bl        #0x10317e6c ; target=0x10317E6C
+0x103543D8: cmp       r0, #0
+  POST-CALL USE:
+  0x103543AE: movs      r2, r0
+  0x103543B0: movs      r1, #0
+  0x103543B2: movs      r0, r4
+  0x103543B4: blx       #0x102fb87c ; target=0xF02B3088[ARM_VENEER->THUMB]
+  0x103543B8: movs      r1, #0
+  0x103543BA: movs      r0, r4
+  0x103543BC: blx       #0x102fb884 ; target=0xF02B3096[ARM_VENEER->THUMB]
+  0x103543C0: movs      r0, r4
+  0x103543C2: blx       #0x102fb874 ; target=0xF02B306C[ARM_VENEER->THUMB]
+  0x103543C6: pop       {r4, pc}
+8569: root=0x1035439A funcs=7 calls=19 globals=2 strings=0
+  semantic_strings=0
+
+86C0_A: owner=0x102EBC58 load=0x102EBCBC root_mapper_call=0x102EBCBE
+0x102EBC6E: cmp       r0, #0
+0x102EBC70: beq       #0x102ebca2 ; target=0x102EBCA2
+0x102EBC72: cmp       r0, #1
+0x102EBC74: beq       #0x102ebca8 ; target=0x102EBCA8
+0x102EBC76: cmp       r0, #3
+0x102EBC78: bne       #0x102ebc7e ; target=0x102EBC7E
+0x102EBC7A: movs      r5, #0x28
+0x102EBC7C: movs      r4, #0xcf
+0x102EBC7E: bl        #0x1037cb84 ; target=0x1037CB84
+0x102EBC82: cmp       r7, #1
+0x102EBC84: str       r0, [sp, #0x10]
+0x102EBC86: bne       #0x102ebc8c ; target=0x102EBC8C
+0x102EBC88: bl        #0x1037cd64 ; target=0x1037CD64
+0x102EBC8C: bl        #0x102f2bd0 ; target=0x102F2BD0
+0x102EBC90: cmp       r0, #0
+0x102EBC92: beq       #0x102ebcb4 ; target=0x102EBCB4
+0x102EBC94: bl        #0x102efed0 ; target=0x102EFED0
+0x102EBC98: cmp       r0, #0
+0x102EBC9A: bne       #0x102ebcb4 ; target=0x102EBCB4
+0x102EBC9C: ldr       r6, [pc, #0x44] ; literal@0x102EBCE4=0xF00AECE0
+0x102EBC9E: adds      r6, #0xa
+0x102EBCA0: b         #0x102ebcbc ; target=0x102EBCBC
+0x102EBCA2: movs      r5, #0x99
+0x102EBCA4: movs      r4, #0x1d
+0x102EBCA6: b         #0x102ebc7e ; target=0x102EBC7E
+0x102EBCA8: ldr       r0, [pc, #0x3c] ; literal@0x102EBCE8=0x000086C0
+0x102EBCAA: movs      r5, #0x9d
+0x102EBCAC: movs      r4, #0xcf
+0x102EBCAE: movs      r7, #1
+0x102EBCB0: str       r0, [sp, #0x14]
+0x102EBCB2: b         #0x102ebc7e ; target=0x102EBC7E
+0x102EBCB4: ldr       r0, [pc, #0x30] ; literal@0x102EBCE8=0x000086C0
+0x102EBCB6: bl        #0x10321b40 ; target=0x10321B40
+0x102EBCBA: movs      r6, r0
+0x102EBCBC: ldr       r0, [pc, #0x28] ; literal@0x102EBCE8=0x000086C0 <ID_LOAD>
+0x102EBCBE: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x102EBCC2: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x102EBCC6: ldr       r2, [sp, #0x18]
+0x102EBCC8: ldr       r1, [sp, #0x10]
+0x102EBCCA: str       r2, [sp, #0xc]
+0x102EBCCC: ldr       r2, [sp, #0x14]
+0x102EBCCE: str       r1, [sp, #8]
+0x102EBCD0: movs      r1, r0
+0x102EBCD2: str       r2, [sp]
+0x102EBCD4: movs      r2, r5
+0x102EBCD6: movs      r0, r6
+0x102EBCD8: movs      r3, r4
+0x102EBCDA: str       r7, [sp, #4]
+0x102EBCDC: bl        #0x1037da80 ; target=0x1037DA80
+0x102EBCE0: add       sp, #0x1c
+0x102EBCE2: pop       {r4, r5, r6, r7, pc}
+0x102EBCE4: stcl      p0, c15, [r0], #0x28
+0x102EBCE8: strh      r0, [r0, #0x36]
+0x102EBCEA: movs      r0, r0
+0x102EBCEC: push      {r0, r1, r2, r4, r5, r6, r7, lr}
+  POST-CALL USE:
+  0x102EBCC2: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+  0x102EBCC6: ldr       r2, [sp, #0x18]
+  0x102EBCC8: ldr       r1, [sp, #0x10]
+  0x102EBCCA: str       r2, [sp, #0xc]
+  0x102EBCCC: ldr       r2, [sp, #0x14]
+  0x102EBCCE: str       r1, [sp, #8]
+  0x102EBCD0: movs      r1, r0
+  0x102EBCD2: str       r2, [sp]
+  0x102EBCD4: movs      r2, r5
+  0x102EBCD6: movs      r0, r6
+  0x102EBCD8: movs      r3, r4
+  0x102EBCDA: str       r7, [sp, #4]
+  0x102EBCDC: bl        #0x1037da80 ; target=0x1037DA80
+  0x102EBCE0: add       sp, #0x1c
+  0x102EBCE2: pop       {r4, r5, r6, r7, pc}
+86C0_A: root=0x102EBC58 funcs=37 calls=88 globals=50 strings=0
+  semantic_strings=0
+
+86C0_B: owner=0x1037CA64 load=0x1037CA8A root_mapper_call=0x1037CA8C
+0x1037CA64: push      {r4, lr}
+0x1037CA66: movs      r4, r0
+0x1037CA68: ldrh      r0, [r0]
+0x1037CA6A: ldr       r1, [pc, #0x68] ; literal@0x1037CAD4=0xFFFF9CEF
+0x1037CA6C: adds      r3, r0, r1
+0x1037CA6E: blx       #0x10015bd4 ; target=0x10015BD4
+0x1037CA72: lsls      r7, r0, #0x14
+0x1037CA74: adds      r7, r5, r4
+0x1037CA76: cmp       r7, #0x23
+0x1037CA78: cmp       r4, #0x23
+0x1037CA7A: movs      r7, r5
+0x1037CA7C: ldrh      r0, [r4, #0xa]
+0x1037CA7E: ldr       r1, [pc, #0x58] ; literal@0x1037CAD8=0xFFFF793B
+0x1037CA80: adds      r0, r0, r1
+0x1037CA82: bne       #0x1037cad0 ; target=0x1037CAD0
+0x1037CA84: ldrh      r0, [r4, #8]
+0x1037CA86: bl        #0x1037fbc4 ; target=0x1037FBC4
+0x1037CA8A: ldr       r0, [pc, #0x50] ; literal@0x1037CADC=0x000086C0 <ID_LOAD>
+0x1037CA8C: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x1037CA90: ldrh      r2, [r4, #8]
+0x1037CA92: movs      r1, r0
+0x1037CA94: movs      r0, r2
+0x1037CA96: bl        #0x10314e02 ; target=0x10314E02
+0x1037CA9A: ldrh      r0, [r4, #8]
+0x1037CA9C: movs      r1, #0x96
+0x1037CA9E: bl        #0x1030f7b0 ; target=0x1030F7B0
+0x1037CAA2: b         #0x1037cad0 ; target=0x1037CAD0
+0x1037CAA4: ldrh      r0, [r4, #0xc]
+0x1037CAA6: ldr       r1, [pc, #0x34] ; literal@0x1037CADC=0x000086C0
+0x1037CAA8: adds      r1, r1, #6
+0x1037CAAA: cmp       r0, r1
+0x1037CAAC: bne       #0x1037cad0 ; target=0x1037CAD0
+0x1037CAAE: ldr       r0, [pc, #0x30] ; literal@0x1037CAE0=0x10385FFD
+0x1037CAB0: movs      r1, #1
+0x1037CAB2: bl        #0x1031f71a ; target=0x1031F71A
+0x1037CAB6: b         #0x1037cad0 ; target=0x1037CAD0
+0x1037CAB8: ldrh      r0, [r4, #0xa]
+0x1037CABA: ldr       r1, [pc, #0x20] ; literal@0x1037CADC=0x000086C0
+  POST-CALL USE:
+  0x1037CA90: ldrh      r2, [r4, #8]
+  0x1037CA92: movs      r1, r0
+  0x1037CA94: movs      r0, r2
+  0x1037CA96: bl        #0x10314e02 ; target=0x10314E02
+  0x1037CA9A: ldrh      r0, [r4, #8]
+  0x1037CA9C: movs      r1, #0x96
+  0x1037CA9E: bl        #0x1030f7b0 ; target=0x1030F7B0
+  0x1037CAA2: b         #0x1037cad0 ; target=0x1037CAD0
+  0x1037CAA4: ldrh      r0, [r4, #0xc]
+  0x1037CAA6: ldr       r1, [pc, #0x34] ; literal=0x000086C0
+  0x1037CAA8: adds      r1, r1, #6
+  0x1037CAAA: cmp       r0, r1
+  0x1037CAAC: bne       #0x1037cad0 ; target=0x1037CAD0
+  0x1037CAAE: ldr       r0, [pc, #0x30] ; literal=0x10385FFD
+  0x1037CAB0: movs      r1, #1
+  0x1037CAB2: bl        #0x1031f71a ; target=0x1031F71A
+86C0_B: root=0x1037CA64 funcs=22 calls=35 globals=22 strings=1
+  semantic_strings=1
+  TOK=audio,audios func=0x10315384 site=0x10315388 ptr=0xF0348158 ":\Audios\"
+
+86C0_C: owner=0x10382B94 load=0x10382BAA root_mapper_call=0x10382BAC
+0x10382B94: push      {lr}
+0x10382B96: sub       sp, #0x1fc
+0x10382B98: sub       sp, #0x28
+0x10382B9A: bl        #0x102eb10c ; target=0x102EB10C
+0x10382B9E: cmp       r0, #0
+0x10382BA0: beq       #0x10382bba ; target=0x10382BBA
+0x10382BA2: ldr       r1, [pc, #0x1c] ; literal@0x10382BC0=0xF00AECEA
+0x10382BA4: add       r0, sp, #4
+0x10382BA6: bl        #0x102ea79c ; target=0x102EA79C
+0x10382BAA: ldr       r0, [pc, #0x18] ; literal@0x10382BC4=0x000086C0 <ID_LOAD>
+0x10382BAC: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x10382BB0: movs      r2, r0
+0x10382BB2: movs      r1, #0
+0x10382BB4: add       r0, sp, #4
+0x10382BB6: bl        #0x103660c8 ; target=0x103660C8
+0x10382BBA: add       sp, #0x1fc
+0x10382BBC: add       sp, #0x28
+0x10382BBE: pop       {pc}
+0x10382BC0: stcl      p0, c15, [sl], #0x28
+0x10382BC4: strh      r0, [r0, #0x36]
+0x10382BC6: movs      r0, r0
+0x10382BC8: push      {r0, r1, r2, r3, r4, r5, r6, r7, lr}
+0x10382BCA: sub       sp, #0x1fc
+0x10382BCC: sub       sp, #0x48
+0x10382BCE: ldr       r5, [sp, #0x26c]
+0x10382BD0: movs      r7, r0
+0x10382BD2: movs      r6, r1
+0x10382BD4: blx       #0x102fc3bc ; target=0xF0315310[ARM_VENEER->THUMB]
+0x10382BD8: movs      r4, r0
+0x10382BDA: cmp       r5, #0
+  POST-CALL USE:
+  0x10382BB0: movs      r2, r0
+  0x10382BB2: movs      r1, #0
+  0x10382BB4: add       r0, sp, #4
+  0x10382BB6: bl        #0x103660c8 ; target=0x103660C8
+  0x10382BBA: add       sp, #0x1fc
+  0x10382BBC: add       sp, #0x28
+  0x10382BBE: pop       {pc}
+86C0_C: root=0x10382B94 funcs=34 calls=70 globals=26 strings=1
+  semantic_strings=1
+  TOK=audio,audios func=0x10315384 site=0x10315388 ptr=0xF0348158 ":\Audios\"
+
+8928: owner=0x103660C8 load=0x10366100 root_mapper_call=0x10366102
+0x103660C8: push      {r3, r4, r5, r6, r7, lr}
+0x103660CA: movs      r7, r1
+0x103660CC: movs      r5, r2
+0x103660CE: movs      r2, #0xff
+0x103660D0: movs      r1, r0
+0x103660D2: ldr       r0, [pc, #0x94] ; literal@0x10366168=0xF00E2BE4
+0x103660D4: adds      r2, #5
+0x103660D6: blx       #0x102fd11c ; target=0xF02E67C6[ARM_VENEER->THUMB]
+0x103660DA: ldr       r6, [pc, #0x8c] ; literal@0x10366168=0xF00E2BE4
+0x103660DC: movs      r4, r6
+0x103660DE: subs      r4, #0x14
+0x103660E0: str       r7, [r4, #0x10]
+0x103660E2: blx       #0x102fcd54 ; target=0xF02D4E10[ARM_VENEER->THUMB]
+0x103660E6: ldr       r7, [pc, #0x88] ; literal@0x10366170=0x00008B0E
+0x103660E8: ldr       r2, [pc, #0x80] ; literal@0x1036616C=0x1037B329
+0x103660EA: movs      r1, #2
+0x103660EC: movs      r0, r7
+0x103660EE: blx       #0x102fc8ec ; target=0xF02D3644[ARM_VENEER->THUMB]
+0x103660F2: movs      r0, r6
+0x103660F4: bl        #0x1037b1f0 ; target=0x1037B1F0
+0x103660F8: movs      r6, r0
+0x103660FA: bne       #0x10366146 ; target=0x10366146
+0x103660FC: cmp       r5, #0
+0x103660FE: bne       #0x10366108 ; target=0x10366108
+0x10366100: ldr       r0, [pc, #0x70] ; literal@0x10366174=0x00008928 <ID_LOAD>
+0x10366102: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x10366106: movs      r5, r0
+0x10366108: strh      r5, [r4, #6]
+0x1036610A: blx       #0x102fccc4 ; target=0xF02DB55C[ARM_VENEER->THUMB]
+0x1036610E: cmp       r0, #1
+0x10366110: bne       #0x10366122 ; target=0x10366122
+0x10366112: ldr       r1, [pc, #0x64] ; literal@0x10366178=0xF00E2F46
+0x10366114: ldr       r2, [pc, #0x64] ; literal@0x1036617C=0x1034D3F5
+0x10366116: strb      r0, [r1]
+0x10366118: movs      r0, #0xff
+0x1036611A: ldr       r1, [pc, #0x64] ; literal@0x10366180=0x044AA200
+0x1036611C: adds      r0, #3
+0x1036611E: bl        #0x103217ac ; target=0x103217AC
+0x10366122: ldr       r4, [pc, #0x50] ; literal@0x10366174=0x00008928
+0x10366124: movs      r2, #1
+0x10366126: adds      r4, #0x1e
+0x10366128: str       r2, [sp]
+0x1036612A: ldr       r2, [pc, #0x58] ; literal@0x10366184=0x1037B345
+0x1036612C: movs      r1, r4
+0x1036612E: movs      r0, #5
+0x10366130: movs      r3, #0
+  POST-CALL USE:
+  0x10366106: movs      r5, r0
+  0x10366108: strh      r5, [r4, #6]
+  0x1036610A: blx       #0x102fccc4 ; target=0xF02DB55C[ARM_VENEER->THUMB]
+  0x1036610E: cmp       r0, #1
+  0x10366110: bne       #0x10366122 ; target=0x10366122
+  0x10366112: ldr       r1, [pc, #0x64] ; literal=0xF00E2F46
+  0x10366114: ldr       r2, [pc, #0x64] ; literal=0x1034D3F5
+  0x10366116: strb      r0, [r1]
+  0x10366118: movs      r0, #0xff
+  0x1036611A: ldr       r1, [pc, #0x64] ; literal=0x044AA200
+  0x1036611C: adds      r0, #3
+  0x1036611E: bl        #0x103217ac ; target=0x103217AC
+  0x10366122: ldr       r4, [pc, #0x50] ; literal=0x00008928
+  0x10366124: movs      r2, #1
+  0x10366126: adds      r4, #0x1e
+  0x10366128: str       r2, [sp]
+8928: root=0x103660C8 funcs=32 calls=68 globals=24 strings=0
+  semantic_strings=0
+
+========================================================================================================================
+C. REVERSE DIRECT CALLERS OF OWNER FUNCTIONS
+========================================================================================================================
+8569 owner=0x1035439A: direct_callers=0
+86C0_A owner=0x102EBC58: direct_callers=3
+  ALICE 0x10375600 raw=0x102EBC58 via=DIRECT
+0x103755E8: ldc       p9, c4, [sl, #-0x2c]!
+0x103755EC: cmp       r0, r1
+0x103755EE: bne       #0x1037560a ; target=0x1037560A
+0x103755F0: ldrb      r0, [r4, #8]
+0x103755F2: cmp       r0, #0xc
+0x103755F4: bne       #0x1037560a ; target=0x1037560A
+0x103755F6: ldrb      r0, [r6, #7]
+0x103755F8: cmp       r0, #0
+0x103755FA: bne       #0x10375606 ; target=0x10375606
+0x103755FC: bl        #0x1037fa38 ; target=0x1037FA38
+0x10375600: bl        #0x102ebc58 ; target=0x102EBC58 <OWNER_CALL>
+0x10375604: b         #0x1037560a ; target=0x1037560A
+0x10375606: bl        #0x10378f4c ; target=0x10378F4C
+0x1037560A: movs      r0, #0
+0x1037560C: pop       {r4, r5, r6, pc}
+0x1037560E: movs      r0, r0
+  ALICE 0x10378E88 raw=0x102EBC58 via=DIRECT
+0x10378E70: strh      r0, [r6, #0xa]
+0x10378E72: bl        #0x102fef2c ; target=0x102FEF2C
+0x10378E76: b         #0x10378e86 ; target=0x10378E86
+0x10378E78: cmp       r0, #0
+0x10378E7A: beq       #0x10378e86 ; target=0x10378E86
+0x10378E7C: movs      r0, #1
+0x10378E7E: bl        #0x102f2b60 ; target=0x102F2B60
+0x10378E82: bl        #0x1031a92c ; target=0x1031A92C
+0x10378E86: strb      r4, [r6]
+0x10378E88: bl        #0x102ebc58 ; target=0x102EBC58 <OWNER_CALL>
+0x10378E8C: ldr       r0, [pc, #0x58] ; literal@0x10378EE8=0x1037D169
+0x10378E8E: movs      r2, #0
+0x10378E90: movs      r1, #0x12
+0x10378E92: bl        #0x1031e680 ; target=0x1031E680
+0x10378E96: cmp       r7, #0
+  ALICE 0x10378F68 raw=0x102EBC58 via=DIRECT
+0x10378F50: ldrb      r0, [r0, #7]
+0x10378F52: cmp       r0, #0
+0x10378F54: beq       #0x10378f6e ; target=0x10378F6E
+0x10378F56: cmp       r0, #1
+0x10378F58: beq       #0x10378f9c ; target=0x10378F9C
+0x10378F5A: cmp       r0, #3
+0x10378F5C: bne       #0x10378f6c ; target=0x10378F6C
+0x10378F5E: movs      r0, #1
+0x10378F60: bl        #0x1037ccac ; target=0x1037CCAC
+0x10378F64: cmp       r0, #0
+0x10378F66: beq       #0x10378f6c ; target=0x10378F6C
+0x10378F68: bl        #0x102ebc58 ; target=0x102EBC58 <OWNER_CALL>
+0x10378F6C: pop       {r2, r3, r4, pc}
+0x10378F6E: ldr       r4, [pc, #0x44] ; literal@0x10378FB4=0x000086C2
+0x10378F70: movs      r2, #1
+0x10378F72: str       r2, [sp]
+0x10378F74: ldr       r2, [pc, #0x38] ; literal@0x10378FB0=0x1037CA65
+0x10378F76: movs      r1, r4
+86C0_B owner=0x1037CA64: direct_callers=0
+86C0_C owner=0x10382B94: direct_callers=2
+  ALICE 0x1037F846 raw=0x10382B94 via=DIRECT
+0x1037F82E: bl        #0x103163f8 ; target=0x103163F8
+0x1037F832: strb      r5, [r4, #4]
+0x1037F834: ldrb      r0, [r4, #7]
+0x1037F836: strb      r0, [r4, #5]
+0x1037F838: bl        #0x10382a9c ; target=0x10382A9C
+0x1037F83C: movs      r0, #0
+0x1037F83E: pop       {r4, r5, r6, pc}
+0x1037F840: bl        #0x1037fa38 ; target=0x1037FA38
+0x1037F844: b         #0x1037f83c ; target=0x1037F83C
+0x1037F846: bl        #0x10382b94 ; target=0x10382B94 <OWNER_CALL>
+0x1037F84A: b         #0x1037f83c ; target=0x1037F83C
+0x1037F84C: bl        #0x10382964 ; target=0x10382964
+0x1037F850: b         #0x1037f83c ; target=0x1037F83C
+0x1037F852: movs      r0, r0
+0x1037F854: ldrb      r7, [r7, #4]
+  ALICE 0x1038606C raw=0x10382B94 via=DIRECT
+0x10386054: movs      r4, r0
+0x10386056: movs      r5, r1
+0x10386058: blx       #0x102fce5c ; target=0xF02AF6DC[ARM_VENEER->THUMB]
+0x1038605C: cmp       r0, #0
+0x1038605E: beq       #0x10386064 ; target=0x10386064
+0x10386060: bl        #0x102fef2c ; target=0x102FEF2C
+0x10386064: movs      r1, r4
+0x10386066: movs      r0, r5
+0x10386068: blx       #0x102fd09c ; target=0xF02E0ED8[ARM_VENEER->THUMB]
+0x1038606C: bl        #0x10382b94 ; target=0x10382B94 <OWNER_CALL>
+0x10386070: b         #0x10386026 ; target=0x10386026
+0x10386072: movs      r0, r0
+0x10386074: cdp       p0, #0xe, c15, c0, c10, #0
+0x10386078: stcl      p0, c15, [sl], #0x28
+8928 owner=0x103660C8: direct_callers=2
+  ALICE 0x1033EA88 raw=0x103660C8 via=DIRECT
+0x1033EA70: pop       {r4, pc}
+0x1033EA72: movs      r0, r0
+0x1033EA74: vqadd.u32 d1, d13, d19
+0x1033EA78: rev       r2, r7
+0x1033EA7A: movs      r0, r0
+0x1033EA7C: push      {r4, lr}
+0x1033EA7E: movs      r0, #0
+0x1033EA80: bl        #0x102db65c ; target=0x102DB65C
+0x1033EA84: movs      r2, #0
+0x1033EA86: movs      r1, r2
+0x1033EA88: bl        #0x103660c8 ; target=0x103660C8 <OWNER_CALL>
+0x1033EA8C: pop       {r4, pc}
+0x1033EA8E: bx        lr
+0x1033EA90: push      {lr}
+0x1033EA92: sub       sp, #0x1c
+0x1033EA94: add       r0, sp, #4
+0x1033EA96: bl        #0x102db65c ; target=0x102DB65C
+  ALICE 0x10382BB6 raw=0x103660C8 via=DIRECT
+0x10382B9E: cmp       r0, #0
+0x10382BA0: beq       #0x10382bba ; target=0x10382BBA
+0x10382BA2: ldr       r1, [pc, #0x1c] ; literal@0x10382BC0=0xF00AECEA
+0x10382BA4: add       r0, sp, #4
+0x10382BA6: bl        #0x102ea79c ; target=0x102EA79C
+0x10382BAA: ldr       r0, [pc, #0x18] ; literal@0x10382BC4=0x000086C0
+0x10382BAC: bl        #0x10319094 ; target=0x10319094
+0x10382BB0: movs      r2, r0
+0x10382BB2: movs      r1, #0
+0x10382BB4: add       r0, sp, #4
+0x10382BB6: bl        #0x103660c8 ; target=0x103660C8 <OWNER_CALL>
+0x10382BBA: add       sp, #0x1fc
+0x10382BBC: add       sp, #0x28
+0x10382BBE: pop       {pc}
+0x10382BC0: stcl      p0, c15, [sl], #0x28
+0x10382BC4: strh      r0, [r0, #0x36]
+
+========================================================================================================================
+D. 86C0 OWNER-FAMILY UNION VS 8928 OWNER
+========================================================================================================================
+86C0 owner union calls=161 globals=61 strings=1
+8928 owner calls=68 globals=24 strings=0
+shared_calls=63 shared_globals=23
+shared call targets: 0x10015BD4, 0x10016580, 0x100184A8, 0x100189D8, 0x1028C41C, 0x1030533C, 0x1030F3BC, 0x1030F408, 0x1031041C, 0x10315DD4, 0x1031753C, 0x10319094, 0x1031A0EC, 0x1031C8EC, 0x1031E5D0, 0x1031F268, 0x1031F2D2, 0x10320258, 0x10320262, 0x103217AC, 0x1033F36C, 0x1033F504, 0x1033F81C, 0x10340274, 0x10347E2C, 0x1037B1F0, 0xF02105C8, 0xF02168F2, 0xF0217124, 0xF021D256, 0xF02B5C60, 0xF02D1320, 0xF02D1520, 0xF02D1538, 0xF02D17E0, 0xF02D1900, 0xF02D1ED4, 0xF02D3644, 0xF02D42DC, 0xF02D4E10, 0xF02DA02C, 0xF02DB55C, 0xF02DEDD0, 0xF02DF018, 0xF02DF8EC, 0xF02E01B0, 0xF02E0374, 0xF02E0FE4, 0xF02E1028, 0xF02E1850, 0xF02E1A68, 0xF02E2000, 0xF02E266C, 0xF02E4228, 0xF02E469C, 0xF02E67C6, 0xF02F362C, 0xF02F3FCC, 0xF02F5FB8, 0xF02F9D34, 0xF02FBC24, 0xF031A5C8, 0xF031FBCC
+shared globals: 0xF007F022, 0xF007F044, 0xF009731D, 0xF009731E, 0xF0097324, 0xF009732C, 0xF0097330, 0xF0097334, 0xF0097338, 0xF009733C, 0xF0097340, 0xF0097344, 0xF0097348, 0xF009734C, 0xF0097350, 0xF00AD894, 0xF00B7994, 0xF00BD404, 0xF00BD460, 0xF00E2BD0, 0xF00E2BE4, 0xF00E2DF0, 0xF00E2F46
+
+86C0 union semantic strings:
+  TOK=audio,audios func=0x10315384 site=0x10315388 ptr=0xF0348158 ":\Audios\"
+
+8928 semantic strings:
+
+========================================================================================================================
+E. REGISTRATION CALLBACK / INIT DIFFERENTIAL
+========================================================================================================================
+CB_86C0: root=0x1033E26C funcs=35 calls=40 globals=24 strings=0
+  semantic_strings=0
+  path->INIT_8928: NONE
+  path->AUDIO_PLAYER: NONE
+CB_8928: root=0x1033D840 funcs=12 calls=12 globals=5 strings=0
+  semantic_strings=0
+  path->INIT_8928: NONE
+  path->AUDIO_PLAYER: NONE
+INIT_86C0: root=0x1033EF28 funcs=43 calls=67 globals=23 strings=1
+  semantic_strings=1
+  TOK=audio,audios func=0x10315384 site=0x10315388 ptr=0xF0348158 ":\Audios\"
+  path->INIT_8928: NONE
+  path->AUDIO_PLAYER: NONE
+INIT_8928: root=0x1033E814 funcs=54 calls=120 globals=37 strings=0
+  semantic_strings=0
+  path->INIT_8928: 0x1033E814
+  path->AUDIO_PLAYER: 0x1033E814 -> 0x1033F83C
+AUDIO_PLAYER: root=0x1033F83C funcs=77 calls=157 globals=49 strings=0
+  semantic_strings=0
+  path->INIT_8928: NONE
+  path->AUDIO_PLAYER: 0x1033F83C
+
+========================================================================================================================
+F. GLOBAL-LITERAL FINGERPRINTS
+========================================================================================================================
+CB_86C0 vs CB_8928: shared_globals=5 union=24
+  shared: 0xF004C7E0, 0xF00B1560, 0xF00BAAB9, 0xF00BAACC, 0xF00BAD8C
+INIT_86C0 vs INIT_8928: shared_globals=20 union=40
+  shared: 0xF004E278, 0xF007F022, 0xF008EC9C, 0xF008ECA4, 0xF008ED1C, 0xF009731D, 0xF009731E, 0xF0097324, 0xF009732C, 0xF0097330, 0xF0097334, 0xF0097338, 0xF009733C, 0xF0097340, 0xF0097344, 0xF0097348, 0xF009734C, 0xF0097350, 0xF00B0874, 0xF00B0884
+INIT_86C0 vs AUDIO_PLAYER: shared_globals=21 union=51
+  shared: 0xF004E278, 0xF007F022, 0xF008EC9C, 0xF008ECA4, 0xF008ED1C, 0xF008ED3C, 0xF009731D, 0xF009731E, 0xF0097324, 0xF009732C, 0xF0097330, 0xF0097334, 0xF0097338, 0xF009733C, 0xF0097340, 0xF0097344, 0xF0097348, 0xF009734C, 0xF0097350, 0xF00B0874, 0xF00B0884
+INIT_8928 vs AUDIO_PLAYER: shared_globals=37 union=49
+  shared: 0xF004E278, 0xF007F022, 0xF007FD2C, 0xF008EC9C, 0xF008ECA4, 0xF008ED1C, 0xF009731D, 0xF009731E, 0xF0097324, 0xF009732C, 0xF0097330, 0xF0097334, 0xF0097338, 0xF009733C, 0xF0097340, 0xF0097344, 0xF0097348, 0xF009734C, 0xF0097350, 0xF00ABC2C, 0xF00ABC2D, 0xF00AC078, 0xF00AC080, 0xF00AC110, 0xF00AC31C, 0xF00AD5E0, 0xF00AD888, 0xF00AD894, 0xF00ADA94, 0xF00ADEB4, 0xF00ADEE4, 0xF00B0874, 0xF00B0884, 0xF00B654C, 0xF00BD404, 0xF00BD444, 0xF00E2BB0
+
+========================================================================================================================
+G. REVERSE DIRECT CALLERS OF AUDIO ROOTS
+========================================================================================================================
+CB_86C0 0x1033E26C: direct_callers=0
+CB_8928 0x1033D840: direct_callers=0
+INIT_86C0 0x1033EF28: direct_callers=0
+INIT_8928 0x1033E814: direct_callers=0
+AUDIO_PLAYER 0x1033F83C: direct_callers=1
+  ALICE 0x1033E816 raw=0x1033F83C via=DIRECT
+0x1033E800: pop       {r1, r2, r3, r4, r5, r6, r7, pc}
+0x1033E802: push      {r4, lr}
+0x1033E804: blx       #0x102fd1fc ; target=0xF02E18BC[ARM_VENEER->THUMB]
+0x1033E808: pop       {r4, pc}
+0x1033E80A: bx        lr
+0x1033E80C: push      {r4, lr}
+0x1033E80E: bl        #0x1033f3bc ; target=0x1033F3BC
+0x1033E812: pop       {r4, pc}
+0x1033E814: push      {r4, lr}
+0x1033E816: bl        #0x1033f83c ; target=0x1033F83C <CALL>
+0x1033E81A: pop       {r4, pc}
+0x1033E81C: push      {r4, lr}
+0x1033E81E: ldr       r0, [pc, #8] ; literal@0x1033E828=0x000090A5
+0x1033E820: bl        #0x1034fc08 ; target=0x1034FC08
+0x1033E824: pop       {r4, pc}
+
+========================================================================================================================
+H. DECISION GATE
+========================================================================================================================
+86C0 owner audio/music semantic strings=1
+8928 owner audio/music/player semantic strings=0
+INIT_86C0 -> INIT_8928 path=False
+INIT_86C0 -> AUDIO_PLAYER path=False
+INIT_8928 -> AUDIO_PLAYER path=True
+86C0/8928 owner shared_calls=63 shared_globals=23
+FACT: the confirmed 8928 init reaches the native Audio Player while 86C0 init does not in the same bounded model.
+SUPPORTED: 86C0 owner/init side carries Audio-folder/domain semantics distinct from direct player launch.
+STRONGLY SUPPORTED: 86C0 is an Audio-domain owner/browser/helper role, while 8928 is the native player application role.
+NEXT: trace the B702-visible/menu builder consumer that chooses between enumerated children and logical-parent 86C0/8928, rather than patching either init path.
+
+PHONE ACCESSED       : NO
+FLASH MODIFIED       : NO
+PATCH GENERATED      : NO
+PHYSICAL CANDIDATE   : NO
+HARDWARE WRITE AUTHORIZED: NO
+
+========================================================================================================
+EXIT CODE = 0
+FINISH UTC = 2026-10-07T14:27:06.976353+00:00
+========================================================================================================
