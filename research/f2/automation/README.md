@@ -1,5 +1,12 @@
 # Automatisation locale F2
 
+## Revue automatique des résultats
+
+La boucle Notion → Codex (une fois par résultat) → prochain job offline est
+documentée dans [bridge/README.md](bridge/README.md). Tâche distincte :
+`F2 Research Orchestrator`. Le worker Notion existant est conservé à l'identique.
+Arrêt persistant au premier véritable hardware gate, sans prochain job.
+
 - Branche canonique : `automate-research`, remote `github`.
 - Inbox : `C:\Users\verto\Downloads`.
 - Runner installé : `C:\Users\verto\Downloads\F2Automation\f2_runner.ps1`.

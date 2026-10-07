@@ -3,4 +3,5 @@ bridge/__pycache__/
 bridge/*.pyc
 bridge/state/
 bridge/STOP
+bridge/ORCHESTRATOR_STOP
 logs/

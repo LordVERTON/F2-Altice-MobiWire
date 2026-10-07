@@ -1,6 +1,18 @@
 ﻿# Reprise — Altice F2 / MobiWire
 
-## 2026-10-07 — Installation de l'automatisation locale (priorité courante)
+## 2026-10-07 — Orchestrateur de revue offline (validation)
+
+Construction de l'infrastructure uniquement, sans reprise des audits historiques.
+Notion vérifié : A.56 PROCESSED ; A.57 existe, QUEUED/PENDING. Worker inchangé.
+Implémenté : orchestrateur déterministe, sortie Codex structurée, journal de reprise,
+claim local exclusif, publication idempotente, arrêt hardware persistant.
+Validation : 28 tests orchestrateur et 11 tests runner PASS, strictement offline.
+Artefacts et commandes : [bridge/README.md](automation/bridge/README.md).
+Prochaine action : publier sur automate-research, vérifier Notion puis installer
+la tâche distincte. Aucun appel Codex de recherche effectué pendant le bootstrap.
+Aucun accès matériel autorisé ; arrêt obligatoire au premier hardware gate.
+
+## 2026-10-07 — Installation de l'automatisation locale
 
 Branche `automate-research` créée depuis `6bec2ed4f42887d1ae2f7eec63790a66ab2ad7a9`,
 après synchronisation de `s12-alice-extension`, puis poussée sur `github`.

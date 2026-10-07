@@ -3,6 +3,13 @@
 L'état à reprendre est [REPRISE.md](../REPRISE.md). Les entrées ci-dessous
 conservent les résultats et changements de direction.
 
+## 2026-10-07 — Infrastructure de revue offline F2
+
+Orchestrateur à appel Codex unique ajouté sans modifier le worker Notion validé.
+28 tests orchestrateur + 11 tests runner PASS, sans réseau ni matériel.
+État et exploitation : [bridge/README.md](../automation/bridge/README.md).
+Notion vérifié : A.56 PROCESSED, A.57 déjà QUEUED ; aucune recherche historique relancée.
+
 ## 2026-09-29 — S01 terminé : identité du codec et mapping
 
 34 fonctions MP3 correspondent à la bibliothèque SDK; appels Init/Decode
