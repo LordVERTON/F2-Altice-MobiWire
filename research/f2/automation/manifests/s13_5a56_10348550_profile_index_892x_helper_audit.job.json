@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a56_10348550_profile_index_892x_helper_audit",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "2cac2eb956341448d736da7e509c4051d1aa4e41d5ca4070dc1dc249dad754ba",
+  "report": "research/f2/work/reports/s13_5a56_10348550_profile_index_892x_helper_audit.txt",
+  "args": []
+}

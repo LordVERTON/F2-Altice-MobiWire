@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a56_10348550_profile_index_892x_helper_audit",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a56_10348550_profile_index_892x_helper_audit.py",
+  "script_sha256": "2cac2eb956341448d736da7e509c4051d1aa4e41d5ca4070dc1dc249dad754ba",
+  "manifest": "research/f2/automation/manifests/s13_5a56_10348550_profile_index_892x_helper_audit.job.json",
+  "report": "research/f2/work/reports/s13_5a56_10348550_profile_index_892x_helper_audit.txt",
+  "notion_page_id": "3f2173c5-7e04-81e4-97a8-eb125c6e37a3",
+  "started_utc": "2026-10-07T11:11:28.774196+00:00",
+  "finished_utc": "2026-10-07T11:13:12.564369+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "fbad2bf691aa272deb93c7d0f6839a4770498eda"
+}
