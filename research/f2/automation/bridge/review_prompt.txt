@@ -20,3 +20,4 @@ phone_access=flash_write=erase=repack=false, args=[], report under
 research/f2/work/reports/. script_sha256=null: the host calculates the actual hash.
 Otherwise next_script and next_job must be null. notion_update: short current state
 with evidence, limits and next step; no historical recap. No explanations in chat.
+StaticAudit FuncAudit.literals tuples are: (site, literal_addr, literal_value)
