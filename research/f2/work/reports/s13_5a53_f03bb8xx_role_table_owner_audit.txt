@@ -1,0 +1,209 @@
+========================================================================================================
+F2 AUTOMATION NOTION WORKER
+========================================================================================================
+JOB ID = s13_5a53_f03bb8xx_role_table_owner_audit
+NOTION PAGE ID = 3f1173c5-7e04-8188-8af5-e06cc26e8ee4
+SCRIPT SHA256 = 65316150793fc6049fb3a2bb43669a467695f23dbe742a2df8c22f7c9e73a294
+PYTHON = C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH = automate-research
+SAFETY MODE = offline_analysis
+PHONE ACCESS = false
+FLASH WRITE = false
+ERASE = false
+REPACK = false
+START UTC = 2026-10-07T00:01:40.524434+00:00
+========================================================================================================
+========================================================================================================================
+S13.5A.53 - F03BB8XX ROLE TABLE OWNER AUDIT
+========================================================================================================================
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. RAW REGION AROUND F03BB87C
+========================================================================================================================
+0xF03BB828: 0x1035A751 u16=[A751,1035] <CODE:ALICE>
+0xF03BB834: 0x10343D19 u16=[3D19,1034] <CODE:ALICE>
+0xF03BB840: 0x1035A781 u16=[A781,1035] <CODE:ALICE>
+0xF03BB844: 0x90A790AB u16=[90AB,90A7]
+0xF03BB848: 0x000090A5 u16=[90A5,0000]
+0xF03BB84C: 0x10359F55 u16=[9F55,1035] <CODE:ALICE>
+0xF03BB850: 0x90A890AC u16=[90AC,90A8]
+0xF03BB854: 0x000090A5 u16=[90A5,0000]
+0xF03BB858: 0x10359F5F u16=[9F5F,1035] <CODE:ALICE>
+0xF03BB85C: 0x83108321 u16=[8321,8310]
+0xF03BB860: 0x00000000 u16=[0000,0000]
+0xF03BB864: 0xF0301C8D u16=[1C8D,F030] <ROW_FN_NEAR_87ED, CODE:ZIMAGE>
+0xF03BB868: 0x87ED87ED u16=[87ED,87ED] <PAIR_87ED>
+0xF03BB86C: 0x00000000 u16=[0000,0000]
+0xF03BB870: 0xF02FD275 u16=[D275,F02F] <ROW_FN_NEAR_8569, CODE:ZIMAGE>
+0xF03BB874: 0x85698569 u16=[8569,8569] <PAIR_8569>
+0xF03BB878: 0x00000000 u16=[0000,0000]
+0xF03BB87C: 0x10348D05 u16=[8D05,1034] <INITPTR_8569, CODE:ALICE>
+0xF03BB880: 0xB707B6FD u16=[B6FD,B707] <B6FD_B707>
+0xF03BB884: 0x0000B6FD u16=[B6FD,0000] <B6FD_ZERO>
+0xF03BB888: 0xF02FCF95 u16=[CF95,F02F] <ROW_FN_B705_B703, CODE:ZIMAGE>
+0xF03BB88C: 0xB703B705 u16=[B705,B703] <B705_B703>
+0xF03BB890: 0x0000B6FD u16=[B6FD,0000] <B6FD_ZERO>
+0xF03BB894: 0x103471C9 u16=[71C9,1034] <NEXT_ROW_FN, CODE:ALICE>
+0xF03BB898: 0x20392037 u16=[2037,2039]
+0xF03BB89C: 0x00002007 u16=[2007,0000]
+0xF03BB8A0: 0x1035AC51 u16=[AC51,1035] <CODE:ALICE>
+0xF03BB8A4: 0x96359639 u16=[9639,9635]
+0xF03BB8A8: 0x0000B727 u16=[B727,0000]
+0xF03BB8AC: 0x10350771 u16=[0771,1035] <CODE:ALICE>
+0xF03BB8B0: 0x82478254 u16=[8254,8247]
+0xF03BB8B4: 0x00008245 u16=[8245,0000]
+0xF03BB8B8: 0x1035B10D u16=[B10D,1035] <CODE:ALICE>
+0xF03BB8BC: 0xAEF4AEF8 u16=[AEF8,AEF4]
+0xF03BB8C0: 0x0000AEF6 u16=[AEF6,0000]
+0xF03BB8C4: 0x1035B235 u16=[B235,1035] <CODE:ALICE>
+0xF03BB8C8: 0xB700AF2A u16=[AF2A,B700]
+0xF03BB8CC: 0x00000000 u16=[0000,0000]
+0xF03BB8D0: 0x1035B1C1 u16=[B1C1,1035] <CODE:ALICE>
+0xF03BB8D4: 0xAF37AF2B u16=[AF2B,AF37]
+0xF03BB8D8: 0x00000000 u16=[0000,0000]
+0xF03BB8DC: 0x1035B1B9 u16=[B1B9,1035] <CODE:ALICE>
+0xF03BB8E0: 0x0063AF2C u16=[AF2C,0063]
+0xF03BB8E4: 0x00000000 u16=[0000,0000]
+0xF03BB8E8: 0x1035B1A9 u16=[B1A9,1035] <CODE:ALICE>
+0xF03BB8EC: 0x907E8FDC u16=[8FDC,907E]
+0xF03BB8F0: 0x00000000 u16=[0000,0000]
+0xF03BB8F4: 0x10344D89 u16=[4D89,1034] <CODE:ALICE>
+0xF03BB8F8: 0x00F8F8F8 u16=[F8F8,00F8]
+0xF03BB8FC: 0x89288927 u16=[8927,8928]
+0xF03BB900: 0x66000000 u16=[0000,6600]
+0xF03BB904: 0xC8C88166 u16=[8166,C8C8]
+0xF03BB908: 0x000000C8 u16=[00C8,0000]
+0xF03BB90C: 0x00800018 u16=[0018,0080]
+0xF03BB910: 0x0000000F u16=[000F,0000]
+0xF03BB914: 0x00800000 u16=[0000,0080]
+0xF03BB918: 0x89230014 u16=[0014,8923]
+0xF03BB91C: 0x00800063 u16=[0063,0080]
+0xF03BB920: 0x00080014 u16=[0014,0008]
+
+========================================================================================================================
+C. 12-BYTE ROW HYPOTHESIS
+========================================================================================================================
+phase_mod12=4: rows=28 code_w0=18 focus_rows=5 zeroish_w2=18
+phase_mod12=8: rows=29 code_w0=0 focus_rows=2 zeroish_w2=1
+phase_mod12=0: rows=29 code_w0=0 focus_rows=4 zeroish_w2=1
+
+Candidate rows anchored at 0xF03BB864:
+0xF03BB804: w0=0xF02FA0D1 w1=0xA32FA32F[A32F,A32F] w2=0x0000A32F[A32F,0000] <CODE:ZIMAGE>
+0xF03BB810: w0=0x10346F85 w1=0xA72CA725[A725,A72C] w2=0x0000A725[A725,0000] <CODE:ALICE>
+0xF03BB81C: w0=0x1035824D w1=0x003A94E9[94E9,003A] w2=0x000094EC[94EC,0000] <CODE:ALICE>
+0xF03BB828: w0=0x1035A751 w1=0x008494EA[94EA,0084] w2=0x000094ED[94ED,0000] <CODE:ALICE>
+0xF03BB834: w0=0x10343D19 w1=0x00AC94EB[94EB,00AC] w2=0x000094EE[94EE,0000] <CODE:ALICE>
+0xF03BB840: w0=0x1035A781 w1=0x90A790AB[90AB,90A7] w2=0x000090A5[90A5,0000] <CODE:ALICE>
+0xF03BB84C: w0=0x10359F55 w1=0x90A890AC[90AC,90A8] w2=0x000090A5[90A5,0000] <CODE:ALICE>
+0xF03BB858: w0=0x10359F5F w1=0x83108321[8321,8310] w2=0x00000000[0000,0000] <CODE:ALICE>
+0xF03BB864: w0=0xF0301C8D w1=0x87ED87ED[87ED,87ED] w2=0x00000000[0000,0000] <ROW_FN_NEAR_87ED, PAIR_87ED, CODE:ZIMAGE>
+0xF03BB870: w0=0xF02FD275 w1=0x85698569[8569,8569] w2=0x00000000[0000,0000] <ROW_FN_NEAR_8569, PAIR_8569, CODE:ZIMAGE>
+0xF03BB87C: w0=0x10348D05 w1=0xB707B6FD[B6FD,B707] w2=0x0000B6FD[B6FD,0000] <INITPTR_8569, B6FD_B707, B6FD_ZERO, CODE:ALICE>
+0xF03BB888: w0=0xF02FCF95 w1=0xB703B705[B705,B703] w2=0x0000B6FD[B6FD,0000] <ROW_FN_B705_B703, B705_B703, B6FD_ZERO, CODE:ZIMAGE>
+0xF03BB894: w0=0x103471C9 w1=0x20392037[2037,2039] w2=0x00002007[2007,0000] <NEXT_ROW_FN, CODE:ALICE>
+0xF03BB8A0: w0=0x1035AC51 w1=0x96359639[9639,9635] w2=0x0000B727[B727,0000] <CODE:ALICE>
+0xF03BB8AC: w0=0x10350771 w1=0x82478254[8254,8247] w2=0x00008245[8245,0000] <CODE:ALICE>
+0xF03BB8B8: w0=0x1035B10D w1=0xAEF4AEF8[AEF8,AEF4] w2=0x0000AEF6[AEF6,0000] <CODE:ALICE>
+0xF03BB8C4: w0=0x1035B235 w1=0xB700AF2A[AF2A,B700] w2=0x00000000[0000,0000] <CODE:ALICE>
+0xF03BB8D0: w0=0x1035B1C1 w1=0xAF37AF2B[AF2B,AF37] w2=0x00000000[0000,0000] <CODE:ALICE>
+0xF03BB8DC: w0=0x1035B1B9 w1=0x0063AF2C[AF2C,0063] w2=0x00000000[0000,0000] <CODE:ALICE>
+0xF03BB8E8: w0=0x1035B1A9 w1=0x907E8FDC[8FDC,907E] w2=0x00000000[0000,0000] <CODE:ALICE>
+0xF03BB8F4: w0=0x10344D89 w1=0x00F8F8F8[F8F8,00F8] w2=0x89288927[8927,8928] <CODE:ALICE>
+0xF03BB900: w0=0x66000000 w1=0xC8C88166[8166,C8C8] w2=0x000000C8[00C8,0000]
+0xF03BB90C: w0=0x00800018 w1=0x0000000F[000F,0000] w2=0x00800000[0000,0080]
+0xF03BB918: w0=0x89230014 w1=0x00800063[0063,0080] w2=0x00080014[0014,0008]
+0xF03BB924: w0=0x00000000 w1=0x89298925[8925,8929] w2=0x005B0009[0009,005B]
+0xF03BB930: w0=0x0003006E w1=0x8924892B[892B,8924] w2=0x001C892B[892B,001C]
+
+========================================================================================================================
+D. EXACT FOCUS WORD OCCURRENCES
+========================================================================================================================
+PAIR_87ED 0x87ED87ED: occurrences=1
+  ZIMAGE 0xF03BB868
+PAIR_8569 0x85698569: occurrences=1
+  ZIMAGE 0xF03BB874
+B6FD_B707 0xB707B6FD: occurrences=1
+  ZIMAGE 0xF03BB880
+B6FD_ZERO 0x0000B6FD: occurrences=8
+  ALICE 0x1030F51C
+  ALICE 0x10362AEC
+  ALICE 0x10365A3C
+  ZIMAGE 0xF02EFAC4
+  ZIMAGE 0xF0345FD0
+  ZIMAGE 0xF03AD15C
+  ZIMAGE 0xF03BB884
+  ZIMAGE 0xF03BB890
+B705_B703 0xB703B705: occurrences=1
+  ZIMAGE 0xF03BB88C
+ROW_FN_NEAR_87ED 0xF0301C8D: occurrences=3
+  ALICE 0x10355888
+  ZIMAGE 0xF02F3F98
+  ZIMAGE 0xF03BB864
+ROW_FN_NEAR_8569 0xF02FD275: occurrences=2
+  ZIMAGE 0xF02F3FC4
+  ZIMAGE 0xF03BB870
+INITPTR_8569 0x10348D05: occurrences=3
+  ALICE 0x1033E030
+  ZIMAGE 0xF02CF2B4
+  ZIMAGE 0xF03BB87C
+ROW_FN_B705_B703 0xF02FCF95: occurrences=2
+  ALICE 0x1033DD4C
+  ZIMAGE 0xF03BB888
+NEXT_ROW_FN 0x103471C9: occurrences=2
+  ALICE 0x1033DDD8
+  ZIMAGE 0xF03BB894
+
+========================================================================================================================
+E. RAW POINTERS INTO THE F03BB8XX REGION
+========================================================================================================================
+raw_u32_refs_into_region=1
+  ALICE 0x1034B95C -> 0xF03BB8F8
+
+========================================================================================================================
+F. FOCUS FUNCTION SEMANTIC PROFILES
+========================================================================================================================
+ROW_FN_NEAR_87ED: ptr=0xF0301C8D root=0xF0301C8C funcs=1 calls=6 strings=0
+ROW_FN_NEAR_8569: ptr=0xF02FD275 root=0xF02FD274 funcs=1 calls=12 strings=0
+INITPTR_8569: ptr=0x10348D05 root=0x10348D04 funcs=5 calls=13 strings=0
+ROW_FN_B705_B703: ptr=0xF02FCF95 root=0xF02FCF94 funcs=1 calls=6 strings=0
+NEXT_ROW_FN: ptr=0x103471C9 root=0x103471C8 funcs=3 calls=6 strings=0
+
+========================================================================================================================
+G. FUNCTION FAMILY SIMILARITY
+========================================================================================================================
+ROW_FN_NEAR_87ED vs ROW_FN_NEAR_8569: shared=0 union=18 jaccard=0.0000
+ROW_FN_NEAR_87ED vs INITPTR_8569: shared=3 union=16 jaccard=0.1875
+  shared: 0xF02DF018, 0xF02E4228, 0xF02E469C
+ROW_FN_NEAR_87ED vs ROW_FN_B705_B703: shared=0 union=12 jaccard=0.0000
+ROW_FN_NEAR_87ED vs NEXT_ROW_FN: shared=1 union=11 jaccard=0.0909
+ROW_FN_NEAR_8569 vs INITPTR_8569: shared=0 union=25 jaccard=0.0000
+ROW_FN_NEAR_8569 vs ROW_FN_B705_B703: shared=0 union=18 jaccard=0.0000
+ROW_FN_NEAR_8569 vs NEXT_ROW_FN: shared=1 union=17 jaccard=0.0588
+INITPTR_8569 vs ROW_FN_B705_B703: shared=0 union=19 jaccard=0.0000
+INITPTR_8569 vs NEXT_ROW_FN: shared=3 union=16 jaccard=0.1875
+  shared: 0xF02E0374, 0xF02E1A68, 0xF02E4228
+ROW_FN_B705_B703 vs NEXT_ROW_FN: shared=0 union=12 jaccard=0.0000
+
+========================================================================================================================
+H. DECISION GATE
+========================================================================================================================
+0x85698569 occurrences=1
+0x10348D05 occurrences=3
+candidate_anchor=0xF03BB864 row_fn=0xF0301C8D row_word1=0x87ED87ED row_word2=0x00000000
+8569-pair row candidate @0xF03BB870: fn=0xF02FD275 keys=0x85698569 tail=0x00000000
+
+The 12-byte adjacency hypothesis did not match the expected anchors.
+NEXT: use the recovered pointer/literal owner(s) above to identify the exact consumer and field semantics of the F03BB8xx structure.
+
+========================================================================================================
+EXIT CODE = 0
+FINISH UTC = 2026-10-07T00:01:42.075586+00:00
+========================================================================================================

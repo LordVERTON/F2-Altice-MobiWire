@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a53_f03bb8xx_role_table_owner_audit",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a53_f03bb8xx_role_table_owner_audit.py",
+  "script_sha256": "65316150793fc6049fb3a2bb43669a467695f23dbe742a2df8c22f7c9e73a294",
+  "manifest": "research/f2/automation/manifests/s13_5a53_f03bb8xx_role_table_owner_audit.job.json",
+  "report": "research/f2/work/reports/s13_5a53_f03bb8xx_role_table_owner_audit.txt",
+  "notion_page_id": "3f1173c5-7e04-8188-8af5-e06cc26e8ee4",
+  "started_utc": "2026-10-07T00:01:40.524434+00:00",
+  "finished_utc": "2026-10-07T00:01:42.075586+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "8c28bebdc50e072d34e7a7edfed8da9d1930ca37"
+}

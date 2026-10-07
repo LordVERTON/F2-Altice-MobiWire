@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a53_f03bb8xx_role_table_owner_audit",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "65316150793fc6049fb3a2bb43669a467695f23dbe742a2df8c22f7c9e73a294",
+  "report": "research/f2/work/reports/s13_5a53_f03bb8xx_role_table_owner_audit.txt",
+  "args": []
+}
