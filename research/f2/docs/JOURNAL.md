@@ -10,7 +10,11 @@ Orchestrateur à appel Codex unique ajouté sans modifier le worker Notion valid
 Tâche distincte installée, passe à vide exit 0 sans Codex. Preflight Notion et
 preuves smoke/rejet/GitHub existantes du worker vérifiés sans nouvelle exécution.
 État et exploitation : [bridge/README.md](../automation/bridge/README.md).
-Notion vérifié : A.56 PROCESSED, A.57 déjà QUEUED ; aucune recherche historique relancée.
+Au départ : A.56 PROCESSED, A.57 déjà QUEUED ; aucun ancien audit relancé.
+À l'activation des tâches, le worker a exécuté A.57 : FAILED, exit 1, résultat
+495c6e0 poussé. Erreur du script fourni : fa.literals renvoie des tuples de trois
+valeurs, mais closure_profile en attend deux. Aucun Codex ni successeur déclenché
+pour ce FAILED ; correction scientifique laissée hors du bootstrap d'infrastructure.
 
 ## 2026-09-29 — S01 terminé : identité du codec et mapping
 
