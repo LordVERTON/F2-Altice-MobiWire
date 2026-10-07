@@ -1,0 +1,84 @@
+========================================================================================================
+F2 AUTOMATION NOTION WORKER
+========================================================================================================
+JOB ID = s13_5a57_86c0_8928_mapper_owner_differential
+NOTION PAGE ID = 3f2173c5-7e04-8153-ac83-e14ec5522ace
+SCRIPT SHA256 = 7bea184d3ebed61ee2fb669cc83e23521f16ad5459f321be9802fddb99597a00
+PYTHON = C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH = automate-research
+SAFETY MODE = offline_analysis
+PHONE ACCESS = false
+FLASH WRITE = false
+ERASE = false
+REPACK = false
+START UTC = 2026-10-07T13:58:42.469057+00:00
+========================================================================================================
+========================================================================================================================
+S13.5A.57 - 86C0 / 8928 ROOT-MAPPER OWNER DIFFERENTIAL
+========================================================================================================================
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. PROVEN ROOT_MAPPER CALL CONTEXTS
+========================================================================================================================
+
+8569: owner=0x1035439A load=0x103543A8 root_mapper_call=0x103543AA
+0x1035439A: push      {r4, lr}
+0x1035439C: lsrs      r1, r1, #0x18
+0x1035439E: movs      r2, #1
+0x103543A0: blx       #0x102fb86c ; target=0xF02B2FFC[ARM_VENEER->THUMB]
+0x103543A4: movs      r4, r0
+0x103543A6: beq       #0x103543c6 ; target=0x103543C6
+0x103543A8: ldr       r0, [pc, #0x1c] ; literal@0x103543C8=0x00008569 <ID_LOAD>
+0x103543AA: bl        #0x10319094 ; target=0x10319094 <ROOT_MAPPER_CALL>
+0x103543AE: movs      r2, r0
+0x103543B0: movs      r1, #0
+0x103543B2: movs      r0, r4
+0x103543B4: blx       #0x102fb87c ; target=0xF02B3088[ARM_VENEER->THUMB]
+0x103543B8: movs      r1, #0
+0x103543BA: movs      r0, r4
+0x103543BC: blx       #0x102fb884 ; target=0xF02B3096[ARM_VENEER->THUMB]
+0x103543C0: movs      r0, r4
+0x103543C2: blx       #0x102fb874 ; target=0xF02B306C[ARM_VENEER->THUMB]
+0x103543C6: pop       {r4, pc}
+0x103543C8: strh      r1, [r5, #0x2a]
+0x103543CA: movs      r0, r0
+0x103543CC: push      {r4, r5, r6, lr}
+0x103543CE: movs      r4, r0
+0x103543D0: movs      r5, r1
+0x103543D2: movs      r6, r2
+0x103543D4: bl        #0x10317e6c ; target=0x10317E6C
+0x103543D8: cmp       r0, #0
+  POST-CALL USE:
+  0x103543AE: movs      r2, r0
+  0x103543B0: movs      r1, #0
+  0x103543B2: movs      r0, r4
+  0x103543B4: blx       #0x102fb87c ; target=0xF02B3088[ARM_VENEER->THUMB]
+  0x103543B8: movs      r1, #0
+  0x103543BA: movs      r0, r4
+  0x103543BC: blx       #0x102fb884 ; target=0xF02B3096[ARM_VENEER->THUMB]
+  0x103543C0: movs      r0, r4
+  0x103543C2: blx       #0x102fb874 ; target=0xF02B306C[ARM_VENEER->THUMB]
+  0x103543C6: pop       {r4, pc}
+Traceback (most recent call last):
+  File "C:\Users\verto\F2-Altice-MobiWire\research\f2\automation\jobs\s13_5a57_86c0_8928_mapper_owner_differential.py", line 268, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\verto\F2-Altice-MobiWire\research\f2\automation\jobs\s13_5a57_86c0_8928_mapper_owner_differential.py", line 150, in main
+    p = closure_profile(aud, owner, depth=3)
+  File "C:\Users\verto\F2-Altice-MobiWire\research\f2\automation\jobs\s13_5a57_86c0_8928_mapper_owner_differential.py", line 72, in closure_profile
+    for _, value in fa.literals:
+        ^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+========================================================================================================
+EXIT CODE = 1
+FINISH UTC = 2026-10-07T13:58:42.744440+00:00
+========================================================================================================
