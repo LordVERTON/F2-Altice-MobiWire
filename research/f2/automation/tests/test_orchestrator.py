@@ -150,6 +150,14 @@ class Tests(unittest.TestCase):
             self.worker.tick()
         self.assertEqual(self.calls, 1)
 
+    def test_duplicate_source_ids_never_review(self):
+        duplicate = page()
+        duplicate["id"] = NEXT
+        self.q.pages[NEXT] = duplicate
+        with self.assertRaises(r.BridgeError):
+            self.worker.tick()
+        self.assertEqual((self.calls, self.q.claims), (0, 0))
+
     def assert_rejected(self):
         self.assertEqual(self.worker.tick(), 1)
         self.assertEqual(prop(self.q.page(SOURCE), "Review Status", "select"), "ERROR")

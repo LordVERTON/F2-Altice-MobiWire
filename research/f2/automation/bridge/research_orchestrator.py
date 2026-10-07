@@ -317,7 +317,7 @@ def run_codex(bundle, directory, secret):
         "--output-schema", str(schema), "--output-last-message", str(output),
         "-c", 'approval_policy="never"', "-c", 'web_search="disabled"',
         "-c", "project_doc_max_bytes=0", "-c", 'model_reasoning_effort="low"']
-    for feature in ("shell_tool", "unified_exec", "apps", "plugins", "multi_agent", "multi_agent_v2", "browser_use",
+    for feature in ("daemon_auto_start", "shell_tool", "unified_exec", "apps", "plugins", "multi_agent", "multi_agent_v2", "browser_use",
                     "browser_use_external", "computer_use", "in_app_browser", "image_generation", "view_image", "skill_search"):
         command += ["--disable", feature]
     command.append("-")
@@ -404,6 +404,9 @@ class Orchestrator:
             if prop(page, "Status", "select") != "COMPLETED" or prop(page, "Review Status", "select") != "PENDING":
                 return 0
             name, commit, _ = validate_source(page, self.repo)
+            sources = self.q.by_job(name)
+            require(len(sources) == 1 and identifier(sources[0]["id"]) == identifier(page["id"]),
+                    "Duplicate source Job IDs; manual reconciliation required")
             key = identifier(page["id"]) + "_" + commit
             directory = self.state / "transactions" / key
             require(not directory.exists(), "Result already attempted; refusing repeated Codex review")
