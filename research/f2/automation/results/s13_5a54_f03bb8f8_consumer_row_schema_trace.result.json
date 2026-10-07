@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a54_f03bb8f8_consumer_row_schema_trace",
+  "status": "completed",
+  "exit_code": 0,
+  "script": "research/f2/automation/jobs/s13_5a54_f03bb8f8_consumer_row_schema_trace.py",
+  "script_sha256": "c68a3aa9e61539e26f28549af605f0962cc93ad092cb984e5bd57820f4600d84",
+  "manifest": "research/f2/automation/manifests/s13_5a54_f03bb8f8_consumer_row_schema_trace.job.json",
+  "report": "research/f2/work/reports/s13_5a54_f03bb8f8_consumer_row_schema_trace.txt",
+  "notion_page_id": "3f2173c5-7e04-811b-a66c-fd0b630deb0b",
+  "started_utc": "2026-10-07T00:11:07.518747+00:00",
+  "finished_utc": "2026-10-07T00:12:50.279841+00:00",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "source_commit": "ac5bbb2da07d283f02db1cf0ee174f154cee5971"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a54_f03bb8f8_consumer_row_schema_trace",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "c68a3aa9e61539e26f28549af605f0962cc93ad092cb984e5bd57820f4600d84",
+  "report": "research/f2/work/reports/s13_5a54_f03bb8f8_consumer_row_schema_trace.txt",
+  "args": []
+}

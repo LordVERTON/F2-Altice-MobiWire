@@ -1,0 +1,277 @@
+========================================================================================================
+F2 AUTOMATION NOTION WORKER
+========================================================================================================
+JOB ID = s13_5a54_f03bb8f8_consumer_row_schema_trace
+NOTION PAGE ID = 3f2173c5-7e04-811b-a66c-fd0b630deb0b
+SCRIPT SHA256 = c68a3aa9e61539e26f28549af605f0962cc93ad092cb984e5bd57820f4600d84
+PYTHON = C:\Users\verto\mtkclient\.venv\Scripts\python.exe
+BRANCH = automate-research
+SAFETY MODE = offline_analysis
+PHONE ACCESS = false
+FLASH WRITE = false
+ERASE = false
+REPACK = false
+START UTC = 2026-10-07T00:11:07.518747+00:00
+========================================================================================================
+========================================================================================================================
+S13.5A.54 - F03BB8F8 CONSUMER AND ROW-SCHEMA TRACE
+========================================================================================================================
+
+========================================================================================================================
+A. CANONICAL IMAGE GUARDS
+========================================================================================================================
+ALICE  size=0x157BB4 sha256=7246242b67afae0d13104452bc3257827cb778119b54e7a26fb7fb55993697ea
+ZIMAGE size=0x185E98 sha256=85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954
+ALICE guard  = PASS
+ZIMAGE guard = PASS
+
+========================================================================================================================
+B. CONFIRM 12-BYTE ROWS AROUND THE FOCUS RANGE
+========================================================================================================================
+0xF03BB800: fn=0x00007F5C k01=[A0D1,F02F] k23=[A32F,A32F]
+0xF03BB80C: fn=0x0000A32F k01=[6F85,1034] k23=[A725,A72C]
+0xF03BB818: fn=0x0000A725 k01=[824D,1035] k23=[94E9,003A]
+0xF03BB824: fn=0x000094EC k01=[A751,1035] k23=[94EA,0084]
+0xF03BB830: fn=0x000094ED k01=[3D19,1034] k23=[94EB,00AC]
+0xF03BB83C: fn=0x000094EE k01=[A781,1035] k23=[90AB,90A7]
+0xF03BB848: fn=0x000090A5 k01=[9F55,1035] k23=[90AC,90A8]
+0xF03BB854: fn=0x000090A5 k01=[9F5F,1035] k23=[8321,8310]
+0xF03BB860: fn=0x00000000 k01=[1C8D,F030] k23=[87ED,87ED] <FOCUS_ID>
+0xF03BB86C: fn=0x00000000 k01=[D275,F02F] k23=[8569,8569] <FOCUS_ID>
+0xF03BB878: fn=0x00000000 k01=[8D05,1034] k23=[B6FD,B707] <FOCUS_ID>
+0xF03BB884: fn=0x0000B6FD k01=[CF95,F02F] k23=[B705,B703] <FOCUS_ID>
+0xF03BB890: fn=0x0000B6FD k01=[71C9,1034] k23=[2037,2039]
+0xF03BB89C: fn=0x00002007 k01=[AC51,1035] k23=[9639,9635]
+0xF03BB8A8: fn=0x0000B727 k01=[0771,1035] k23=[8254,8247]
+0xF03BB8B4: fn=0x00008245 k01=[B10D,1035] k23=[AEF8,AEF4]
+0xF03BB8C0: fn=0x0000AEF6 k01=[B235,1035] k23=[AF2A,B700]
+0xF03BB8CC: fn=0x00000000 k01=[B1C1,1035] k23=[AF2B,AF37]
+0xF03BB8D8: fn=0x00000000 k01=[B1B9,1035] k23=[AF2C,0063]
+0xF03BB8E4: fn=0x00000000 k01=[B1A9,1035] k23=[8FDC,907E]
+0xF03BB8F0: fn=0x00000000 k01=[4D89,1034] k23=[F8F8,00F8]
+0xF03BB8FC: fn=0x89288927 k01=[0000,6600] k23=[8166,C8C8]
+0xF03BB908: fn=0x000000C8 k01=[0018,0080] k23=[000F,0000]
+0xF03BB914: fn=0x00800000 k01=[0014,8923] k23=[0063,0080]
+0xF03BB920: fn=0x00080014 k01=[0000,0000] k23=[8925,8929]
+0xF03BB92C: fn=0x005B0009 k01=[006E,0003] k23=[892B,8924]
+
+========================================================================================================================
+C. UNIQUE POINTER INTO THE TABLE REGION
+========================================================================================================================
+raw_refs=1
+ALICE 0x1034B95C -> 0xF03BB8F8
+
+========================================================================================================================
+D. CODE LITERAL LOADS OF F03BB8F8
+========================================================================================================================
+literal_loads_of_0xF03BB8F8=1
+ALICE site=0x1034B64A ldr       r1, [pc, #0x310] literal_addr=0x1034B95C
+0x1034B5EA: ldr       r0, [r7, #4]
+0x1034B5EC: ldr       r6, [r3]
+0x1034B5EE: cmp       r0, #0x64
+0x1034B5F0: beq       #0x1034b60e ; target=0x1034B60E
+0x1034B5F2: mov       r0, sp
+0x1034B5F4: blx       #0x102fa20c ; target=0xF03014C4[ARM_VENEER->THUMB]
+0x1034B5F8: cmp       r0, #0
+0x1034B5FA: beq       #0x1034b60e ; target=0x1034B60E
+0x1034B5FC: ldr       r1, [r4, #8]
+0x1034B5FE: ldr       r0, [sp]
+0x1034B600: cmp       r1, r0
+0x1034B602: bls       #0x1034b60e ; target=0x1034B60E
+0x1034B604: cmp       r5, r0
+0x1034B606: bls       #0x1034b60c ; target=0x1034B60C
+0x1034B608: str       r5, [r4, #8]
+0x1034B60A: b         #0x1034b60e ; target=0x1034B60E
+0x1034B60C: str       r0, [r4, #8]
+0x1034B60E: bl        #0x1034fae0 ; target=0x1034FAE0
+0x1034B612: cmp       r0, #0
+0x1034B614: beq       #0x1034b620 ; target=0x1034B620
+0x1034B616: movs      r0, r6
+0x1034B618: bl        #0x1034fac8 ; target=0x1034FAC8
+0x1034B61C: bl        #0x102ef0dc ; target=0x102EF0DC
+0x1034B620: bl        #0x102f5e60 ; target=0x102F5E60
+0x1034B624: bl        #0x102f5ef8 ; target=0x102F5EF8
+0x1034B628: ldr       r2, [pc, #0x10] ; literal@0x1034B63C=0x1034B5B1
+0x1034B62A: ldr       r0, [pc, #0x14] ; literal@0x1034B640=0x0000891E
+0x1034B62C: movs      r1, #0x32
+0x1034B62E: bl        #0x103217ac ; target=0x103217AC
+0x1034B632: pop       {r3, r4, r5, r6, r7, pc}
+0x1034B634: udf       #0xb4
+0x1034B636: bl        #0x10b55762 ; target=0x10B55762
+0x1034B63A: b.w       #0x107561a0 ; target=0x107561A0
+0x1034B63E: asrs      r4, r6, #0x20
+0x1034B640: ldrh      r6, [r3, #8]
+0x1034B642: movs      r0, r0
+0x1034B644: push      {r4, r5, r6, r7, lr}
+0x1034B646: movs      r3, #0xa0
+0x1034B648: muls      r0, r3, r0
+0x1034B64A: ldr       r1, [pc, #0x310] ; literal@0x1034B95C=0xF03BB8F8 <XREF>
+0x1034B64C: ldr       r6, [pc, #0x310] ; literal@0x1034B960=0xF0088470
+0x1034B64E: adds      r4, r0, r1
+0x1034B650: ldr       r5, [r6]
+0x1034B652: ldrb      r3, [r4, #2]
+0x1034B654: ldrb      r2, [r4, #1]
+0x1034B656: ldrb      r1, [r4]
+0x1034B658: movs      r0, #0xff
+0x1034B65A: sub       sp, #0x14
+0x1034B65C: blx       r5
+0x1034B65E: ldr       r7, [pc, #0x304] ; literal@0x1034B964=0xF00E2AA8
+0x1034B660: str       r0, [r7, #0xc]
+0x1034B662: ldrh      r0, [r4, #0x22]
+0x1034B664: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B668: str       r0, [r7, #0x10]
+0x1034B66A: ldrh      r0, [r4, #0x1a]
+0x1034B66C: strh      r0, [r7, #0x14]
+0x1034B66E: ldrh      r0, [r4, #0x1c]
+0x1034B670: strh      r0, [r7, #0x16]
+0x1034B672: ldrh      r0, [r4, #0x1e]
+0x1034B674: strh      r0, [r7, #0x18]
+0x1034B676: ldrh      r0, [r4, #0x20]
+0x1034B678: strh      r0, [r7, #0x1a]
+0x1034B67A: ldrh      r0, [r4, #0x3c]
+0x1034B67C: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B680: str       r0, [r7, #0x1c]
+0x1034B682: ldrh      r0, [r4, #0x34]
+0x1034B684: strh      r0, [r7, #0x20]
+0x1034B686: ldrh      r0, [r4, #0x36]
+0x1034B688: strh      r0, [r7, #0x22]
+0x1034B68A: ldrh      r0, [r4, #0x38]
+0x1034B68C: strh      r0, [r7, #0x24]
+0x1034B68E: ldrh      r0, [r4, #0x3a]
+0x1034B690: strh      r0, [r7, #0x26]
+0x1034B692: ldrh      r0, [r4, #0x30]
+0x1034B694: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B698: str       r0, [r7, #0x28]
+0x1034B69A: ldrh      r1, [r4, #0x24]
+0x1034B69C: add       r2, sp, #4
+0x1034B69E: strh      r1, [r7, #0x2c]
+0x1034B6A0: ldrh      r1, [r4, #0x26]
+0x1034B6A2: strh      r1, [r7, #0x2e]
+0x1034B6A4: add       r1, sp, #8
+0x1034B6A6: blx       #0x102fcb94 ; target=0xF022A298[ARM_VENEER->THUMB]
+0x1034B6AA: ldr       r0, [sp, #8]
+0x1034B6AC: movs      r2, #0x7f
+0x1034B6AE: strh      r0, [r7, #0x30]
+0x1034B6B0: ldr       r0, [sp, #4]
+0x1034B6B2: movs      r1, r2
+0x1034B6B4: strh      r0, [r7, #0x32]
+0x1034B6B6: ldr       r5, [r6]
+0x1034B6B8: movs      r0, #0xff
+0x1034B6BA: movs      r3, r2
+0x1034B6BC: blx       r5
+0x1034B6BE: movs      r5, r4
+0x1034B6C0: adds      r5, #0x40
+0x1034B6C2: str       r0, [r7, #0x34]
+0x1034B6C4: ldrh      r0, [r5, #6]
+0x1034B6C6: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6CA: str       r0, [r7, #0x38]
+0x1034B6CC: ldrh      r0, [r4, #4]
+0x1034B6CE: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6D2: str       r0, [r7, #0x3c]
+0x1034B6D4: ldrh      r0, [r4, #6]
+0x1034B6D6: blx       #0x102fcf84 ; target=0xF02E67A8[ARM_VENEER->THUMB]
+0x1034B6DA: str       r0, [r7, #0x40]
+0x1034B6DC: ldrb      r2, [r4, #0xa]
+0x1034B6DE: ldrb      r1, [r4, #9]
+0x1034B6E0: ldrb      r0, [r4, #8]
+0x1034B6E2: blx       #0x102fceec ; target=0xF02E1A04[ARM_VENEER->THUMB]
+0x1034B6E6: mov       r3, sp
+0x1034B6E8: str       r0, [sp]
+
+========================================================================================================================
+E. CODE LITERAL LOADS USING THE EXACT ALICE POOL WORD
+========================================================================================================================
+literal_loads_using_pool_0x1034B95C=1
+ALICE site=0x1034B64A ldr       r1, [pc, #0x310] value=0xF03BB8F8
+
+========================================================================================================================
+F. ENCLOSING CONSUMER FUNCTION CANDIDATES
+========================================================================================================================
+consumer_site=0x1034B64A
+  enclosing_candidates=2
+candidate_entry=0x1034B63C image=ALICE insns=17 calls=0 literals=2 truncated=False
+  0x1034B63C: push      {r0, r4, r5, r7, lr}
+  0x1034B63E: asrs      r4, r6, #0x20
+  0x1034B640: ldrh      r6, [r3, #8]
+  0x1034B642: movs      r0, r0
+  0x1034B644: push      {r4, r5, r6, r7, lr}
+  0x1034B646: movs      r3, #0xa0
+  0x1034B648: muls      r0, r3, r0
+  0x1034B64A: ldr       r1, [pc, #0x310] ; literal@0x1034B95C=0xF03BB8F8
+  0x1034B64C: ldr       r6, [pc, #0x310] ; literal@0x1034B960=0xF0088470
+  0x1034B64E: adds      r4, r0, r1
+  0x1034B650: ldr       r5, [r6]
+  0x1034B652: ldrb      r3, [r4, #2]
+  0x1034B654: ldrb      r2, [r4, #1]
+  0x1034B656: ldrb      r1, [r4]
+  0x1034B658: movs      r0, #0xff
+  0x1034B65A: sub       sp, #0x14
+  0x1034B65C: blx       r5
+candidate_entry=0x1034B644 image=ALICE insns=13 calls=0 literals=2 truncated=False
+  0x1034B644: push      {r4, r5, r6, r7, lr}
+  0x1034B646: movs      r3, #0xa0
+  0x1034B648: muls      r0, r3, r0
+  0x1034B64A: ldr       r1, [pc, #0x310] ; literal@0x1034B95C=0xF03BB8F8
+  0x1034B64C: ldr       r6, [pc, #0x310] ; literal@0x1034B960=0xF0088470
+  0x1034B64E: adds      r4, r0, r1
+  0x1034B650: ldr       r5, [r6]
+  0x1034B652: ldrb      r3, [r4, #2]
+  0x1034B654: ldrb      r2, [r4, #1]
+  0x1034B656: ldrb      r1, [r4]
+  0x1034B658: movs      r0, #0xff
+  0x1034B65A: sub       sp, #0x14
+  0x1034B65C: blx       r5
+
+========================================================================================================================
+G. TARGET ROW AND NEIGHBOR FIELD RELATION
+========================================================================================================================
+row@0xF03BB8F4: fn=0x10344D89 ids=[0xF8F8,0x00F8,0x8927,0x8928]
+consumer pointer 0xF03BB8F8 = row+4, i.e. it points to packed-ID field rather than fn field
+contains_8928=True contains_8927=True
+
+========================================================================================================================
+H. SECONDARY F02F3FXX NEIGHBORHOOD
+========================================================================================================================
+0xF02F3F98: 0xF0301C8D <ROW_87ED_FN, CODE:ZIMAGE>
+0xF02F3FC4: 0xF02FD275 <ROW_8569_FN, CODE:ZIMAGE>
+0xF02F3FC8: 0xF02E18BD <CODE:ZIMAGE>
+
+========================================================================================================================
+I. EXACT FUNCTION-POINTER OCCURRENCES
+========================================================================================================================
+ROW_87ED_FN 0xF0301C8D: 3 occurrences
+  ALICE 0x10355888
+  ZIMAGE 0xF02F3F98
+  ZIMAGE 0xF03BB864
+ROW_8569_FN 0xF02FD275: 2 occurrences
+  ZIMAGE 0xF02F3FC4
+  ZIMAGE 0xF03BB870
+REGPTR_8569 0x10348D05: 3 occurrences
+  ALICE 0x1033E030
+  ZIMAGE 0xF02CF2B4
+  ZIMAGE 0xF03BB87C
+ROW_B705_B703_FN 0xF02FCF95: 2 occurrences
+  ALICE 0x1033DD4C
+  ZIMAGE 0xF03BB888
+ROW_NEXT_FN 0x103471C9: 2 occurrences
+  ALICE 0x1033DDD8
+  ZIMAGE 0xF03BB894
+ROW_892X_FN 0x10344D89: 3 occurrences
+  ALICE 0x1033D9C8
+  ALICE 0x1033D9E4
+  ZIMAGE 0xF03BB8F4
+
+========================================================================================================================
+J. DECISION GATE
+========================================================================================================================
+phase0_rows=26 code_first_field_rows=0
+8569 row fn=0xF02FD275 ids=[0x8569,0x8569,0x0000,0x0000]
+next row fn=0x10348D05 ids=[0xB6FD,0xB707,0xB6FD,0x0000]
+FACT: 85698569 belongs to the row whose function field is F02FD275; 10348D05 is the following row's function field.
+Therefore 10348D05 must not be equated with the 8569 table-row function.
+NEXT: interpret the recovered consumer's indexing/stride and determine the semantic role of the packed-ID fields, especially the row containing 8927/8928.
+
+========================================================================================================
+EXIT CODE = 0
+FINISH UTC = 2026-10-07T00:12:50.279841+00:00
+========================================================================================================
