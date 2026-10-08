@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """F2 Virtual Menu Lab. Firmware read-only, no flashing."""
 
 import argparse
@@ -21,7 +21,7 @@ EXPECTED_CHILDREN = (0x8569, 0x87ED)
 AUDIO_ID = 0x8928
 
 FIRMWARE = (
-    Path(__file__).resolve().parents[2]
+    Path(__file__).resolve().parents[1]
     / "work/extracted/altice_platform/zimage.bin"
 )
 
