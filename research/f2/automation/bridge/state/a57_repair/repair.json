@@ -1,0 +1,10 @@
+{
+  "job_id": "s13_5a57_86c0_8928_mapper_owner_differential",
+  "script_sha256": "95faeb05f425fa789c004db75809e648169d6417e0005ea735cd03058475fc38",
+  "paths": [
+    "research/f2/automation/jobs/s13_5a57_86c0_8928_mapper_owner_differential.py",
+    "research/f2/automation/manifests/s13_5a57_86c0_8928_mapper_owner_differential.job.json",
+    "research/f2/automation/results/s13_5a57_86c0_8928_mapper_owner_differential.result.json",
+    "research/f2/work/reports/s13_5a57_86c0_8928_mapper_owner_differential.txt"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "job_id": "s13_5a57_86c0_8928_mapper_owner_differential",
+  "enabled": true,
+  "branch": "automate-research",
+  "safety": {
+    "mode": "offline_analysis",
+    "phone_access": false,
+    "flash_write": false,
+    "erase": false,
+    "repack": false
+  },
+  "script_sha256": "95faeb05f425fa789c004db75809e648169d6417e0005ea735cd03058475fc38",
+  "report": "research/f2/work/reports/s13_5a57_86c0_8928_mapper_owner_differential.txt",
+  "args": []
+}
