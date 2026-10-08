@@ -55,3 +55,10 @@ research/f2/work/vendor-metadata/
 *.tmp
 *.bak
 *.log
+# F2 - local firmware and research artifacts
+research/f2/work/repro/
+research/f2/work/reports/
+research/f2/work/tmp/
+*.dump
+.env
+.env.*
