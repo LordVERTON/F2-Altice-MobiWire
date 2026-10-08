@@ -14,48 +14,16 @@ from pathlib import Path
 
 import f2_phone_ui_v4 as v4
 from f2_virtual_menu_v2 import B702, AUDIO, Registry
+from f2_registration_bridge import load_layers, menu_items, ui_rom_binding
 
 DIR = Path(__file__).resolve().parent
 UI_FILE = DIR / 'ui_observed_registry.json'
 ROM_FILE = DIR / 'rom_proven_registry.json'
 
 
-def load_contract(ui_path=UI_FILE, rom_path=ROM_FILE):
-    ui = json.loads(Path(ui_path).read_text(encoding='utf-8'))
-    rom = json.loads(Path(rom_path).read_text(encoding='utf-8'))
-    if ui.get('schema_version') != 5 or rom.get('schema_version') != 5:
-        raise ValueError('Manifest V5 schema_version mismatch')
-    expected = ['Multimedia', 'Messaging', 'Call center', 'Camera', 'Phonebook',
-                'File manager', 'Profiles', 'Extras', 'Settings']
-    grid = sorted(ui['home_grid'], key=lambda row: row['slot'])
-    if [x['slot'] for x in grid] != list(range(9)) or [x['label'] for x in grid] != expected:
-        raise ValueError('Observed home grid labels/order mismatch')
-    screens = ui['screens']
-    for row in grid:
-        if row['target'] not in screens:
-            raise ValueError(f"Missing home screen: {row['target']}")
-    for name, screen in screens.items():
-        for item in screen.get('items', []):
-            target = item.get('target')
-            if target and target not in screens and target not in ui['undocumented_targets']:
-                raise ValueError(f'Missing navigation target {name} -> {target}')
-    if [x['label'] for x in screens['multimedia']['items']] != ['Image viewer', 'FM radio']:
-        raise ValueError('Real Multimedia menu must list only two observed entries')
-    if rom['id_bindings']['fm_radio']['rom_id'] is not None:
-        raise ValueError('FM Radio ID must remain unknown')
-    if rom['ui_rom_associations']['fm_radio']['rom_id'] is not None:
-        raise ValueError('FM Radio UI binding must remain unknown')
-    if rom['id_bindings']['image_viewer']['rom_id'] != '0x87ED':
-        raise ValueError('Image Viewer canonical ID changed')
-    if rom['id_bindings']['audio_player']['rom_id'] != '0x8928':
-        raise ValueError('Audio Player canonical ID changed')
-    if rom['id_bindings']['audio_player']['audio_init_va'] != '0x1033E815':
-        raise ValueError('Audio init VA changed')
-    if rom['topology']['multimedia_children_rom'] != ['0x8569','0x87ED']:
-        raise ValueError('B702 original child array mismatch')
-    if ui['research_overlay']['enabled_by_default'] is not False:
-        raise ValueError('Audio virtual entry may not be shown by default')
-    return ui, rom
+def load_contract(ui_path=UI_FILE, rom_path=ROM_FILE, overlay_path=DIR / 'research_overlay_registry.json'):
+    """Read and verify three independent evidence layers (UI, ROM, research)."""
+    return load_layers(ui_path, rom_path, overlay_path)
 
 
 def validate_against_registry(registry, rom):
@@ -86,8 +54,9 @@ def validate_against_registry(registry, rom):
 
 class UiModelV5:
     """Deterministic UI reconstruction. Navigation to undocumented views is labeled."""
-    def __init__(self, manifest):
+    def __init__(self, manifest, overlay):
         self.manifest = manifest
+        self.overlay = overlay
         self.stack = [('home', 4, '')]  # 4 = Phonebook, photographed highlight
         self.virtual_audio = False
         self.earphones = False
@@ -113,12 +82,7 @@ class UiModelV5:
     def screen(self): return self.manifest['screens'].get(self.page)
 
     def items(self):
-        if self.page == 'home': return self.manifest['home_grid']
-        sc = self.screen()
-        rows = list(sc.get('items', [])) if sc else []
-        if self.page == 'multimedia' and self.virtual_audio:
-            rows.append(self.manifest['research_overlay']['entry'])
-        return rows
+        return menu_items(self.manifest, self.overlay, self.page, self.virtual_audio)
 
     def options(self): return [x['label'] for x in self.items()]
 
@@ -191,10 +155,10 @@ class UiModelV5:
 
 class PhoneUIV5(v4.PhoneUI):
     """Reuses only the drawn chassis/icon primitives from V4. UI data is V5 JSON."""
-    def __init__(self, registry, ui, rom):
-        self.manifest, self.rom_doc = ui, rom
+    def __init__(self, registry, ui, rom, overlay):
+        self.manifest, self.rom_doc, self.overlay_doc = ui, rom, overlay
         super().__init__(registry)
-        self.model = UiModelV5(ui)
+        self.model = UiModelV5(ui, overlay)
         self.root.title('F2 Virtual Menu Lab V5 — interface réelle / ROM prouvée')
         self.root.minsize(820, 710)
         self.paint()
@@ -368,7 +332,7 @@ class PhoneUIV5(v4.PhoneUI):
             lines+=['Rom ID: 0x8928 (DUMP PROVEN)', 'UI visible on phone: NO', 'Callback: 0x1033D841', 'Entry stub: 0x1033D840', 'Init: 0x1033E815 -> 0x1033F83C', 'ROM child arrays do NOT enumerate 0x8928']
         else:
             lines.append('Contenu non documenté, écran volontairement neutre.')
-        binding=self.rom_doc.get('ui_rom_associations',{}).get(m.page)
+        binding=ui_rom_binding(self.rom_doc,m.page)
         if binding:
             lines+=['','ROM LINK : '+json.dumps(binding,ensure_ascii=False)]
         if m.page=='multimedia':
@@ -390,9 +354,9 @@ def main(argv=None):
     ap.add_argument('--verify',action='store_true',help='Check V5 manifest and canonical ROM, no GUI')
     ap.add_argument('--validate-json',action='store_true',help='Only check JSON manifest, no ROM required')
     args=ap.parse_args(argv)
-    ui,rom=load_contract()
+    ui,rom,overlay=load_contract()
     if args.validate_json:
-        print('V5 MANIFEST PASS — 9 home icons, observed screens, unknown FM ID, virtual Audio gated')
+        print('V5.1 3-LAYER CONTRACT PASS — 9 slots, 2 observed Multimedia entries, unknown FM ID, Audio opt-in')
         return 0
     if not args.firmware:
         ap.error('--firmware required unless --validate-json')
@@ -401,7 +365,7 @@ def main(argv=None):
     if args.verify:
         print('V5 ROM PASS — '+json.dumps(stats,ensure_ascii=False,sort_keys=True))
         return 0
-    PhoneUIV5(registry,ui,rom).root.mainloop()
+    PhoneUIV5(registry,ui,rom,overlay).root.mainloop()
     return 0
 
 

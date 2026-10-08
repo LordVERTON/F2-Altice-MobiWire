@@ -454,15 +454,5 @@
     "fm_channel_list",
     "fm_manual_input",
     "fm_auto_search"
-  ],
-  "research_overlay": {
-    "enabled_by_default": false,
-    "append_to": "multimedia",
-    "entry": {
-      "label": "Audio Player [virtuel]",
-      "target": "audio_player",
-      "visibility": "virtual_experimental",
-      "rom_public_id": "0x8928"
-    }
-  }
+  ]
 }
