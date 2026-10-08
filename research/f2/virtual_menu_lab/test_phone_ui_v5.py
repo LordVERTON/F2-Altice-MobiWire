@@ -9,9 +9,9 @@ from f2_phone_ui_v5 import UiModelV5, load_contract, validate_against_registry, 
 class V5ManifestTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.ui,cls.rom=load_contract()
+        cls.ui,cls.rom,cls.overlay=load_contract()
 
-    def model(self):return UiModelV5(self.ui)
+    def model(self):return UiModelV5(self.ui,self.overlay)
 
     def test_home_grid_labels_exact(self):
         m=self.model()
@@ -72,7 +72,7 @@ class V5ManifestTests(unittest.TestCase):
         self.assertEqual(b['audio_player']['rom_id'],'0x8928')
         self.assertEqual(b['audio_player']['audio_init_va'],'0x1033E815')
         self.assertFalse(b['audio_player']['enumerated_in_any_child_array'])
-        self.assertFalse(self.ui['research_overlay']['enabled_by_default'])
+        self.assertFalse(self.overlay['enabled_by_default'])
 
     def test_registry_guards_test_double(self):
         records={
