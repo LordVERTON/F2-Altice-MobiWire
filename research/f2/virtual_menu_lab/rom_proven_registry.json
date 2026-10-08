@@ -1,0 +1,29 @@
+{
+  "schema_version": 5,
+  "data_policy": "Exclusivement des ancrages ROM documentés. Toujours revérifier le SHA256 et la topologie depuis le ZIMAGE canonique en lecture seule.",
+  "zimage": {"base_va": "0xF023CA50", "size_bytes": 1597080, "sha256": "85fba8c8ae8161e4c1f8ced7983ec30d48c54ab10e51c69fcdfb900aca220954"},
+  "registry": {"descriptor_va": "0xF037C08C", "records_va": "0xF0378760", "range_table_va": "0xF037BF54", "records": 895, "mapped_ids": 894, "ranges": 52, "stride_bytes": 16},
+  "id_bindings": {
+    "image_viewer": {"rom_id": "0x87ED", "callback_va": "0xF02F3F9D", "status": "dump_proven", "source": "S13.5A.49/50"},
+    "fm_radio": {"rom_id": null, "callback_va": null, "status": "observed_ui_id_unknown", "source": "Photos IMG_0836, IMG_0841-0843"},
+    "audio_player": {"rom_id": "0x8928", "dense_index": 490, "logical_parent": "0xB702", "callback_va": "0x1033D841", "entry_stub_va": "0x1033D840", "audio_init_va": "0x1033E815", "init_reaches_va": "0x1033F83C", "enumerated_in_any_child_array": false, "status": "dump_proven_ui_unobserved", "source": "S13.5A.49/50/86/90"},
+    "0x8569": {"callback_va": "0x1033E025", "role": "famille Audio, pas un lanceur direct prouvé de 0x8928", "status": "dump_proven"},
+    "0x86C0": {"callback_va": "0x1033E26D", "logical_parent": "0xB702", "role": "helper/owner Audio non énuméré", "status": "dump_proven"}
+  },
+  "topology": {
+    "root_id": "0xB709",
+    "root_children": ["0xB702", "0xAF2A", "0xB707", "0x8321", "0xB6FE", "0xB6FD", "0x9639", "0xB700", "0xB705"],
+    "multimedia_candidate_id": "0xB702",
+    "multimedia_children_rom": ["0x8569", "0x87ED"],
+    "multimedia_logical_parent_only": ["0x86C0", "0x8928"],
+    "packed_next_u16": "0xA07B",
+    "caution": "La relation entre groupe B702 et intitulé UI Multimedia n'établit pas automatiquement la correspondance entre 8569 et FM radio. B702.child_count 2 -> 3 est une fausse solution (tableau contigu)."
+  },
+  "ui_rom_associations": {
+    "main_grid": {"rom_id": null, "status": "observed_ui_topology_binding_unknown"},
+    "multimedia": {"rom_id": null, "candidate_group_id": "0xB702", "status": "inferred_group_link"},
+    "image_viewer": {"rom_id": "0x87ED", "status": "dump_proven"},
+    "fm_radio": {"rom_id": null, "status": "observed_ui_id_unknown"},
+    "audio_player": {"rom_id": "0x8928", "status": "virtual_experimental_visibility"}
+  }
+}

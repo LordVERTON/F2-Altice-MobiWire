@@ -1,0 +1,468 @@
+{
+  "schema_version": 5,
+  "project": "Altice F2 Virtual Menu Lab",
+  "updated": "2026-10-08",
+  "data_policy": "Manifeste documentaire issu des photographies fournies. Ni photo originale ni donnée privée embarquée.",
+  "evidence_levels": {
+    "observed_ui": "Libellé, disposition ou état directement visible sur les photos du téléphone",
+    "dump_proven": "Valeur validée dans le ZIMAGE canonique par le lecteur V2 et les audits F2",
+    "inferred": "Association ou transition plausible, pas encore validée sur le téléphone ou dans le dump",
+    "virtual_experimental": "Comportement ajouté uniquement dans le laboratoire, absent du menu visible d'origine",
+    "undocumented": "Contenu de l'écran ou association ROM non documenté"
+  },
+  "home_grid": [
+    {
+      "slot": 0,
+      "label": "Multimedia",
+      "icon": "disc",
+      "target": "multimedia",
+      "evidence": [
+        "IMG_0844.jpeg"
+      ]
+    },
+    {
+      "slot": 1,
+      "label": "Messaging",
+      "icon": "message",
+      "target": "messaging",
+      "evidence": [
+        "IMG_0846.jpeg"
+      ]
+    },
+    {
+      "slot": 2,
+      "label": "Call center",
+      "icon": "phone",
+      "target": "call_center",
+      "evidence": [
+        "IMG_0847.jpeg"
+      ]
+    },
+    {
+      "slot": 3,
+      "label": "Camera",
+      "icon": "camera",
+      "target": "camera",
+      "evidence": [
+        "IMG_0834.jpeg"
+      ]
+    },
+    {
+      "slot": 4,
+      "label": "Phonebook",
+      "icon": "contacts",
+      "target": "phonebook",
+      "evidence": [
+        "IMG_0833.jpeg"
+      ]
+    },
+    {
+      "slot": 5,
+      "label": "File manager",
+      "icon": "folder",
+      "target": "file_manager",
+      "evidence": [
+        "IMG_0854.jpeg"
+      ]
+    },
+    {
+      "slot": 6,
+      "label": "Profiles",
+      "icon": "organizer",
+      "target": "profiles",
+      "evidence": [
+        "IMG_0857.jpeg"
+      ]
+    },
+    {
+      "slot": 7,
+      "label": "Extras",
+      "icon": "multimedia",
+      "target": "extras",
+      "evidence": [
+        "IMG_0859.jpeg"
+      ]
+    },
+    {
+      "slot": 8,
+      "label": "Settings",
+      "icon": "settings",
+      "target": "settings",
+      "evidence": [
+        "IMG_0833.jpeg",
+        "IMG_0844.jpeg"
+      ]
+    }
+  ],
+  "screens": {
+    "multimedia": {
+      "title": "Multimedia",
+      "kind": "numbered_list",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0836.jpeg",
+        "IMG_0840.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Image viewer",
+          "target": "image_viewer",
+          "observed_ui": true
+        },
+        {
+          "label": "FM radio",
+          "target": "fm_radio",
+          "observed_ui": true
+        }
+      ]
+    },
+    "image_viewer": {
+      "title": "Image viewer",
+      "kind": "message",
+      "message": "No files",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "left_target": "image_options",
+      "evidence": [
+        "IMG_0837.jpeg"
+      ]
+    },
+    "image_options": {
+      "title": "Options",
+      "kind": "numbered_list",
+      "softkeys": [
+        "Select",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0838.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Storage",
+          "target": "file_manager"
+        }
+      ]
+    },
+    "fm_radio": {
+      "title": "FM radio",
+      "kind": "fm_radio",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "left_target": "fm_options",
+      "evidence": [
+        "IMG_0841.jpeg",
+        "IMG_0842.jpeg"
+      ],
+      "photographed_frequency_mhz": 98.7,
+      "frequency_range_mhz": [
+        87.5,
+        108.0
+      ],
+      "jack_missing_text": "Please plug\nin earphone"
+    },
+    "fm_options": {
+      "title": "Options",
+      "kind": "numbered_list",
+      "softkeys": [
+        "Select",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0843.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Channel list",
+          "target": "fm_channel_list"
+        },
+        {
+          "label": "Manual input",
+          "target": "fm_manual_input"
+        },
+        {
+          "label": "Auto search",
+          "target": "fm_auto_search"
+        }
+      ]
+    },
+    "messaging": {
+      "title": "Messaging",
+      "kind": "numbered_list",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0846.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Write message"
+        },
+        {
+          "label": "Inbox"
+        },
+        {
+          "label": "Drafts"
+        },
+        {
+          "label": "Outbox"
+        },
+        {
+          "label": "Sent messages"
+        },
+        {
+          "label": "Delete messages"
+        },
+        {
+          "label": "SMS settings"
+        }
+      ]
+    },
+    "call_center": {
+      "title": "Call center",
+      "kind": "numbered_list",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0848.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Call history"
+        },
+        {
+          "label": "Call settings"
+        }
+      ]
+    },
+    "camera": {
+      "title": "Camera",
+      "kind": "camera_preview",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0850.jpeg"
+      ],
+      "note": "Photographie d'un écran caméra; flux capteur non émulé"
+    },
+    "phonebook": {
+      "title": "Phonebook",
+      "kind": "phonebook",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0852.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Add new contact"
+        }
+      ],
+      "search_strip": "abc"
+    },
+    "file_manager": {
+      "title": "File manager",
+      "kind": "storage_list",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0839.jpeg",
+        "IMG_0854.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Phone",
+          "target": "storage_folders",
+          "icon": "phone"
+        },
+        {
+          "label": "Memory card",
+          "target": "storage_folders",
+          "icon": "memory_card"
+        }
+      ]
+    },
+    "storage_folders": {
+      "title": "File manager",
+      "kind": "folder_list",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0855.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Photos",
+          "target": "file_empty"
+        }
+      ],
+      "provenance_warning": "L'association exacte de Photos avec Phone ou Memory card n'est pas établie. Le parcours est une hypothèse de navigation."
+    },
+    "file_empty": {
+      "title": "File manager",
+      "kind": "message",
+      "message": "No files",
+      "softkeys": [
+        "New",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0856.jpeg"
+      ]
+    },
+    "profiles": {
+      "title": "Profiles",
+      "kind": "profile_list",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0858.jpeg"
+      ],
+      "photographed_active": "Silent",
+      "items": [
+        {
+          "label": "General"
+        },
+        {
+          "label": "Silent"
+        },
+        {
+          "label": "Meeting"
+        },
+        {
+          "label": "Outdoor"
+        }
+      ]
+    },
+    "extras": {
+      "title": "Extras",
+      "kind": "numbered_list",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0860.jpeg"
+      ],
+      "items": [
+        {
+          "label": "Calculator",
+          "target": "calculator"
+        },
+        {
+          "label": "Torch Light",
+          "target": "torch_light"
+        },
+        {
+          "label": "Calendar",
+          "target": "calendar"
+        },
+        {
+          "label": "Alarm"
+        },
+        {
+          "label": "Services"
+        },
+        {
+          "label": "World clock"
+        },
+        {
+          "label": "Bluetooth"
+        }
+      ]
+    },
+    "calculator": {
+      "title": "Calculator",
+      "kind": "calculator",
+      "softkeys": [
+        "Clear",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0861.jpeg"
+      ],
+      "photographed_value": "0"
+    },
+    "torch_light": {
+      "title": "Torch Light",
+      "kind": "torch_list",
+      "softkeys": [
+        "On",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0862.jpeg"
+      ],
+      "photographed_state": "Off",
+      "items": [
+        {
+          "label": "Torch Light"
+        },
+        {
+          "label": "Help"
+        }
+      ]
+    },
+    "calendar": {
+      "title": "10/2026",
+      "kind": "calendar",
+      "softkeys": [
+        "Options",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0863.jpeg"
+      ],
+      "note": "La capture montre le mois 10/2026; date figée pour comparaison visuelle.",
+      "photographed_date": "08/10/2026"
+    },
+    "settings": {
+      "title": "Settings",
+      "kind": "undocumented",
+      "softkeys": [
+        "OK",
+        "Back"
+      ],
+      "evidence": [
+        "IMG_0833.jpeg"
+      ],
+      "note": "Icône visible, contenu non encore photographié"
+    }
+  },
+  "undocumented_targets": [
+    "fm_channel_list",
+    "fm_manual_input",
+    "fm_auto_search"
+  ],
+  "research_overlay": {
+    "enabled_by_default": false,
+    "append_to": "multimedia",
+    "entry": {
+      "label": "Audio Player [virtuel]",
+      "target": "audio_player",
+      "visibility": "virtual_experimental",
+      "rom_public_id": "0x8928"
+    }
+  }
+}
